@@ -364,17 +364,18 @@ body.compact-mode .full-p{margin-bottom:12px}
 .calc-btn{font:inherit;font-weight:700;font-size:.82rem;cursor:pointer;border:1px solid var(--line-s);background:var(--card);color:var(--ink);padding:0 14px;border-radius:13px;display:inline-flex;align-items:center;gap:7px;box-shadow:var(--sh);flex:none;transition:all .15s;-webkit-tap-highlight-color:transparent}
 .calc-btn svg{width:17px;height:17px;color:var(--primary)}
 .calc-btn:hover{border-color:var(--primary);color:var(--primary)}
-body.calc-open{overflow:hidden;overscroll-behavior:none}
-#calcModal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:210;display:none;align-items:flex-end;justify-content:center;padding:0;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-#calcModal.open{display:flex;animation:fadein .2s ease}
-.calc-sheet{background:var(--card);border-radius:20px 20px 0 0;width:min(560px,100%);max-height:min(92dvh,92vh);box-shadow:var(--sh-lg);overflow:hidden;animation:slideup .25s cubic-bezier(.2,.8,.25,1);display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom,0px)}
+body.calc-open{position:fixed;inset:0 auto auto 0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;touch-action:none}
+html.calc-open{overflow:hidden;height:100%;overscroll-behavior:none}
+#calcModal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:400;display:none;align-items:flex-end;justify-content:center;padding:0;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none}
+#calcModal.open{display:flex;animation:fadein .2s ease;pointer-events:auto}
+.calc-sheet{background:var(--card);border-radius:20px 20px 0 0;width:min(560px,100%);max-height:min(92dvh,92vh);box-shadow:var(--sh-lg);overflow:hidden;animation:slideup .25s cubic-bezier(.2,.8,.25,1);display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom,0px);touch-action:none;pointer-events:auto;-webkit-user-select:auto;user-select:auto}
 .calc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:14px 16px 10px;border-bottom:1px solid var(--line);flex:none;background:var(--card);z-index:2}
 .calc-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;letter-spacing:-.02em;line-height:1.2}
 .calc-head .calc-sub{font-size:.72rem;color:var(--muted);font-weight:600;margin-top:3px;line-height:1.35}
 .calc-tabs{display:flex;gap:6px;padding:10px 16px 0;flex:none}
 .calc-tab{font:inherit;font-weight:700;font-size:.8rem;cursor:pointer;border:1px solid var(--line-s);background:var(--paper-2);color:var(--muted);padding:9px 14px;border-radius:999px;min-height:40px;-webkit-tap-highlight-color:transparent}
 .calc-tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.calc-body{padding:12px 16px 22px;flex:1;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.calc-body{padding:12px 16px 22px;flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y}
 .calc-panel{display:none}
 .calc-panel.on{display:block}
 .calc-lead{font-size:.84rem;color:#2e4440;line-height:1.45;margin:0 0 12px}
@@ -443,9 +444,13 @@ footer{padding:0 clamp(18px,5vw,64px) 50px}
 .disclaimer svg{width:19px;height:19px;color:var(--accent);flex:none;margin-top:2px}
 .disclaimer b{color:var(--ink)}
 .ph{display:none}
-.pwa-toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120%);z-index:120;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;max-width:min(440px,calc(100vw - 24px));background:var(--ink);color:#fff;padding:12px 14px;border-radius:14px;box-shadow:var(--sh-lg);font-size:.84rem;font-weight:600;transition:transform .28s cubic-bezier(.2,.8,.25,1);opacity:0;pointer-events:none}
+.pwa-toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120%);z-index:500;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;max-width:min(440px,calc(100vw - 24px));background:var(--ink);color:#fff;padding:12px 14px;border-radius:14px;box-shadow:var(--sh-lg);font-size:.84rem;font-weight:600;transition:transform .28s cubic-bezier(.2,.8,.25,1),opacity .28s;opacity:0;pointer-events:none}
 .pwa-toast.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
-.pwa-toast button{font:inherit;font-weight:700;font-size:.8rem;cursor:pointer;border:0;border-radius:9px;padding:7px 12px}
+.pwa-toast.pwa-update{left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));transform:translateY(120%);width:auto;max-width:none;border-radius:16px;padding:14px 16px;justify-content:space-between;gap:12px}
+.pwa-toast.pwa-update.show{transform:translateY(0)}
+.pwa-toast .pwa-copy{flex:1;min-width:12ch;line-height:1.35}
+.pwa-toast .pwa-copy small{display:block;font-size:.72rem;font-weight:500;opacity:.75;margin-top:2px}
+.pwa-toast button{font:inherit;font-weight:700;font-size:.8rem;cursor:pointer;border:0;border-radius:9px;padding:7px 12px;min-height:40px}
 .pwa-toast .pwa-go{background:#fff;color:var(--ink)}
 .pwa-toast .pwa-dismiss{background:transparent;color:rgba(255,255,255,.75)}
 .pwa-toast .pwa-dismiss:hover{color:#fff}
@@ -532,6 +537,7 @@ footer{padding:0 clamp(18px,5vw,64px) 50px}
   <div class="foot-tools">
     <button type="button" id="bakExport" title="Baixar favoritos, notas e checklists">Backup</button>
     <button type="button" id="bakImport" title="Restaurar dados deste aparelho">Restaurar</button>
+    <button type="button" id="pwaCheckUpdate" title="Procurar nova versão do app">Verificar atualização</button>
     <input type="file" id="bakFile" accept="application/json,.json" hidden>
     <span class="ft-note">Backup salva favoritos, notas e checklists só neste aparelho.</span>
   </div>
@@ -2066,7 +2072,7 @@ tip:'Acompanhe por radiografia periódica — o mantenedor deve sair antes de im
 ];
 
 /* ── STORE ── */
-const APP_BUILD='4';
+const APP_BUILD='6';
 const Store=(()=>{
   let mem={},ok=false;
   try{const k='__odg3';localStorage.setItem(k,'1');localStorage.removeItem(k);ok=true;}catch(e){}
@@ -3389,6 +3395,59 @@ const CALC_DRUGS=[
 ];
 const EPI_ADULT_MAX_MG=0.04;
 let calcEpiUg=10;
+let calcScrollY=0;
+let calcTouchY=0;
+
+function setCalcBackdropInert(on){
+  ['header','.controls','main','footer','#stepModal'].forEach(sel=>{
+    document.querySelectorAll(sel).forEach(el=>{
+      if(on){
+        el.setAttribute('inert','');
+        el.setAttribute('aria-hidden','true');
+      }else{
+        el.removeAttribute('inert');
+        el.removeAttribute('aria-hidden');
+      }
+    });
+  });
+}
+function lockCalcScroll(){
+  calcScrollY=window.scrollY||document.documentElement.scrollTop||0;
+  document.documentElement.classList.add('calc-open');
+  document.body.classList.add('calc-open');
+  document.body.style.top=(-calcScrollY)+'px';
+  setCalcBackdropInert(true);
+}
+function unlockCalcScroll(){
+  document.documentElement.classList.remove('calc-open');
+  document.body.classList.remove('calc-open');
+  document.body.style.top='';
+  setCalcBackdropInert(false);
+  window.scrollTo(0,calcScrollY);
+}
+function bindCalcTouchGuard(){
+  const modal=document.getElementById('calcModal');
+  if(!modal||modal._calcTouchBound)return;
+  modal._calcTouchBound=true;
+  modal.addEventListener('touchstart',e=>{
+    if(e.touches&&e.touches[0])calcTouchY=e.touches[0].clientY;
+  },{passive:true});
+  modal.addEventListener('touchmove',e=>{
+    const body=modal.querySelector('.calc-body');
+    const path=typeof e.composedPath==='function'?e.composedPath():[];
+    const inBody=body&&(path.includes(body)||body.contains(e.target));
+    if(!inBody){
+      e.preventDefault();
+      return;
+    }
+    const dy=(e.touches&&e.touches[0]?e.touches[0].clientY:calcTouchY)-calcTouchY;
+    const atTop=body.scrollTop<=0;
+    const atBottom=body.scrollTop+body.clientHeight>=body.scrollHeight-1;
+    if((atTop&&dy>0)||(atBottom&&dy<0)||body.scrollHeight<=body.clientHeight+1){
+      e.preventDefault();
+    }
+  },{passive:false});
+}
 
 function calcNum(raw){
   if(raw==null)return NaN;
@@ -3559,7 +3618,7 @@ function openCalc(tab){
   const a=Store.get(CALC_AGE_KEY);
   const ai=document.getElementById('calcAge');
   if(ai&&isFinite(a)&&a>=0&&!String(ai.value||'').trim())ai.value=calcFmt(a,a<1?1:0);
-  document.body.classList.add('calc-open');
+  lockCalcScroll();
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
   const which=tab||'anest';
@@ -3587,7 +3646,7 @@ function closeCalc(){
   if(!modal)return;
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden','true');
-  document.body.classList.remove('calc-open');
+  unlockCalcScroll();
   const ae=document.activeElement;
   if(ae&&modal.contains(ae))ae.blur();
 }
@@ -3610,6 +3669,7 @@ function initCalcUI(){
   if(closeBtn)closeBtn.onclick=closeCalc;
   const modal=document.getElementById('calcModal');
   if(modal){
+    bindCalcTouchGuard();
     modal.addEventListener('click',e=>{if(e.target===modal)closeCalc();});
     const sheet=modal.querySelector('.calc-sheet');
     if(sheet)sheet.addEventListener('click',e=>e.stopPropagation());
@@ -3681,22 +3741,88 @@ auditIllustrations(/[?&]audit=1(?:&|$)/.test(location.search));
 
   let deferredPrompt=null;
   let hideTimer=null;
+  let updateReg=null;
+  let updateShown=false;
 
   function hideToast(){
-    toast.classList.remove('show');
+    toast.classList.remove('show','pwa-update');
     clearTimeout(hideTimer);
-    setTimeout(()=>{toast.hidden=true;toast.innerHTML='';},280);
+    setTimeout(()=>{
+      if(!toast.classList.contains('show')){
+        toast.hidden=true;
+        toast.innerHTML='';
+      }
+    },280);
   }
-  function showToast(html){
+  function showToast(html,opts){
+    clearTimeout(hideTimer);
     toast.hidden=false;
+    toast.classList.toggle('pwa-update',!!(opts&&opts.update));
     toast.innerHTML=html;
     requestAnimationFrame(()=>toast.classList.add('show'));
+  }
+
+  function showUpdateCard(reg){
+    updateReg=reg||updateReg;
+    if(!updateReg||!updateReg.waiting)return;
+    updateShown=true;
+    showToast(`<div class="pwa-copy">Nova versão disponível<small>Há alterações no app. Toque para atualizar.</small></div>
+      <button type="button" class="pwa-go" id="pwaRefresh">Atualizar agora</button>
+      <button type="button" class="pwa-dismiss" id="pwaRefreshNo">Depois</button>`,{update:true});
+    const go=document.getElementById('pwaRefresh');
+    const no=document.getElementById('pwaRefreshNo');
+    if(go)go.onclick=()=>{
+      const waiting=updateReg&&updateReg.waiting;
+      if(waiting)waiting.postMessage({type:'SKIP_WAITING'});
+      hideToast();
+      // Se o SW não assumir o controle, força reload em alguns segundos
+      setTimeout(()=>{try{location.reload();}catch(_){}},2500);
+    };
+    if(no)no.onclick=()=>{updateShown=false;hideToast();};
+  }
+
+  async function checkForAppUpdate(manual){
+    if(!canSW){
+      if(manual)showToast('<div class="pwa-copy">Atualização automática indisponível neste ambiente.</div><button type="button" class="pwa-dismiss" id="pwaOk">Ok</button>');
+      const ok=document.getElementById('pwaOk');
+      if(ok)ok.onclick=hideToast;
+      return;
+    }
+    try{
+      const reg=await navigator.serviceWorker.getRegistration('./');
+      if(!reg){
+        if(manual){
+          showToast('<div class="pwa-copy">App ainda sem service worker.</div><button type="button" class="pwa-dismiss" id="pwaOk">Ok</button>');
+          const ok=document.getElementById('pwaOk');
+          if(ok)ok.onclick=hideToast;
+        }
+        return;
+      }
+      updateReg=reg;
+      await reg.update();
+      if(reg.waiting){
+        showUpdateCard(reg);
+        return;
+      }
+      if(manual){
+        showToast('<div class="pwa-copy">Você já está na versão mais recente.<small>Se acabou de publicar no GitHub, aguarde 1–2 min e tente de novo.</small></div><button type="button" class="pwa-dismiss" id="pwaOk">Ok</button>');
+        const ok=document.getElementById('pwaOk');
+        if(ok)ok.onclick=hideToast;
+        hideTimer=setTimeout(hideToast,4200);
+      }
+    }catch(err){
+      if(manual){
+        showToast('<div class="pwa-copy">Não foi possível verificar agora. Confira a conexão.</div><button type="button" class="pwa-dismiss" id="pwaOk">Ok</button>');
+        const ok=document.getElementById('pwaOk');
+        if(ok)ok.onclick=hideToast;
+      }
+    }
   }
 
   window.addEventListener('beforeinstallprompt',(e)=>{
     e.preventDefault();
     deferredPrompt=e;
-    if(Store.get('pwa:installDismissed'))return;
+    if(Store.get('pwa:installDismissed')||updateShown)return;
     showToast(`<span>Instalar OdontoGuia</span>
       <button type="button" class="pwa-go" id="pwaInstall">Instalar</button>
       <button type="button" class="pwa-dismiss" id="pwaInstallNo">Agora não</button>`);
@@ -3721,30 +3847,26 @@ auditIllustrations(/[?&]audit=1(?:&|$)/.test(location.search));
     hideToast();
   });
 
+  const checkBtn=document.getElementById('pwaCheckUpdate');
+  if(checkBtn)checkBtn.onclick=()=>checkForAppUpdate(true);
+
   if(!canSW)return;
 
   navigator.serviceWorker.register('./sw.js',{scope:'./'}).then((reg)=>{
-    const askUpdate=()=>{
-      if(!reg.waiting)return;
-      showToast(`<span>Nova versão pronta</span>
-        <button type="button" class="pwa-go" id="pwaRefresh">Atualizar</button>
-        <button type="button" class="pwa-dismiss" id="pwaRefreshNo">Depois</button>`);
-      const go=document.getElementById('pwaRefresh');
-      const no=document.getElementById('pwaRefreshNo');
-      if(go)go.onclick=()=>{
-        reg.waiting.postMessage({type:'SKIP_WAITING'});
-        hideToast();
-      };
-      if(no)no.onclick=hideToast;
-    };
+    updateReg=reg;
 
-    if(reg.waiting)askUpdate();
-    reg.addEventListener('updatefound',()=>{
-      const worker=reg.installing;
+    const watchWorker=(worker)=>{
       if(!worker)return;
       worker.addEventListener('statechange',()=>{
-        if(worker.state==='installed'&&navigator.serviceWorker.controller)askUpdate();
+        if(worker.state==='installed'&&navigator.serviceWorker.controller)showUpdateCard(reg);
       });
+    };
+
+    if(reg.waiting)showUpdateCard(reg);
+    if(reg.installing)watchWorker(reg.installing);
+
+    reg.addEventListener('updatefound',()=>{
+      watchWorker(reg.installing);
     });
 
     let refreshing=false;
@@ -3754,8 +3876,13 @@ auditIllustrations(/[?&]audit=1(?:&|$)/.test(location.search));
       location.reload();
     });
 
-    // Periodic update check while open
-    setInterval(()=>{try{reg.update();}catch(_){}},60*60*1000);
+    // Checa ao abrir, ao voltar ao app e periodicamente
+    setTimeout(()=>checkForAppUpdate(false),2500);
+    document.addEventListener('visibilitychange',()=>{
+      if(document.visibilityState==='visible')checkForAppUpdate(false);
+    });
+    window.addEventListener('focus',()=>checkForAppUpdate(false));
+    setInterval(()=>checkForAppUpdate(false),5*60*1000);
   }).catch((err)=>{
     console.warn('[OdontoGuia PWA] SW não registrado:',err);
   });
