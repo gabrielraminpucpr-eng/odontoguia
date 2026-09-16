@@ -443,6 +443,15 @@ footer{padding:0 clamp(18px,5vw,64px) 50px}
 .disclaimer{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:16px 20px;font-size:.83rem;color:var(--muted);display:flex;gap:11px;max-width:900px}
 .disclaimer svg{width:19px;height:19px;color:var(--accent);flex:none;margin-top:2px}
 .disclaimer b{color:var(--ink)}
+.disclaimer .src-home{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 10px}
+.disclaimer .src-home a{color:var(--accent);font-weight:600;font-size:.78rem;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.disclaimer .src-home a:hover{border-bottom-color:var(--accent)}
+.src-box{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--paper-2);border:1px solid var(--line);font-size:.8rem;color:var(--muted);line-height:1.45}
+.src-box b{color:var(--ink);font-size:.78rem;display:block;margin-bottom:6px}
+.src-box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+.src-box a{color:var(--accent);font-weight:600;text-decoration:none}
+.src-box a:hover{text-decoration:underline}
+.src-box span{color:var(--muted)}
 .ph{display:none}
 .pwa-toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120%);z-index:500;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;max-width:min(440px,calc(100vw - 24px));background:var(--ink);color:#fff;padding:12px 14px;border-radius:14px;box-shadow:var(--sh-lg);font-size:.84rem;font-weight:600;transition:transform .28s cubic-bezier(.2,.8,.25,1),opacity .28s;opacity:0;pointer-events:none}
 .pwa-toast.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
@@ -541,7 +550,17 @@ footer{padding:0 clamp(18px,5vw,64px) 50px}
     <input type="file" id="bakFile" accept="application/json,.json" hidden>
     <span class="ft-note">Backup salva favoritos, notas e checklists só neste aparelho.</span>
   </div>
-  <div class="disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><div><b>Material educativo.</b> Protocolos baseados em diretrizes AHA/ADA (endocardite), manejo de anticoagulantes e boas práticas clínicas — sempre individualize conforme o paciente, bula e legislação local. A conduta final é responsabilidade do cirurgião-dentista.</div></div>
+  <div class="disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><div><b>Material educativo.</b> Protocolos reescritos para o OdontoGuia a partir de diretrizes e OER (não são cópia de manuais fechados). Individualize conforme paciente, bula e legislação local. A conduta final é do cirurgião-dentista.
+    <div class="src-home" aria-label="Fontes educativas abertas">
+      <a href="https://www.aae.org/specialty/clinical-resources/guidelines-position-statements/" target="_blank" rel="noopener">AAE</a>
+      <a href="https://www.aapd.org/research/oral-health-policies--recommendations/" target="_blank" rel="noopener">AAPD</a>
+      <a href="https://pressbooks.uwf.edu/restorativemastery/" target="_blank" rel="noopener">Restorative Mastery</a>
+      <a href="https://pressbooks.library.uq.edu.au/dentistryenvironment/" target="_blank" rel="noopener">Dentistry Environment</a>
+      <a href="https://tede.ufam.edu.br/handle/tede/11650" target="_blank" rel="noopener">Anestesia UFAM</a>
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank" rel="noopener">PubMed Central</a>
+      <a href="https://open.umn.edu/opentextbooks" target="_blank" rel="noopener">Open Textbook Library</a>
+    </div>
+  </div></div>
 </footer>
 <div id="stepModal"><div class="smodal" id="smodal-card">
   <div class="smodal-head"><span class="smodal-step" id="sm-step">Passo 1</span><button class="smodal-close" id="sm-close">✕</button></div>
@@ -923,7 +942,7 @@ const SS={
 const SD={
   sa_pulp_cap:'Em cavidade profunda, aplique Ca(OH)₂ ou ionômero de vidro sem eugenol como liner sobre a polpa exposta ou próxima (<0,5 mm). Camada fina que estimula reparo dentinário — nunca use ZOE sob resina adesiva.',
   sa_adhesive:'Após condicionamento, o adesivo forma camada híbrida na dentina e tags de resina no esmalte. Siga o protocolo do sistema (etch-and-rinse ou self-etch), remova solvente com ar e fotopolimerize.',
-  sa_matrix:'Em Classe II, a matriz metálica define o contorno proximal; a cunha separa os dentes e estabiliza a matriz. O ponto de contato deve ser firme, não excessivamente apertado.',
+  sa_matrix:'Em Classe II, a matriz define o contorno proximal (circunferência menor voltada para o cervical). A cunha (em geral da lingual para a vestibular) fecha a fresta cervical; brunir a matriz no dente vizinho cria contato firme — sem brunir, o contato fica fraco; cunha em excesso deixa o contato apertado demais.',
   sa_amalgam:'Condense o amálgama em incrementos sobrepostos com porta-amálgama, eliminando vazios. Pressão firme e perpendicular às paredes — vazios comprometem a longevidade.',
   sa_polish:'Discos de lixa e pasta de polimento restauram o brilho sem remover excesso de estrutura. Verifique contato proximal com fio dental após o acabamento.',
   sa_anamnesis:'Registre queixa principal, história da doença atual, medicamentos com dose, alergias (tipo de reação), comorbidades e fatores de risco sistêmico antes de qualquer procedimento.',
@@ -947,7 +966,7 @@ const SD={
   sa_steel_crown:'Coroa pré-fabricada: reduza oclusal 1–1,5 mm e proximal sem degrau, selecione tamanho MD, crimpe bordas e cimente com ionômero preenchendo a coroa. Padrão-ouro em molar decíduo destruído.',
   sa_pulpotomy:'Ampute polpa coronária, obtenha hemostasia em ≤5 min e aplique MTA, sulfato férrico 15,5% ou Ca(OH)₂ nos orifícios. Formocresol em desuso. Vede com coroa de aço.',
   sa_pulpectomy:'Remova toda a polpa, instrumente com limas finas e obture com pasta OBRIGATORIAMENTE reabsorvível (Vitapex, ZOE, Ca(OH)₂). Pasta fixa bloqueia a erupção do permanente.',
-  sa_endo_access:'Abra a câmara pulpar com visão direta sob dique — remova teto, cárie e dentina sobre as entradas. Localize todos os canais antes de instrumentar.',
+  sa_endo_access:'Abra a câmara sob dique (padrão AAE) — remova teto, cárie e dentina sobre as entradas. Localize todos os canais antes de instrumentar. Sem dique não irrigue.',
   sa_working_length:'Confirme comprimento de trabalho com localizador eletrônico e radiografia de conferência. Registre cada canal — erro apical (curto ou longo) compromete o prognóstico.',
   sa_dry_canal:'Seque com cones de papel absorvente até ausência de umidade. Canais úmidos ou com exsudação impedem obturação hermética — medicação intracanal se necessário.',
   sa_sindesmo:'Sindesmotomia circular no colo dentário separa fibras do ligamento periodontal — facilita luxação sem fraturar a coroa. Movimentos controlados, sem pressão excessiva.',
@@ -977,8 +996,8 @@ const SD={
   sa_maint_follow:'Controle radiográfico periódico até a erupção do permanente. Remova o mantenedor assim que o sucessor começar a irromper — senão impede a erupção.',
   sa_crown_prep:'Reduza todas as superfícies com término cervical nítido (chanfro ou ombro conforme material). Preserve paralelismo dos pilares em pontes — preparo divergente impede assentamento.',
   sa_desensitize:'Aplique verniz fluoretado, oxalato ou nitrato de potássio sobre dentinária exposta seca. Repita em sessões; combine com dentifrício dessensibilizante e correção das causas (escovação, refluxo, dieta).',
-  sa_syringe:'Aspire o carpule antes de injetar. Infiltração ou bloqueio conforme o dente. Aguarde 3–5 min e teste com sonda sem dor. Respeite dose máxima (mg/kg em crianças).',
-  sa_dam:'O dique isola o dente da saliva com grampos e arco — campo seco é obrigatório em dentística adesiva. Use material não látex se houver alergia.',
+  sa_syringe:'Aspire o carpule antes de injetar (obrigatório em bloqueios). Infiltração ou bloqueio conforme o dente. Aguarde 3–5 min e teste sem dor. Respeite dose máxima (mg/kg em crianças) e o teto de epinefrina da sessão (~0,04 mg adulto). Em HAS descompensada ou sensível à epi: mepivacaína sem VC ou volume reduzido.',
+  sa_dam:'O dique isola o dente da saliva — padrão ouro em dentística adesiva. Use grampo estável com ligadura de segurança, furos limpos, fio dental nos contatos e inversão gengival. Na remoção, corte os septos e confira que nenhum fragmento ficou. Em alergia a látex: dique sintético e luvas de nitrilo.',
   sa_bur:'Alta rotação remove esmalte; baixa rotação remove dentina infectada. Preserve dentina afetada remineralizável sempre que possível.',
   sa_excavator:'Remova dentina infectada (macia, úmida, escura); preserve dentina afetada (firme, clara) que pode remineralizar. Escavador manual é preciso e silencioso.',
   sa_etching:'Ácido fosfórico 37%: 15–30 s no esmalte, tempo menor na dentina conforme protocolo. Lave abundantemente, seque o esmalte e mantenha dentina úmida (não desidrate).',
@@ -994,9 +1013,9 @@ const SD={
   sa_diagnosis_dd:'Antes de dessensibilizar, exclua cárie ativa, fratura e pulpite. Sensibilidade dentinária é diagnóstico de exclusão — tratar a causa errada mascara patologia.',
   sa_air_abrasion:'Preparo mínimo ou asperização remove esmalte sem broca rotatória quando indicado. Útil em faceta direta para aumentar área de adesão conservadoramente.',
   sa_patient_ed:'Oriente por escrito: cuidados pós-operatórios, dieta, higiene e sinais de alerta. Para amálgama: não mastigar do lado por 24 h. Para sensibilidade: dentifrício específico.',
-  sa_file:'Instrumente com limas progressivas até o comprimento de trabalho, modelando as paredes. Irrigue abundantemente a CADA troca de lima — desbridamento mecânico + químico.',
-  sa_irrigation:'NaOCl (0,5–5,25%) dissolve tecido orgânico; EDTA remove smear layer. Irrigue a cada troca — NUNCA misture NaOCl e clorexidina na mesma sessão.',
-  sa_guttapercha:'Obture canais secos com guta-percha + cimento endodôntico. Extensão ideal: 0–2 mm do ápice radiográfico, com densidade homogênea.',
+  sa_file:'Instrumente com limas progressivas até o CT, modelando as paredes. Irrigue a CADA troca com NaOCl (preferencial AAE) usando agulha lateralizada frouxa e refluxo visível — nunca force irrigante no ápice. EDTA no final remove smear layer. Não misture NaOCl com clorexidina.',
+  sa_irrigation:'NaOCl é o irrigante preferencial (AAE): dissolve tecido orgânico. Amplie o canal para a agulha ficar frouxa; irrigue com pressão suave e refluxo visível. Em ápice aberto/perfuração: dilua ou use alternativa. EDTA remove smear layer. NUNCA misture NaOCl e clorexidina.',
+  sa_guttapercha:'Obture canais secos com guta-percha + cimento. Extensão ideal: 0–2 mm do ápice radiográfico, densidade homogênea, sem extrusão rotineira de cimento. Restauração coronal hermética o mais cedo possível.',
   sa_endo_patency:'Localize todas as entradas dos canais e confirme patência com lima fina (#08–10) até o forame. Sem patência, irrigante e obturação não alcançam o ápice.',
   sa_mv2:'Em molares superiores, o canal mesiovestibular (MV2) é a causa mais comum de falha — procure sistematicamente na região mesial sob magnificação.',
   sa_condenser:'Técnica do condensador: cone principal + cones acessórios com cimento, ou obturação termoplástica/injetada conforme protocolo.',
@@ -1037,8 +1056,9 @@ const SD={
   sa_framework_try:'Prova da estrutura metálica: assentamento passivo sem balanço, apoios sentados e grampos sem tensão excessiva. Ajuste no laboratório se não passiva.',
   sa_wax_try:'Prova em cera: estética, linha do sorriso, fonética e oclusão. Obtenha aprovação do paciente antes de acrilizar — mudanças depois são caras.',
   sa_ppr_deliver:'Instale ajustando grampos (retenção sem trauma), oclusão e pontos de pressão na base. Oriente colocação e remoção sem forçar.',
-  sa_border_mold:'Moldagem funcional das bordas com godiva ou material viscoso define o selamento periférico — essencial para retenção da prótese total.',
-  sa_denture_deliver:'Instale a prótese acrilizada verificando retenção, estabilidade e oclusão. Inferior costuma ser menos estável — overdenture sobre implantes quando possível.',
+  sa_border_mold:'Moldeira individual ~2–3 mm curta do vestíbulo. Border molding (compound ou elastômero) copia altura/largura do vestíbulo com movimentos de lábio, bochecha e língua. Bordas lisas, arredondadas e estáveis — brilho excessivo sugere moldagem incompleta.',
+  sa_border_mold:'Moldeira individual ~2–3 mm curta do vestíbulo. Border molding (compound ou elastômero) copia altura/largura do vestíbulo com movimentos de lábio, bochecha e língua. Bordas devem ficar lisas, arredondadas e estáveis — brilho excessivo sugere moldagem incompleta.',
+  sa_denture_deliver:'Instale verificando retenção, estabilidade, oclusão e pontos de pressão (pasta evidenciadora). Inferior costuma ser menos estável — overdenture sobre 2 implantes quando viável. Orientar: dormir sem a prótese e higiene da mucosa.',
   sa_pressure_spot:'Pasta evidenciadora marca áreas de trauma na mucosa. Alivie seletivamente com broca de acrílico — não desgaste excessivo que perde retenção.',
   sa_xray:'Correlacione sempre imagem e clínica. Registre achados no prontuário; repita se qualidade inadequada. Avental plumbífero e ALARA são obrigatórios.',
   sa_perioflap:'O bisturi incide e o descolador levanta o retalho mucoperiosteal para acesso ao osso e raízes — indicado quando RAR não resolve bolsas profundas.',
@@ -1070,10 +1090,10 @@ const SD={
   sa_fluor_gel:'Gel 1,23%: ⅓ da moldeira, 1–4 min com sugador ativo. Paciente cuspe sem enxaguar nem escovar por 30 min após.',
   sa_fluor_varnish:'Verniz 5%: camada fina com microbrush em dentes secos. Dose mínima efetiva. Dieta branda por 4 h — não escovar no dia.',
   sa_relative_iso:'Algodão e sugador criam campo relativamente seco. Essencial antes de gel; verniz tolera umidade moderada melhor que gel.',
-  sa_lead_apron:'Coloque avental plumbífero e protetor de tireoide no paciente antes de qualquer exposição. O operador nunca fica no feixe — acione de fora da sala.',
+  sa_lead_apron:'Coloque avental plumbífero e protetor de tireoide no paciente antes de qualquer exposição. O operador nunca fica no feixe — acione de fora da sala ou atrás de barreira.',
   sa_xray_position:'Posicione sensor/filme com posicionador paralelo ao longo axis do dente. Bitewing: detector horizontal; periapical: côneo apical visível.',
-  sa_xray_exposure:'Reduza kV/mA e tempo em crianças e gestantes. Acione o tubo de fora da sala ou atrás de barreira — nunca segure o sensor durante a exposição.',
-  sa_xray_quality:'Avalie côneo apical, contraste e sobreposição. Repita se necessário antes de interpretar — imagem ruim gera diagnóstico errado.',
+  sa_xray_exposure:'Princípio ALARA: menor dose compatível com o diagnóstico. Reduza kV/mA/tempo em crianças e gestantes; use colimação e posicionador. Acione de fora da sala — nunca segure o sensor.',
+  sa_xray_quality:'Avalie côneo apical, contraste, corte e sobreposição. Repita só se a falha impedir o diagnóstico — cada repetição é nova exposição.',
   sa_xray_interpret:'Correlacione radiografia com exame clínico. Registre cárie interproximal, lesões periapicais, perda óssea e qualquer achado incidental.',
   sa_generic:'Etapa clínica. Siga a sequência da ficha; confira anamnese, materiais e contraindicações antes de executar.'
 };
@@ -1307,6 +1327,51 @@ const CATS=[
   {id:'ped',name:'Odontopediatria',c:'--c-ped',cs:'--cs-ped'}
 ];
 const CM=Object.fromEntries(CATS.map(c=>[c.id,c]));
+
+/* Fontes educativas abertas por área — fichas são reescritas (não cópia literal). */
+const CAT_SRC={
+  diag:[
+    {t:'Dentistry Environment Essentials (UQ) — biossegurança',u:'https://pressbooks.library.uq.edu.au/dentistryenvironment/'},
+    {t:'Manual anestesia odontológica (UFAM / TEDE)',u:'https://tede.ufam.edu.br/handle/tede/11650'},
+    {t:'PubMed Central — evidência científica',u:'https://www.ncbi.nlm.nih.gov/pmc/'}
+  ],
+  dent:[
+    {t:'Restorative Mastery (CC BY) — dique, matriz, adesão',u:'https://pressbooks.uwf.edu/restorativemastery/'},
+    {t:'Manuais didáticos BR de dentística (alinhamento clínico)',u:''}
+  ],
+  endo:[
+    {t:'AAE — Guidelines & Position Statements',u:'https://www.aae.org/specialty/clinical-resources/guidelines-position-statements/'},
+    {t:'AAE — Dental Dam (padrão de cuidado)',u:'https://www.aae.org/specialty/wp-content/uploads/sites/2/2024/06/DentalDams_PositionStatement_v2-1.pdf'}
+  ],
+  perio:[
+    {t:'Manuais acadêmicos de periodontia (referência didática BR)',u:''},
+    {t:'PubMed Central — periodontite e manutenção',u:'https://www.ncbi.nlm.nih.gov/pmc/'}
+  ],
+  surg:[
+    {t:'Boas práticas cirúrgicas + AHA (endocardite) / MRONJ',u:''},
+    {t:'PubMed Central',u:'https://www.ncbi.nlm.nih.gov/pmc/'}
+  ],
+  prot:[
+    {t:'Open Textbook Library — prótese / reabilitação',u:'https://open.umn.edu/opentextbooks'},
+    {t:'Dalhousie Removable Prosthodontics (border molding)',u:'http://removpros.dentistry.dal.ca/'}
+  ],
+  est:[
+    {t:'Boas práticas de clareamento e adesão estética (OER + bulas)',u:''}
+  ],
+  ped:[
+    {t:'AAPD — Oral Health Policies & Recommendations',u:'https://www.aapd.org/research/oral-health-policies--recommendations/'},
+    {t:'AAPD — Vital Pulp / Sealants / MID',u:'https://www.aapd.org/research/oral-health-policies--recommendations/'}
+  ]
+};
+function renderSources(cat){
+  const list=CAT_SRC[cat]||[];
+  if(!list.length) return '';
+  const items=list.map(s=>s.u
+    ?`<li><a href="${s.u}" target="_blank" rel="noopener">${s.t}</a></li>`
+    :`<li><span>${s.t}</span></li>`).join('');
+  return`<div class="src-box"><b>Base educativa (aberta) — conteúdo reescrito no OdontoGuia</b><ul>${items}</ul></div>`;
+}
+
 const e=(n,d='')=>({n,d});
 const ca=(type,cond,avoid='',use='')=>({type,cond,avoid,use});
 const a=(k,t)=>({k,t});
@@ -1328,8 +1393,10 @@ const alertMRONJ=()=>[
   ca('drug','Bifosfonatos / denosumabe / antirreabsortivos','Cirurgia óssea sem histórico completo da medicação','Bifosfonato IV (oncologia): alto risco de MRONJ — avaliação multidisciplinar. Oral prolongado (>3–5 anos) ou múltiplas extrações: risco intermediário. Denosumabe: risco semelhante. Planejar cirurgia minimamente invasiva e documentar.')
 ];
 const alertAnestesiaCV=()=>[
-  ca('systemic','Cardiopatia e hipertensão — anestesia local','“2 tubetes” fixos para todos ou vasoconstritor sem aferir PA','Aferir PA. HAS controlada: vasoconstritor usual limitando epinefrina TOTAL da sessão (~0,04 mg em adulto médio ≈ 2 carpules 1:100.000 de 1,8 mL — some todos os tubetes). HAS ≥160/100 ou ICC descompensada: adiar eletivo; após compensação, preferir mepivacaína 3% sem vasoconstritor.'),
-  ca('info','Anestesia em criança — dose por peso (obrigatório)','Dose de adulto ou estimativa visual','Pesar sempre. Lidocaína 2% com VC: máx. 4,4 mg/kg; sem VC: máx. 3–4 mg/kg (confirme bula). Calcular epinefrina por kg. Registrar peso e dose no prontuário.')
+  ca('systemic','Cardiopatia e hipertensão — anestesia local','“2 tubetes” fixos para todos ou vasoconstritor sem aferir PA','Aferir PA. HAS controlada: vasoconstritor usual limitando epinefrina TOTAL da sessão (~0,04 mg em adulto médio ≈ 2 carpules 1:100.000 de 1,8 mL — some todos os tubetes). HAS ≥160/100 ou ICC descompensada: adiar eletivo; após compensação, preferir mepivacaína 3% sem vasoconstritor. Paciente sensível à epinefrina: limitar a ~2 tubetes 1:100.000.'),
+  ca('info','Anestesia em criança — dose por peso (obrigatório)','Dose de adulto ou estimativa visual','Pesar sempre. Lidocaína 2% com VC: máx. 4,4 mg/kg; sem VC: máx. 3–4 mg/kg (confirme bula). Calcular epinefrina por kg. Registrar peso e dose no prontuário.'),
+  ca('info','Aspiração obrigatória','Injetar sem aspirar (esp. bloqueios)','Aspire antes de depositar. Aspiração positiva: reposicionar a agulha, aspirar de novo e só então injetar. Reduz risco de injeção intravascular e toxicidade.'),
+  ca('allergy','Bissulfito / metilparabeno / látex do tubete','Anestésico com vasoconstritor sem checar alergia a antioxidante','Vasoconstritor traz bissulfito de sódio — em asma grave/alergia a sulfitos, avaliar solução sem vasoconstritor. Tubetes plásticos podem ter metilparabeno; tampa pode ter látex.')
 ];
 const alertDiabetes=()=>[
   ca('systemic','Diabetes mellitus','Cirurgia eletiva com descontrole glicêmico','HbA1c persistentemente >8–9% ou glicemia capilar elevada no dia: adiar eletivo se possível; compensar com médico. Risco de infecção e cicatrização lenta. Consulta matinal: paciente deve ter se alimentado e tomado medicação habitual (exceto orientação médica contrária).')
@@ -1349,9 +1416,10 @@ contra:[
   ...alertDiabetes(),
   ca('systemic','Hipertensão não controlada','Cirurgia/anestesia com vasoconstritor sem aferir PA','Aferir PA na consulta. PA ≥160/100: adiar procedimentos eletivos invasivos; encaminhar para controle. PA <160/100 controlada: prosseguir com cautela na anestesia.'),
   ca('info','Hepatite B/C e HIV','Procedimento sem biossegurança adequada','EPI completo; instrumental esterilizado; registro no prontuário. Não recusa atendimento — adotar precauções universais.'),
+  ca('info','Zonas limpa × contaminada no consultório','Pegar material em gaveta limpa com luva suja','Fluxo unidirecional: limpo → sujo → CME. Não reintroduzir instrumental usado na zona limpa. Para abrir gaveta limpa: desluvar, higienizar as mãos e só então pegar o item.'),
   ca('info','Vacinação antitetânica','Ferida/laceração sem histórico vacinal','Perguntar esquema vacinal. Feridas contaminadas ou cirurgia em paciente sem vacinação adequada: avaliar reforço conforme calendário e protocolo local.')
 ],
-equip:[e('Kit de exame','espelho, sonda exploradora, sonda periodontal, pinça'),e('Ficha de anamnese / prontuário digital'),e('Termômetro e aparelho de PA','quando indicado'),e('Gaze e afastadores labiais'),e('Iluminação adequada'),e('EPI completo')],
+equip:[e('Kit de exame','espelho, sonda exploradora, sonda periodontal, pinça'),e('Ficha de anamnese / prontuário digital'),e('Termômetro e aparelho de PA','quando indicado'),e('Gaze e afastadores labiais'),e('Iluminação adequada'),e('EPI completo','luvas, máscara, óculos/viseira, avental')],
 steps:[
   {t:'Acolher o paciente e explicar o que será feito nesta consulta (tutorial: transparência reduz ansiedade).',sk:'sa_welcome'},
   {t:'Colher queixa principal e história da doença atual (início, intensidade, fatores de melhora/piora).',sk:'sa_queixa'},
@@ -1367,6 +1435,30 @@ steps:[
 ],
 byAge:[a('baby','Anamnese com responsáveis; peso para dose futura; hábitos de sono e mamadeira.'),a('child','Perguntar cooperação, medo, histórico de convulsão febril; peso obrigatório.'),a('adult','Focar fatores de risco sistêmicos, tabagismo e histórico familiar de câncer oral.'),a('elder','Polifarmácia, xerostomia, demência, risco de queda, anticoagulação.'),a('pregnant','Semestre gestacional, obstetra, medicamentos permitidos na gestação.')],
 tip:'Nesta ficha você define a segurança de todas as outras — 5 minutos de anamnese evitam a maioria das intercorrências graves.'},
+
+{id:'anestesia',cat:'diag',icon:'pulse',ps:'sp_exam',
+name:'Anestesia local',short:'Tutorial: aspiração, dose mg/kg, vasoconstritor e bloqueio vs infiltração.',
+indic:'Qualquer procedimento invasivo que exija controle da dor — base de segurança de cirurgias, endo, dentística e pediatria.',
+contra:[
+  ...alertAnestesiaCV(),
+  ca('allergy','Anestésico local (amida/éster)','Repetir o mesmo fármaco após reação verdadeira','Documentar o fármaco e a reação; usar classe alternativa após avaliação. Reação a sulfitos: evitar solução com vasoconstritor.'),
+  ca('systemic','Metemoglobinemia / deficiência de G6PD','Prilocaína / doses altas em risco','Preferir lidocaína/mepivacaína conforme histórico; doses conservadoras.'),
+  ca('info','Injeção intravascular','Depositar volume sem aspirar','Aspire sempre (esp. bloqueios). Aspiração positiva: reposicionar e aspirar de novo.'),
+  ca('info','Toxicidade por dose','“Mais um tubete” sem somar o total da sessão','Some todos os tubetes. Adulto: teto de epinefrina ~0,04 mg/sessão. Criança: mg/kg obrigatório — use a calculadora.')
+],
+equip:[e('Seringa carpule com aspiração'),e('Agulha curta / longa','conforme técnica'),e('Tubetes','lidocaína 2% c/ VC, mepivacaína 3% s/ VC, articaína etc.'),e('Anestésico tópico'),e('Gaze e antisséptico mucoso'),e('Monitor / PA','cardiopata / HAS'),e('Calculadora de dose (app)'),e('EPI completo')],
+steps:[
+  {t:'Revisar alergias, cardiopatia, HAS, asma/sulfitos e medicamentos; aferir PA se indicado.',sk:'sa_med_history'},
+  {t:'Escolher fármaco e técnica (infiltração vs bloqueio) conforme dente e risco cardiovascular.',sk:'sa_syringe'},
+  {t:'Calcular dose máxima (mg/kg) e teto de epinefrina ANTES de aspirar o primeiro tubete — abrir Dose no app.',sk:'sa_ped_dose'},
+  {t:'Antissepsia da mucosa; anestésico tópico 1–2 min na área de penetração.',sk:'sa_syringe'},
+  {t:'Inserir agulha; aspirar. Se positivo: reposicionar. Injetar lentamente.',sk:'sa_syringe'},
+  {t:'Aguardar 3–5 min; testar com sonda — nunca iniciar o procedimento com dor.',sk:'sa_syringe'},
+  {t:'Registrar fármaco, concentração, volume (nº de tubetes) e técnica no prontuário.',sk:'sa_patient_ed'},
+  {t:'Se sinais de toxicidade (tontura, zumbido, convulsão) ou alergia: interromper, posicionar, oxigênio e suporte — emergência médica.',sk:'sa_abscess_triage'}
+],
+byAge:[a('child','Pesar sempre; lidocaína 2% c/ VC máx. ~4,4 mg/kg; preferir agulha curta e volumes fracionados.'),a('adult','HAS controlada: VC com teto de epi; HAS alta/ICC: mepivacaína sem VC ou adiar eletivo.'),a('elder','Polifarmácia e reserva cardíaca reduzida — doses menores e monitorização.'),a('pregnant','Preferir lidocaína com VC em dose mínima necessária; evitar eletivos no 1º trimestre se possível.')],
+tip:'Aspirar → somar tubetes → testar anestesia. A calculadora do app existe para não “chutar” dose em criança.'},
 
 {id:'profilaxia',cat:'diag',icon:'brush',ps:'sp_clean',
 name:'Profilaxia profissional',short:'Tutorial preventivo: limpeza supragengival, educação em saúde e preparo para outros procedimentos.',
@@ -1417,21 +1509,22 @@ indic:'Cáries ocultas, lesões periapicais, planejamento endo/cirúrgico, contr
 contra:[
   ca('systemic','Gestante','Exame eletivo sem justificativa no 1º trimestre','Adiar eletivos se possível; se indispensável: avental plumbífero + protetor de tireoide + menor dose (ALARA). 2º trimestre costuma ser preferível quando urgente.'),
   ca('info','Crianças e adolescentes','Parâmetros e tempo de exposição de adulto','Reduzir kV/mA e tempo; usar posicionadores pediátricos e colimação.'),
-  ca('info','Sem indicação clínica','“Raio-X de rotina” em todos os dentes','Cada imagem precisa de justificativa registrada — menor dose possível para o diagnóstico necessário (ALARA).')
+  ca('info','Sem indicação clínica','“Raio-X de rotina” em todos os dentes','Cada imagem precisa de justificativa registrada — menor dose possível para o diagnóstico necessário (ALARA).'),
+  ca('info','Operador no feixe ou segurando o sensor','Segurar filme/sensor com a mão ou permanecer na sala','Nunca segure o receptor. Acione de fora da sala ou atrás de barreira. Distância e blindagem protegem a equipe.')
 ],
-equip:[e('Aparelho de raio-X'),e('Sensor digital / filme / placa de fósforo'),e('Posicionadores radiográficos'),e('Avental plumbífero + protetor de tireoide'),e('Software de visualização')],
+equip:[e('Aparelho de raio-X com colimação'),e('Sensor digital / filme / placa de fósforo'),e('Posicionadores radiográficos'),e('Avental plumbífero + protetor de tireoide'),e('Barreira / acionamento remoto'),e('Software de visualização')],
 steps:[
-  {t:'Justificar clinicamente a necessidade e escolher a técnica (periapical, bitewing, oclusal).',sk:'sa_radiograph_req'},
+  {t:'Justificar clinicamente a necessidade e escolher a técnica (periapical, bitewing, oclusal) — registrar no prontuário.',sk:'sa_radiograph_req'},
   {t:'Explicar ao paciente o procedimento — obter consentimento quando aplicável.',sk:'sa_consent'},
-  {t:'Posicionar avental plumbífero e protetor de tireoide no paciente (nunca você).',sk:'sa_lead_apron'},
-  {t:'Posicionar sensor/filme e posicionador; verificar horizontalidade.',sk:'sa_xray_position'},
-  {t:'Ajustar parâmetros (reduzidos em crianças e gestantes).',sk:'sa_xray_exposure'},
-  {t:'Acionar o tubo fora da sala ou atrás de barreira — nunca segurar o sensor.',sk:'sa_xray_exposure'},
-  {t:'Avaliar qualidade (côneo, contraste, ausência de sobreposição).',sk:'sa_xray_quality'},
+  {t:'Posicionar avental plumbífero e protetor de tireoide no paciente (nunca no operador).',sk:'sa_lead_apron'},
+  {t:'Posicionar sensor/filme com posicionador; verificar angulação horizontal/vertical e estabilidade.',sk:'sa_xray_position'},
+  {t:'Ajustar parâmetros (reduzidos em crianças e gestantes) e verificar colimação no campo de interesse.',sk:'sa_xray_exposure'},
+  {t:'Acionar o tubo fora da sala ou atrás de barreira — nunca segurar o sensor nem permanecer no feixe.',sk:'sa_xray_exposure'},
+  {t:'Avaliar qualidade: côneo, contraste, sem corte/sobreposição; repetir só se indispensável ao diagnóstico.',sk:'sa_xray_quality'},
   {t:'Interpretar, correlacionar com clínica e registrar achados no prontuário.',sk:'sa_xray_interpret'}
 ],
-byAge:[a('baby','Oclusal ou periapical com parâmetros mínimos; proteção extra.'),a('adult','Bitewing para cárie interproximal; periapical para endo/cirurgia.'),a('pregnant','Eletivo: adiar. Urgente: proteger e documentar justificativa.')],
-tip:'Bitewing detecta cárie interproximal precoce — tutorial: sempre correlacione imagem com exame clínico.'},
+byAge:[a('baby','Oclusal ou periapical com parâmetros mínimos; proteção extra; preferir digital quando disponível.'),a('adult','Bitewing para cárie interproximal; periapical para endo/cirurgia.'),a('pregnant','Eletivo: adiar. Urgente: proteger, documentar justificativa e usar menor dose possível.')],
+tip:'ALARA em uma frase: justifique → proteja → menor dose → interprete. Imagem sem indicação é exposição desnecessária.'},
 
 {id:'resina',cat:'dent',icon:'fill',ps:'sp_resin',
 name:'Restauração com resina composta',short:'Tutorial adesivo: isolamento, remoção seletiva, estratificação e oclusão.',
@@ -1443,21 +1536,21 @@ contra:[
   ca('info','Bruxismo sem proteção','Restauração extensa sem placa oclusal','Placa de bruxismo antes ou após; resina de maior resistência (bulk-fill/indireta se extensa).'),
   ca('info','Umidade / isolamento deficiente','Restaurar sem dique em cavidade profunda','Sem isolamento absoluto a adesão falha — dique é padrão ouro em dentística adesiva.')
 ],
-equip:[e('Kit de exame e anestesia'),e('Isolamento absoluto','dique sintético, grampo, arco'),e('Alta rotação com brocas'),e('Baixa rotação e escavador'),e('Ácido 37% e sistema adesivo'),e('Resina composta e espátulas'),e('Matriz e cunha','cavidades proximais'),e('Fotopolimerizador'),e('Discos e polimento'),e('Papel de articulação'),e('EPI completo')],
+equip:[e('Kit de exame e anestesia'),e('Isolamento absoluto','dique sintético, grampo, arco, fio dental, ligadura no grampo'),e('Alta rotação com brocas'),e('Baixa rotação e escavador'),e('Ácido 37% e sistema adesivo'),e('Resina composta e espátulas'),e('Matriz e cunha','Tofflemire/seccional — cavidades proximais'),e('Brunidor esférico','brunir contato na matriz metálica'),e('Fotopolimerizador'),e('Discos e polimento'),e('Papel de articulação'),e('EPI completo')],
 steps:[
   {t:'Anestesiar se indicado; explicar etapas ao paciente.',sk:'sa_syringe'},
-  {t:'Isolamento absoluto com dique — verifique campo seco antes de prosseguir.',sk:'sa_dam'},
+  {t:'Isolamento absoluto: grampo com ligadura de segurança, dique furado sem rasgos, fio dental nos contatos e inversão gengival para selar.',sk:'sa_dam'},
   {t:'Remover cárie infectada; preservar dentina afetada remineralizável quando possível.',sk:'sa_excavator'},
   {t:'Proteger polpa em cavidade profunda (Ca(OH)₂/ionômero) sem eugenol sob resina.',sk:'sa_pulp_cap'},
-  {t:'Classe II: posicionar matriz e cunha para ponto de contato.',sk:'sa_matrix'},
+  {t:'Classe II: posicionar matriz (circunferência menor cervical), cunha da lingual→vestibular e brunir o contato no dente vizinho.',sk:'sa_matrix'},
   {t:'Condicionar ácido 15–30 s no esmalte (e dentina conforme protocolo); lavar e secar sem desidratar dentina.',sk:'sa_etching'},
   {t:'Aplicar adesivo; fotopolimerizar conforme fabricante.',sk:'sa_adhesive'},
   {t:'Inserir resina em incrementos ≤2 mm; esculpir anatomia; fotopolimerizar cada camada.',sk:'sa_composite'},
-  {t:'Remover dique; conferir oclusão com papel de articulação; ajustar prematuridades.',sk:'sa_remove_dam'},
-  {t:'Acabamento com discos e polimento; verificar contato proximal com fio.',sk:'sa_floss_contact'}
+  {t:'Remover dique cortando septos interdentais; conferir que nenhum fragmento ficou; checar oclusão com papel de articulação.',sk:'sa_remove_dam'},
+  {t:'Acabamento com discos e polimento; verificar contato proximal com fio (leve resistência, sem “estalar” frouxo).',sk:'sa_floss_contact'}
 ],
-byAge:[a('child','Em decíduos, ART ou ionômero se isolamento inviável.'),a('adult','Técnica incremental; atenção ao ponto de contato proximal.'),a('elder','Cárie radicular: considerar ionômero ou adesivo específico para dentina radicular.')],
-tip:'Tutorial em uma frase: secar → adesivar → incrementar → ocluir — pule o dique e a restauração cai.'},
+byAge:[a('child','Em decíduos, ART ou ionômero se isolamento inviável.'),a('adult','Técnica incremental; atenção ao ponto de contato proximal brunido.'),a('elder','Cárie radicular: considerar ionômero ou adesivo específico para dentina radicular.')],
+tip:'Campo seco + contato brunido + incremento ≤2 mm. Sem dique, a adesão falha; sem brunir a matriz, o contato fica fraco.'},
 
 {id:'amalgama',cat:'dent',icon:'fill',ps:'sp_amalgam',
 name:'Restauração com amálgama',short:'Tutorial de restauração metálica posterior: retenção mecânica e condensação.',
@@ -1468,60 +1561,66 @@ contra:[
   ca('info','Dentes anteriores estéticos','Amálgama em zona de sorriso','Resina composta ou cerâmica.'),
   ca('info','Descarte ambiental','Resíduo de amálgama no lixo comum','Separador de amálgama obrigatório; descarte conforme norma ambiental local.')
 ],
-equip:[e('Kit de exame e anestesia'),e('Isolamento absoluto'),e('Alta e baixa rotação'),e('Amálgama e amalgamador'),e('Porta-amálgama e condensadores'),e('Brunidor e esculpidores'),e('Matriz e cunha'),e('Papel de articulação'),e('EPI completo')],
+equip:[e('Kit de exame e anestesia'),e('Isolamento absoluto'),e('Alta e baixa rotação'),e('Amálgama e amalgamador'),e('Porta-amálgama e condensadores'),e('Brunidor e esculpidores'),e('Matriz e cunha'),e('Separador / coletor de amálgama','descarte ambiental'),e('Papel de articulação'),e('EPI completo')],
 steps:[
   {t:'Anestesiar e isolar — amálgama tolera umidade melhor que resina, mas isolamento ainda melhora o resultado.',sk:'sa_syringe'},
   {t:'Remover cárie e preparar retenção mecânica (caixa, undercut conservador).',sk:'sa_amalgam_prep'},
-  {t:'Posicionar matriz e cunha em proximais.',sk:'sa_matrix'},
+  {t:'Posicionar matriz e cunha; brunir o contato proximal no dente vizinho antes de condensar.',sk:'sa_matrix'},
   {t:'Triturar cápsula no amalgamador pelo tempo do fabricante.',sk:'sa_amalgamator'},
   {t:'Inserir e condensar em incrementos sobrepostos — eliminar vazios.',sk:'sa_amalgam'},
   {t:'Esculpir anatomia oclusal e contatos; brunir superfície.',sk:'sa_amalgam_burnish'},
   {t:'Remover matriz; conferir oclusão com papel de articulação.',sk:'sa_occlusion'},
-  {t:'Orientar: não mastigar do lado por 24 h; polimento em sessão posterior após presa completa (24 h).',sk:'sa_polish'}
+  {t:'Orientar: não mastigar do lado por 24 h; polimento em sessão posterior após presa completa (24 h); descartar resíduos no coletor de amálgama.',sk:'sa_polish'}
 ],
 byAge:[a('child','Evitar em decíduos — preferir ART/resina/ionômero.'),a('adult','Útil em molares com difícil acesso e alta carga.'),a('pregnant','Evitar — adiar ou usar alternativa adesiva.')],
-tip:'Não polir no mesmo dia — amálgama precisa de presa completa para não extruir margens.'},
+tip:'Brunir contato na matriz + condensar sem vazios + não polir no mesmo dia. Resíduo de amálgama nunca vai para o lixo comum.'},
 
 {id:'faceta',cat:'dent',icon:'sparkle',ps:'sp_faceta',
-name:'Faceta direta em resina',short:'Tutorial estético: estratificação em camadas com seleção de cor e oclusão guiada.',
-indic:'Correção de cor, forma, diastemas e fraturas em dentes anteriores com estrutura suficiente.',
+name:'Faceta direta em resina',short:'Tutorial estético: seleção de cor, mock-up, estratificação e oclusão guiada.',
+indic:'Correção de cor, forma, diastemas e fraturas em dentes anteriores com estrutura suficiente e periodonto saudável.',
 contra:[
-  ca('systemic','Bruxismo sem controle','Faceta extensa sem placa oclusal','Placa de bruxismo obrigatória no planejamento; resina de alta resistência ou indicação indireta.'),
-  ca('info','Gengivite / sangramento ativo','Faceta com margem em tecido inflamado','Tratar gengivite antes — margem em tecido saudável define o resultado estético.'),
-  ca('info','Perda estrutural severa','Faceta direta como única solução','>50% de estrutura perdida: considerar coroa ou faceta indireta.')
+  ca('systemic','Bruxismo sem controle','Faceta extensa sem placa oclusal','Placa de bruxismo no planejamento; resina de alta resistência ou faceta/coroa indireta se carga extrema.'),
+  ca('info','Gengivite / sangramento ativo','Faceta com margem em tecido inflamado','Tratar gengivite antes — margem em tecido saudável define estética e adesão.'),
+  ca('info','Perda estrutural severa','Faceta direta como única solução','>50% de estrutura perdida ou pouca esmalte residual: coroa ou faceta indireta.'),
+  ca('info','Expectativa estética irrealista','Iniciar sem mock-up / foto','Documentar com fotos e mock-up; alinhar expectativa antes do adesivo.'),
+  ca('allergy','Metacrilatos (rara)','Resinas convencionais','Encaminhar; considerar alternativa indireta com cimento testado.')
 ],
-equip:[e('Kit de exame e escala de cores'),e('Isolamento e afastador'),e('Pontas para asperização','quando indicado'),e('Ácido e sistema adesivo'),e('Resinas de esmalte e dentina'),e('Fotopolimerizador'),e('Discos e polimento'),e('EPI completo')],
+equip:[e('Kit de exame e escala de cores / fotos'),e('Mock-up / guia de silicone','quando possível'),e('Isolamento e afastador'),e('Pontas para asperização','quando indicado'),e('Ácido e sistema adesivo'),e('Resinas de dentina, esmalte e efeito'),e('Fotopolimerizador calibrado'),e('Discos, tiras e pasta de polimento'),e('Papel de articulação'),e('EPI completo')],
 steps:[
-  {t:'Selecionar cor com dente hidratado (antes de isolar por longo período).',sk:'sa_shade'},
-  {t:'Profilaxia e isolamento relativo/absoluto.',sk:'sa_relative_iso'},
-  {t:'Preparo mínimo ou asperização conforme indicação.',sk:'sa_air_abrasion'},
-  {t:'Condicionar, adesivo e fotopolimerizar camada de adesivo.',sk:'sa_adhesive'},
-  {t:'Estratificar: dentina (opacidade) → esmalte (translucidez) → caracterização.',sk:'sa_layering'},
-  {t:'Fotopolimerizar cada incremento.',sk:'sa_curing'},
-  {t:'Acabamento com discos; polimento alto brilho.',sk:'sa_polish'},
-  {t:'Conferir oclusão em MI, protrusão e lateralidade; ajustar sem remover excesso de contato prematuro.',sk:'sa_occlusion'}
+  {t:'Fotos e seleção de cor com dente HIDRATADO (antes de isolar por longo período).',sk:'sa_shade'},
+  {t:'Mock-up ou ensaio em resina não polimerizada — validar forma com o paciente.',sk:'sa_shade'},
+  {t:'Profilaxia sem pasta oleosa; isolamento relativo/absoluto e afastamento labial.',sk:'sa_relative_iso'},
+  {t:'Preparo mínimo / asperização apenas onde necessário — preservar esmalte.',sk:'sa_air_abrasion'},
+  {t:'Condicionar esmalte; adesivo conforme protocolo; fotopolimerizar.',sk:'sa_adhesive'},
+  {t:'Estratificar: corpo/dentina (opacidade) → esmalte (translucidez) → caracterizações (mamelões, halo).',sk:'sa_layering'},
+  {t:'Fotopolimerizar cada incremento ≤2 mm; evitar bolhas na margem.',sk:'sa_curing'},
+  {t:'Acabamento com discos/tiras; polimento alto brilho (brilho = longevidade estética).',sk:'sa_polish'},
+  {t:'Oclusão em MI, protrusão e lateralidade; eliminar prematuridades sem achatar anatomia.',sk:'sa_occlusion'},
+  {t:'Orientar higiene interdental e placa noturna se bruxismo; retorno para retoque de brilho.',sk:'sa_patient_ed'}
 ],
-byAge:[a('teen','Aguardar estabilização gengival pós-ortodontia.'),a('adult','Mock-up opcional para expectativa; controlar bruxismo.'),a('elder','Avaliar desgaste severo — pode precisar aumento vertical.')],
-tip:'Tutorial estético: cor com dente úmido no início — após isolar, a referência muda.'},
+byAge:[a('teen','Aguardar estabilização gengival pós-ortodontia; crescimento pode alterar linha do sorriso.'),a('adult','Mock-up reduz retrabalho; controlar bruxismo.'),a('elder','Desgaste severo pode exigir aumento de DVO antes da faceta.')],
+tip:'Regra de ouro estético: cor com dente úmido → mock-up → esmalte preservado → oclusão em protrusão.'},
 
 {id:'hipersensibilidade',cat:'dent',icon:'shield',ps:'sp_sensitive',
-name:'Hipersensibilidade dentinária',short:'Dessensibilização de raízes expostas sensíveis a frio, doce e toque.',
-indic:'Sensibilidade em raízes expostas por recessão, desgaste ou erosão.',
+name:'Hipersensibilidade dentinária',short:'Tutorial: excluir causas graves, tratar estímulo e controlar recessão/erosão.',
+indic:'Dor breve a frio, doce ou toque em raízes expostas por recessão, desgaste ou erosão — após excluir cárie/pulpite.',
 contra:[
-  ca('info','Diagnóstico diferencial','Tratar sem investigar a causa','Excluir cárie, fratura e pulpite antes de dessensibilizar.'),
-  ca('allergy','Componente do dessensibilizante','Produto com alergia conhecida','Trocar para alternativa sem o componente alergênico.')
+  ca('info','Diagnóstico diferencial','Dessensibilizar sem investigar','Excluir cárie, fratura, fenda cervical, pulpite e dor referida antes de tratar como “sensibilidade”.'),
+  ca('info','Causa não controlada','Só produto tópico sem corrigir escovação/dieta/refluxo','Sem controle da causa, a recidiva é quase certa.'),
+  ca('allergy','Componente do dessensibilizante','Produto com alergia conhecida','Trocar para alternativa (verniz, oxalato, adesivo, ionômero).')
 ],
-equip:[e('Kit de exame'),e('Dessensibilizantes','verniz fluoretado, oxalato, nitrato de potássio, adesivo'),e('Microbrush e algodão'),e('Sugador'),e('EPI completo')],
+equip:[e('Kit de exame e sonda'),e('Dessensibilizantes','verniz fluoretado, oxalato, nitrato de potássio, adesivo'),e('Ionômero / resina fluida','lesões cervicais cavitadas'),e('Microbrush e algodão'),e('Sugador'),e('EPI completo')],
 steps:[
-  {t:'Excluir cárie, fratura e pulpite.',sk:'sa_diagnosis_dd'},
-  {t:'Profilaxia leve e secagem.',sk:'sa_plaque'},
-  {t:'Isolamento relativo.',sk:'sa_relative_iso'},
-  {t:'Aplicar dessensibilizante conforme o produto.',sk:'sa_desensitize'},
-  {t:'Repetir em sessões; monitorar resposta.',sk:'sa_desensitize'},
-  {t:'Orientar dentifrício dessensibilizante e controle das causas.',sk:'sa_desensitize'}
+  {t:'Anamnese da dor: estímulo, duração, espontaneidade — diferenciar de pulpite.',sk:'sa_diagnosis_dd'},
+  {t:'Exame: recessão, abrasão, erosão, fratura, percussão e teste térmico se dúvida.',sk:'sa_diagnosis_dd'},
+  {t:'Profilaxia leve e secagem relativa da área.',sk:'sa_plaque'},
+  {t:'Isolamento relativo; aplicar dessensibilizante conforme bula (verniz/oxalato/adesivo).',sk:'sa_desensitize'},
+  {t:'Se cavidade cervical: restaurar com ionômero ou resina fluida após adesão.',sk:'sa_desensitize'},
+  {t:'Orientar: dentifrício dessensibilizante 2×/dia, escova macia, dieta pouco ácida, refluxo se houver.',sk:'sa_desensitize'},
+  {t:'Reavaliar em 2–4 semanas; se persistir, reinvestigar (pulpite? fratura?).',sk:'sa_desensitize'}
 ],
-byAge:[a('adult','Frequente por recessão; corrigir técnica de escovação.'),a('elder','Verniz fluoretado periódico ajuda muito.')],
-tip:'Trate a causa — escovação traumática, refluxo e dieta ácida perpetuam o problema.'},
+byAge:[a('adult','Frequente por recessão e escovação horizontal; corrigir técnica.'),a('elder','Verniz periódico + flúor para cárie radicular associada.')],
+tip:'Hierarquia: excluir doença → ocluir túbulos → eliminar causa. Produto sozinho não cura escovação traumática.'},
 
 {id:'canal-uni',cat:'endo',icon:'pulse',ps:'sp_canal',
 name:'Tratamento de canal — unirradicular',short:'Tutorial endodôntico: acesso, comprimento de trabalho, irrigação e obturação.',
@@ -1529,24 +1628,27 @@ indic:'Pulpite irreversível ou necrose em dente unirradicular restaurável (inc
 contra:[
   ...alertEndocardite(),
   ...alertAnestesiaCV(),
-  ca('allergy','Hipoclorito de sódio','Irrigação com NaOCl em alérgico confirmado','Alternativa: clorexidina 2% ou cloreto de salina — nunca misturar CHX e NaOCl na mesma sessão.'),
+  ca('allergy','Hipoclorito de sódio','Irrigação com NaOCl em alérgico confirmado','Alternativa: clorexidina 2% ou soro — nunca misturar CHX e NaOCl na mesma sessão (precipitado tóxico).'),
+  ca('info','Sem isolamento absoluto','Instrumentar/irrigar sem dique','AAE: dique é padrão de cuidado — protege de aspiração, contaminação e extrusão de irrigante. Sem dique: não inicie irrigação.'),
+  ca('info','Ápice aberto / perfuração / fratura','NaOCl concentrado com risco de extrusão','Diluir NaOCl ou usar irrigante alternativo; agulha lateralizada frouxa; pressão suave com refluxo visível.'),
   ca('info','Dente irrestaurável','Endodontia sem plano de restauração definitiva','Sem coroa/onlay em molar ou pilar comprometido: avaliar extração vs custo-benefício.'),
   ...alertDiabetes()
 ],
-equip:[e('Kit de exame, anestesia e isolamento absoluto'),e('Brocas de acesso'),e('Limas manuais e/ou rotatórias'),e('Localizador apical e radiografias'),e('NaOCl, EDTA e soro fisiológico'),e('Seringa de irrigação com agulha lateralizada'),e('Cones de papel absorvente'),e('Guta-percha e cimento endodôntico'),e('Material de restauração de acesso'),e('EPI completo')],
+equip:[e('Kit de exame, anestesia e isolamento absoluto','dique obrigatório'),e('Brocas de acesso'),e('Limas manuais e/ou rotatórias'),e('Localizador apical e radiografias'),e('NaOCl (irrigante preferencial), EDTA e soro'),e('Seringa com agulha lateralizada frouxa','nunca travar no canal'),e('Cones de papel absorvente'),e('Guta-percha e cimento endodôntico'),e('Material de restauração definitiva do acesso'),e('EPI completo')],
 steps:[
-  {t:'Revisar anamnese; administrar profilaxia de endocardite SOMENTE se alto risco AHA documentado.',sk:'sa_endo_review'},
-  {t:'Anestesiar, isolar com dique e abrir câmara pulpar com visão direta.',sk:'sa_endo_access'},
-  {t:'Localizar todos os canais; patência com lima fina.',sk:'sa_endo_patency'},
+  {t:'Revisar anamnese; profilaxia de endocardite SOMENTE se alto risco AHA documentado.',sk:'sa_endo_review'},
+  {t:'Anestesiar e isolar com dique ANTES de qualquer irrigação — padrão AAE.',sk:'sa_dam'},
+  {t:'Abrir câmara pulpar com visão direta; remover teto e cárie.',sk:'sa_endo_access'},
+  {t:'Localizar todos os canais; patência com lima fina (#08–10).',sk:'sa_endo_patency'},
   {t:'Determinar comprimento de trabalho (localizador eletrônico + radiografia de conferência).',sk:'sa_working_length'},
-  {t:'Instrumentar com limas progressivas; irrigar a CADA troca (NaOCl + EDTA final conforme protocolo).',sk:'sa_file'},
-  {t:'Secar com cones de papel; verificar ausência de exsudação.',sk:'sa_dry_canal'},
-  {t:'Obturar com guta-percha + cimento (técnica do condensador ou injetada).',sk:'sa_condenser'},
-  {t:'Radiografia final para avaliar extensão da obturação.',sk:'sa_endo_final_rx'},
-  {t:'Restaurar acesso de forma hermética — planejar coroa se indicado.',sk:'sa_access_restore'}
+  {t:'Instrumentar progressivamente; irrigar a CADA troca com NaOCl (agulha frouxa, refluxo visível); EDTA final para smear layer.',sk:'sa_file'},
+  {t:'Secar com cones de papel; verificar ausência de exsudação — não obturar canal úmido.',sk:'sa_dry_canal'},
+  {t:'Obturar com guta-percha + cimento até 0–2 mm do ápice; evitar extrusão rotineira de cimento.',sk:'sa_condenser'},
+  {t:'Radiografia final: extensão, densidade e ausência de vazios.',sk:'sa_endo_final_rx'},
+  {t:'Restaurar o acesso de forma hermética o mais cedo possível — planejar coroa se indicado.',sk:'sa_access_restore'}
 ],
-byAge:[a('teen','Ápice aberto: apexificação com MTA — protocolo diferente.'),a('adult','Padrão; planejar restauração definitiva (coroa em posteriores destruídos).'),a('elder','Canais calcificados: paciência, microscópio/lupa se disponível.')],
-tip:'Comprimento de trabalho correto + irrigação abundante = base do sucesso — não obturar canal úmido ou curto.'},
+byAge:[a('teen','Ápice aberto: apexificação com MTA ou regeneração pulpar — protocolo diferente.'),a('adult','Padrão; planejar restauração definitiva (coroa em posteriores destruídos).'),a('elder','Canais calcificados: paciência, microscópio/lupa se disponível.')],
+tip:'AAE em uma frase: dique → CT correto → NaOCl com agulha frouxa → obturar seco → selar coroa cedo.'},
 
 {id:'canal-multi',cat:'endo',icon:'pulse',ps:'sp_canal_multi',
 name:'Tratamento de canal — multirradicular',short:'Tutorial para molares: localizar todos os canais, desinfetar e obturar.',
@@ -1554,23 +1656,24 @@ indic:'Pulpite irreversível ou necrose em molares e pré-molares multirradicula
 contra:[
   ...alertEndocardite(),
   ...alertAnestesiaCV(),
-  ca('info','Abertura limitada / baixa visibilidade','Forçar acesso sem magnificação em molar','Acesso inadequado aumenta risco de fratura de instrumento e canal não localizado — use lupa/microscópio se possível.'),
+  ca('info','Sem dique / baixa visibilidade','Forçar acesso sem isolamento ou magnificação','Dique obrigatório. Acesso inadequado aumenta fratura de lima e canal perdido — use lupa/microscópio se possível.'),
   ca('info','Fratura radicular ou perda óssea extensa','Iniciar endo sem tomografia em caso complexo','CBCT fortemente recomendada em retração, suspeita de fratura ou anatomia atípica.'),
+  ca('info','Risco de extrusão de irrigante','Agulha travada ou pressão forte no ápice','Amplie o canal o suficiente para agulha frouxa; irrigue com refluxo visível; dilua NaOCl se ápice aberto.'),
   ...alertDiabetes()
 ],
-equip:[e('Kit de exame, anestesia e isolamento'),e('Brocas de acesso para molares'),e('Limas e sistema rotatório/reciprocante'),e('Localizador apical'),e('NaOCl, EDTA e ativação ultrassônica opcional'),e('Cones de papel e guta-percha'),e('Material de restauração / preparo para coroa'),e('EPI completo')],
+equip:[e('Kit de exame, anestesia e isolamento absoluto'),e('Brocas de acesso para molares'),e('Limas e sistema rotatório/reciprocante'),e('Localizador apical'),e('NaOCl, EDTA e ativação ultrassônica opcional'),e('Agulha lateralizada frouxa'),e('Cones de papel e guta-percha'),e('Material de restauração / preparo para coroa'),e('EPI completo')],
 steps:[
   {t:'Profilaxia de endocardite apenas se alto risco AHA — documentar.',sk:'sa_antibiotic'},
-  {t:'Anestesiar e isolar; acesso amplo na câmara pulpar.',sk:'sa_endo_access'},
+  {t:'Anestesiar e isolar com dique; acesso amplo na câmara pulpar.',sk:'sa_endo_access'},
   {t:'Localizar TODAS as entradas (atenção ao MV2 em superiores).',sk:'sa_mv2'},
   {t:'Patência e comprimento de trabalho em cada canal — registro individual.',sk:'sa_working_length'},
-  {t:'Instrumentar e irrigar canal a canal; não misturar irrigantes incompatíveis.',sk:'sa_file'},
-  {t:'Secar cada canal; obturar individualmente.',sk:'sa_guttapercha'},
+  {t:'Instrumentar e irrigar canal a canal com NaOCl; não misturar irrigantes incompatíveis (CHX×NaOCl).',sk:'sa_file'},
+  {t:'Secar cada canal; obturar individualmente até 0–2 mm do ápice.',sk:'sa_guttapercha'},
   {t:'Radiografia final — verificar todos os canais.',sk:'sa_endo_final_rx'},
-  {t:'Restaurar e planejar coroa (molares endo tratados têm alto risco de fratura).',sk:'sa_access_restore'}
+  {t:'Restaurar cedo e planejar coroa (molares endo tratados têm alto risco de fratura).',sk:'sa_access_restore'}
 ],
 byAge:[a('adult','MV2 é a causa mais comum de falha — procure sistematicamente.'),a('elder','Calcificação e curvaturas: reduzir velocidade rotatória; paciência.')],
-tip:'Tutorial molar: se não achou todos os canais, pare e amplie o acesso antes de instrumentar.'},
+tip:'Tutorial molar: dique → ache TODOS os canais → irrigue sem travar a agulha → coroa cedo.'},
 
 {id:'retratamento',cat:'endo',icon:'reset',ps:'sp_retx',
 name:'Retratamento endodôntico',short:'Tutorial de reintervenção: remover obturação antiga, desinfetar e reobturar.',
@@ -1585,15 +1688,15 @@ equip:[e('Kit de exame, anestesia e isolamento'),e('Brocas para remover restaura
 steps:[
   {t:'Radiografia/tomografia para excluir fratura vertical e planejar acesso.',sk:'sa_cbct'},
   {t:'Profilaxia endocardite se alto risco AHA.',sk:'sa_antibiotic'},
-  {t:'Remover restauração/coroa; reacessar com visão ampla.',sk:'sa_remove_obturation'},
+  {t:'Isolar com dique; remover restauração/coroa; reacessar com visão ampla.',sk:'sa_remove_obturation'},
   {t:'Remover material obturador (solvente + limas ultrassônicas/rotatórias).',sk:'sa_remove_obturation'},
-  {t:'Renegociar canais até comprimento de trabalho; irrigar abundantemente.',sk:'sa_file'},
+  {t:'Renegociar canais até comprimento de trabalho; irrigar abundantemente (NaOCl + EDTA).',sk:'sa_file'},
   {t:'Medicação intracanal (Ca(OH)₂) entre sessões se exsudação/inflamação.',sk:'sa_intracanal_med'},
-  {t:'Reobturar e radiografar.',sk:'sa_endo_final_rx'},
-  {t:'Restaurar de forma hermética — coroa se indicado.',sk:'sa_access_restore'}
+  {t:'Reobturar e radiografar (0–2 mm do ápice, sem vazios).',sk:'sa_endo_final_rx'},
+  {t:'Restaurar de forma hermética o mais cedo possível — coroa se indicado.',sk:'sa_access_restore'}
 ],
 byAge:[a('adult','Mais complexo que tratamento primário — tempo e custo maiores.'),a('elder','Degraus, calcificações e coroas antigas aumentam dificuldade.')],
-tip:'Antes de retratar: descarte fratura vertical com CBCT — retratamento nela falha previsivelmente.'},
+tip:'Antes de retratar: descarte fratura vertical com CBCT. Sem dique e sem selamento coronal precoce, a recontaminação é previsível.'},
 
 {id:'rar',cat:'perio',icon:'perio',ps:'sp_perio',
 name:'Raspagem e alisamento radicular (RAR)',short:'Tutorial periodontal: desbridamento subgengival por quadrante com reavaliação.',
@@ -1615,8 +1718,8 @@ steps:[
   {t:'Orientar higiene rigorosa — sucesso depende 50% do paciente.',sk:'sa_hygiene_ed'},
   {t:'Reavaliar em 4–6 semanas; indicar manutenção ou cirurgia se bolsas persistirem.',sk:'sa_perio_reeval'}
 ],
-byAge:[a('adult','Dividir em quadrantes; sessões de 45–60 min.'),a('elder','Recessões, anticoagulação e hipersensibilidade — anestesia adequada.')],
-tip:'RAR não substitui higiene caseira — tutorial: trate o paciente E ensine escovação/fio diários.'},
+byAge:[a('adult','Dividir em quadrantes; sessões de 45–60 min; reavaliar 4–6 semanas após fase ativa.'),a('elder','Recessões, anticoagulação e hipersensibilidade — anestesia adequada.')],
+tip:'Ciclo periodontal: higiene → RAR por quadrante → reavaliação 4–6 sem → manutenção 3–6 meses. Sem higiene caseira, a RAR fracassa.'},
 
 {id:'profilaxia-supra',cat:'perio',icon:'brush',ps:'sp_perio_supra',
 name:'Raspagem supragengival (manutenção)',short:'Tutorial de manutenção periodontal: cálculo acima da gengiva em paciente em tratamento.',
@@ -1639,252 +1742,264 @@ byAge:[a('teen','Comum com aparelho — reforçar higiene em braquetes.'),a('adu
 tip:'Diferença-chave: Profilaxia (Diagnóstico) = paciente sem periodontite; esta ficha = manutenção; RAR = bolsa profunda.'},
 
 {id:'gengivectomia',cat:'perio',icon:'scalpel',ps:'sp_gingivectomy',
-name:'Gengivectomia / gengivoplastia',short:'Tutorial cirúrgico gengival: remoção de excesso e remodelação estética/funcional.',
-indic:'Aumento de coroa clínica, bolsas supraósseas superficiais e remodelação estética após fase higiênica.',
+name:'Gengivectomia / gengivoplastia',short:'Tutorial: só após fase higiênica; diferenciar excesso gengival de defeito ósseo.',
+indic:'Aumento de coroa clínica, bolsas supraósseas superficiais e remodelação estética após controle de inflamação.',
 contra:[
   ...alertAnticoag(),
   ...alertEndocardite(),
-  ca('info','Inflamação gengival ativa','Cirurgia eletiva em tecido inflamado','Controlar gengivite (fase I) antes da cirurgia eletiva — margem sangrante dificulta e piora resultado.'),
-  ca('info','Defeito ósseo subjacente','Gengivectomia isolada com perda óssea','Se há componente ósseo: cirurgia a retalho com osteoplastia/osteotomia — gengivectomia sozinha não resolve.')
+  ca('info','Inflamação gengival ativa','Cirurgia eletiva em tecido inflamado','Fase I (higiene/RAR) primeiro — margem sangrante piora resultado e cicatrização.'),
+  ca('info','Defeito ósseo subjacente','Gengivectomia isolada com perda óssea','Bolsa infraóssea exige retalho + osteoplastia/osteotomia — gengivectomia sozinha não resolve.'),
+  ca('info','Espaço biológico / estética anterior','Corte agressivo sem planejamento estético','Marcar com sonda; respeitar biologia e simetria do sorriso.')
 ],
 equip:[e('Kit de exame e anestesia'),e('Sonda e marcador de bolsa'),e('Bisturi / laser / electrocoagulação'),e('Curetas'),e('Cimento cirúrgico'),e('Gaze e sugador'),e('EPI completo')],
 steps:[
-  {t:'Confirmar indicação: excesso gengival sem defeito ósseo profundo.',sk:'sa_ging_mark'},
-  {t:'Profilaxia endocardite se alto risco AHA.',sk:'sa_antibiotic'},
-  {t:'Anestesiar; marcar bolsas/limites com sonda.',sk:'sa_ging_mark'},
-  {t:'Incisão em bisel removendo tecido excessivo.',sk:'sa_ging_incision'},
-  {t:'Gengivoplastia para contorno harmonioso.',sk:'sa_gingivoplasty'},
-  {t:'Raspagem radicular nas áreas expostas se indicado.',sk:'sa_scaler'},
-  {t:'Hemostasia; cimento cirúrgico se necessário.',sk:'sa_surg_cement'},
-  {t:'Orientações pós-op; remover cimento em 7–10 dias.',sk:'sa_patient_ed'}
+  {t:'Confirmar: excesso gengival / bolsa supraóssea — sem defeito ósseo profundo na Rx/sondagem.',sk:'sa_ging_mark'},
+  {t:'Profilaxia endocardite se alto risco AHA; plano hemostático se anticoagulado.',sk:'sa_antibiotic'},
+  {t:'Anestesiar; marcar profundidade das bolsas e linha de corte externa.',sk:'sa_ging_mark'},
+  {t:'Incisão em bisel externo removendo tecido excessivo (ângulo que favorece cicatrização).',sk:'sa_ging_incision'},
+  {t:'Gengivoplastia: contorno festonado harmonioso e fisiológico.',sk:'sa_gingivoplasty'},
+  {t:'Raspagem radicular nas superfícies recém-expostas se houver cálculo.',sk:'sa_scaler'},
+  {t:'Hemostasia; cimento cirúrgico se necessário para proteção.',sk:'sa_surg_cement'},
+  {t:'Pós-op: higiene suave, dieta; remover cimento em 7–10 dias; reforçar escovação.',sk:'sa_patient_ed'}
 ],
-byAge:[a('teen','Aumento por aparelho ou fenitoína — investigar causa.'),a('adult','Estética e aumento de coroa clínica funcional.')],
-tip:'Se sonda mostra bolsa óssea profunda, mude o plano — gengivectomia não trata periodontite avançada.'},
+byAge:[a('teen','Aumento por aparelho ou fenitoína — tratar a causa sistêmica/local.'),a('adult','Estética e aumento de coroa clínica funcional.')],
+tip:'Sonda + Rx decidem: supraóssea → gengivectomia; infraóssea → retalho. Inflamação ativa = ainda não opere.'},
 
 {id:'exodontia',cat:'surg',icon:'scalpel',ps:'sp_exo',
-name:'Exodontia simples',short:'Tutorial cirúrgico básico: anestesia, luxação, extração e hemostasia.',
+name:'Exodontia simples',short:'Tutorial cirúrgico: imagem, anestesia, luxação controlada, hemostasia e pós-op escrito.',
 indic:'Dente irrecuperável, indicação ortodôntica/protética, periodontite avançada ou infecção com dente extraível.',
 contra:[
   ...alertMRONJ(),
   ...alertAnticoag(),
   ...alertAnestesiaCV(),
   ...alertEndocardite(),
-  ca('allergy','Látex','Luvas e materiais com látex no campo','Nitrilo/neoprene em todo o campo operatório.')
+  ...alertDiabetes(),
+  ca('allergy','Látex','Luvas e materiais com látex no campo','Nitrilo/neoprene em todo o campo operatório.'),
+  ca('info','Raiz próxima ao seio / nervo','Forçar luxação sem imagem adequada','Radiografia obrigatória; se íntimo ao canal mandibular ou seio: planejar como cirurgia e orientar risco de comunicação/parestesia.')
 ],
 equip:[e('Kit de exame e radiografia'),e('Anestésico tópico + carpule, agulha e tubete'),e('Sindesmótomo'),e('Alavancas retas e anguladas'),e('Fórceps adequados ao dente'),e('Cureta cirúrgica'),e('Gaze, compressas e sugador'),e('Soro fisiológico'),e('Hemostáticos locais','se indicado'),e('Sutura','se necessário'),e('EPI completo')],
 steps:[
-  {t:'Radiografia e anamnese revisadas; confirme dente e lateralidade com paciente.',sk:'sa_exo_prep'},
+  {t:'Radiografia + anamnese; confirmar dente e lado COM o paciente (checklist de lateralidade).',sk:'sa_exo_prep'},
   {t:'Profilaxia endocardite SOMENTE se alto risco AHA — registrar.',sk:'sa_antibiotic'},
-  {t:'Verificar anticoagulação: INR (varfarina) ou plano para DOAC; não suspender sem médico.',sk:'sa_anticoag'},
-  {t:'Anestésico tópico + anestesia local/bloqueio; testar antes de iniciar.',sk:'sa_syringe'},
-  {t:'Sindesmotomia circular — descolar gengiva do colo.',sk:'sa_sindesmo'},
-  {t:'Luxar com alavanca (movimentos lentos, sem alavanca como alavanca de roda).',sk:'sa_elevator'},
-  {t:'Fórceps: luxação vestíbulo-lingual + tração na direção do raiz.',sk:'sa_forceps'},
-  {t:'Inspecionar raízes íntegras; curetar alvéolo; irrigar.',sk:'sa_alveol_curette'},
-  {t:'Hemostasia com compressa por 30 min; suturar se necessário.',sk:'sa_hemostasis'},
-  {t:'Prescrição e orientações pós-op por escrito (gelo, dieta fria, sinais de alerta).',sk:'sa_patient_ed'}
+  {t:'Anticoagulação: INR (varfarina) ou plano DOAC; não suspender sem médico; reforçar hemostasia local.',sk:'sa_anticoag'},
+  {t:'Aferir PA se cardiopata/HAS; aspirar antes de injetar; testar anestesia.',sk:'sa_syringe'},
+  {t:'Sindesmotomia circular — descolar gengiva do colo sem lacerar papilas.',sk:'sa_sindesmo'},
+  {t:'Luxar com alavanca: movimentos lentos e controlados — nunca usar como alavanca de roda no dente vizinho.',sk:'sa_elevator'},
+  {t:'Fórceps: luxação vestíbulo-lingual/palatina + tração no eixo da raiz.',sk:'sa_forceps'},
+  {t:'Inspecionar raízes íntegras; curetar alvéolo; irrigar; regularizar espículas ósseas.',sk:'sa_alveol_curette'},
+  {t:'Hemostasia: compressa firme 20–30 min; suturar se flap/laceração/anticoagulado.',sk:'sa_hemostasis'},
+  {t:'Orientação escrita: compressa, gelo intermitente 24 h, dieta fria/mole, NÃO bochechar/canudo/fumo 24–48 h (previne alveolite); sinais de alerta (sangramento, febre, dispneia).',sk:'sa_patient_ed'}
 ],
-byAge:[a('child','Pesar e calcular dose anestésica por kg — ver ficha pediátrica se decíduo.'),a('adult','Listar todos os medicamentos de uso contínuo.'),a('elder','Polifarmácia, anticoagulação, MRONJ — planejar com calma.')],
-tip:'Extração segura = diagnóstico + imagem + hemostasia planejada — nunca force um raiz sem radiografia.'},
+byAge:[a('child','Pesar e calcular dose anestésica por kg — ver ficha pediátrica se decíduo.'),a('adult','Listar medicamentos contínuos; consentimento de risco (fratura, comunicação).'),a('elder','Polifarmácia, anticoagulação, MRONJ — planejar com calma.')],
+tip:'Extração segura = imagem + lateralidade + luxação lenta + compressa + sem bochecho precoce.'},
 
 {id:'siso',cat:'surg',icon:'scalpel',ps:'sp_siso',
-name:'Exodontia de terceiro molar (siso incluso)',short:'Tutorial cirúrgico avançado: retalho, osteotomia e remoção com planejamento por imagem.',
-indic:'Pericoronarite recorrente, cárie, cisto, indicação ortodôntica ou impactação sintomática.',
+name:'Exodontia de terceiro molar (siso incluso)',short:'Tutorial avançado: CBCT se nervo em risco, retalho, osteotomia e prevenção de alveolite.',
+indic:'Pericoronarite recorrente, cárie, cisto, indicação ortodôntica ou impactação sintomática com benefício > risco.',
 contra:[
   ...alertMRONJ(),
   ...alertAnticoag(),
   ...alertAnestesiaCV(),
   ...alertEndocardite(),
-  ca('info','Relação com nervo alveolar inferior','Osteotomia sem avaliar imagem 3D quando indicado','Se panorâmica sugere contato íntimo com canal mandibular: CBCT fortemente recomendada antes de osteotomia.'),
-  ca('info','Infecção aguda com trismo','Cirurgia eletiva no pico infeccioso','Controlar infecção (drenagem/antibiótico) antes de cirurgia eletiva — exceto urgência bem indicada.')
+  ca('info','Relação com nervo alveolar inferior','Osteotomia sem avaliar imagem 3D quando indicado','Panorâmica com sinais de risco (escurecimento, desvio do canal, interrupção da cortical): CBCT antes de cortar. Consentimento escrito de parestesia.'),
+  ca('info','Infecção aguda com trismo','Cirurgia eletiva no pico infeccioso','Controlar infecção (drenagem/antibiótico) antes do eletivo — exceto urgência bem indicada.'),
+  ca('info','Assoalho sinusal / 2º molar','Odontossecção agressiva sem proteger vizinhos','Planejar cortes; proteger 2º molar e avaliar risco de comunicação oroantral em superiores.')
 ],
-equip:[e('Radiografia / CBCT quando indicada'),e('Anestesia (bloqueio do nervo alveolar inferior + lingual)'),e('Bisturi e descolador de periósteo'),e('Caneta cirúrgica e brocas'),e('Alavancas e fórceps'),e('Cureta e irrigação com soro'),e('Sutura e porta-agulha'),e('Sugador e gaze'),e('EPI completo')],
+equip:[e('Radiografia / CBCT quando indicada'),e('Anestesia (bloqueio do nervo alveolar inferior + lingual + bucal)'),e('Bisturi e descolador de periósteo'),e('Caneta cirúrgica e brocas sob irrigação'),e('Alavancas e fórceps'),e('Cureta e irrigação com soro'),e('Sutura e porta-agulha'),e('Sugador e gaze'),e('EPI completo')],
 steps:[
-  {t:'Estudar imagem: posição, raízes, relação com nervo e ramo mandibular.',sk:'sa_siso_plan'},
+  {t:'Estudar imagem: classificação de impacto, raízes, nervo, ramo e seio; consentimento informado.',sk:'sa_siso_plan'},
   {t:'Profilaxia endocardite se alto risco; plano hemostático para anticoagulados.',sk:'sa_antibiotic'},
-  {t:'Anestesia de bloqueio + infiltração; antissepsia extraoral.',sk:'sa_syringe'},
-  {t:'Incisão e retalho mucoperiosteal com exposição da coroa.',sk:'sa_surg_flap'},
-  {t:'Osteotomia conservadora para exposição; odontossecção se necessário.',sk:'sa_osteotomy'},
-  {t:'Luxação e remoção em fragmentos controlados.',sk:'sa_elevator'},
-  {t:'Curetagem, irrigação abundante, regularização óssea.',sk:'sa_alveol_curette'},
-  {t:'Sutura sem tensão; radiografia pós-op se fragmento suspeito.',sk:'sa_suture'},
-  {t:'Prescrição (analgesia, gelo, antibiótico se indicado) e retorno em 7 dias.',sk:'sa_patient_ed'}
+  {t:'Bloqueio + infiltração; antissepsia; posicionamento ergonômico.',sk:'sa_syringe'},
+  {t:'Incisão e retalho mucoperiosteal com exposição da coroa — sem tensão excessiva.',sk:'sa_surg_flap'},
+  {t:'Osteotomia conservadora sob irrigação contínua; odontossecção se necessário.',sk:'sa_osteotomy'},
+  {t:'Luxação e remoção em fragmentos controlados — não forçar raiz próxima ao nervo.',sk:'sa_elevator'},
+  {t:'Curetagem, irrigação abundante, regularização óssea; verificar fragmento residual.',sk:'sa_alveol_curette'},
+  {t:'Sutura sem tensão; radiografia pós-op se dúvida de fragmento.',sk:'sa_suture'},
+  {t:'Pós-op: gelo 24 h, analgesia, dieta mole, higiene suave; alerta para alveolite (dor latejante dia 3–5) e parestesia.',sk:'sa_patient_ed'}
 ],
-byAge:[a('teen','Raízes incompletas — indicação frequente; osso menos denso.'),a('adult','Osso denso; raízes completas — maior tempo cirúrgico.'),a('elder','Cicatrização mais lenta; riscos sistêmicos elevados.')],
-tip:'CBCT quando o nervo está em risco — tutorial: planejar a osteotomia na tela antes de cortar.'},
+byAge:[a('teen','Raízes incompletas e osso menos denso — janela favorável quando bem indicado.'),a('adult','Osso denso; raízes completas — maior tempo e edema.'),a('elder','Cicatrização mais lenta; riscos sistêmicos elevados — pesar indicação.')],
+tip:'Planeje na imagem, corte com irrigação, remova sem forçar o nervo, feche sem tensão e previna alveolite (sem canudo/fumo).'},
 
 {id:'abscesso',cat:'surg',icon:'drop',ps:'sp_abscess',
-name:'Drenagem de abscesso',short:'Tutorial de urgência: avaliar gravidade, drenar e tratar a causa.',
-indic:'Abscesso periapical/periodontal com flutuação, dor e edema localizado.',
+name:'Drenagem de abscesso',short:'Tutorial de urgência: triagem de via aérea, drenagem, causa e antibiótico seletivo.',
+indic:'Abscesso periapical/periodontal com flutuação, dor e edema localizado sem sinais de disseminação grave.',
 contra:[
-  ca('systemic','Sinais de disseminação (febre, trismo, edema cervical, disfagia, dispneia)','Drenar ambulatorialmente e “mandar para casa”','EMERGÊNCIA — encaminhar imediatamente ao hospital; risco de angina de Ludwig e obstrução de via aérea.'),
-  ca('systemic','Imunossupressão ou diabetes descompensada','Drenagem sem considerar antibiótico sistêmico','Antibiótico sistêmico frequentemente indicado APÓS drenagem; escolher conforme alergia: amoxicilina 500mg 8/8h × 7d; anafilaxia à penicilina: clindamicina 300mg 8/8h. Ajustar à gravidade e cultura se falha.'),
-  ca('info','Antibiótico sem drenagem em coleção flutuante','Só receitar antibiótico sem incisão','Abscesso flutuante precisa de drenagem — antibiótico sozinho não substitui.'),
-  ca('info','Anestesia em tecido infectado','Infiltração em área ácida e inflamada','Bloqueio regional é mais eficaz que infiltração no foco; complementar se necessário.'),
+  ca('systemic','Sinais de disseminação (febre alta, trismo, edema cervical, disfagia, dispneia, voz abafada)','Drenar ambulatorialmente e “mandar para casa”','EMERGÊNCIA — hospital. Risco de angina de Ludwig / obstrução de via aérea.'),
+  ca('systemic','Imunossupressão ou diabetes descompensada','Drenagem sem considerar antibiótico sistêmico','Antibiótico frequentemente indicado APÓS drenagem; amoxicilina 500 mg 8/8h × 7d; anafilaxia à penicilina: clindamicina 300 mg 8/8h — ajustar à gravidade.'),
+  ca('info','Antibiótico sem drenagem em coleção flutuante','Só receitar antibiótico sem incisão','Abscesso flutuante precisa de drenagem — antibiótico sozinho não esvazia pus.'),
+  ca('info','Anestesia em tecido infectado','Infiltração no foco ácido','Bloqueio regional é mais eficaz; complementar se necessário.'),
+  ca('info','Não tratar a causa','Drenar e liberar sem endo/extração','Recidiva previsível — trate o dente na mesma urgência ou nas 24–48 h.'),
   ...alertEndocardite()
 ],
 equip:[e('Kit de exame e anestesia'),e('Bisturi e lâmina'),e('Pinça hemostática'),e('Dreno de Penrose','se indicado'),e('Soro para irrigação'),e('Seringa e agulha'),e('Gaze e sugador'),e('EPI completo')],
 steps:[
-  {t:'Avaliar ABCDE: trismo, febre, extensão cervical, voz abafada — se presentes, NÃO proceder aqui; encaminhar.',sk:'sa_abscess_triage'},
+  {t:'Triagem ABCDE: via aérea, trismo, febre, extensão cervical — se grave, encaminhar AGORA.',sk:'sa_abscess_triage'},
   {t:'Anestesia de bloqueio regional (evitar infiltrar no abscesso).',sk:'sa_syringe'},
-  {t:'Incisão no ponto de maior flutuação — incisão ampla o suficiente para drenar.',sk:'sa_abscess'},
-  {t:'Explorar loa com pinça; irrigar com soro.',sk:'sa_abscess_drain'},
-  {t:'Dreno se coleção grande ou recidiva provável.',sk:'sa_abscess_drain'},
-  {t:'Tratar causa definitiva: endodontia de urgência ou extração do dente causador.',sk:'sa_abscess_cause'},
-  {t:'Antibiótico sistêmico se indicado (imunossuprimido, celulite, febre, falha de drenagem).',sk:'sa_abscess_abx'},
-  {t:'Orientar sinais de piora e retorno em 24–48 h.',sk:'sa_patient_ed'}
+  {t:'Incisão no ponto de maior flutuação — abertura suficiente para drenar.',sk:'sa_abscess'},
+  {t:'Explorar loa com pinça; irrigar com soro; aspirar pus.',sk:'sa_abscess_drain'},
+  {t:'Dreno de Penrose se coleção grande ou recidiva provável.',sk:'sa_abscess_drain'},
+  {t:'Tratar causa: abertura endodôntica de urgência ou extração do dente causador.',sk:'sa_abscess_cause'},
+  {t:'Antibiótico se imunossuprimido, celulite, febre ou falha de drenagem — nunca no lugar da drenagem.',sk:'sa_abscess_abx'},
+  {t:'Orientar sinais de piora e retorno em 24–48 h; revisar dreno.',sk:'sa_patient_ed'}
 ],
-byAge:[a('child','Infecções disseminam rápido — baixo limiar para hospital.'),a('adult','Drenagem + causa — antibiótico não substitui tratamento do dente.'),a('elder','Imunossenescência — vigilância maior.')],
-tip:'Tutorial urgência: drenar → tratar o dente → antibiótico só quando indicado — nessa ordem.'},
+byAge:[a('child','Infecções disseminam rápido — baixo limiar para hospital.'),a('adult','Drenagem + causa; antibiótico só quando indicado.'),a('elder','Imunossenescência — vigilância maior.')],
+tip:'Ordem de ouro: salvar via aérea → drenar → tratar o dente → antibiótico seletivo.'},
 
 {id:'sutura',cat:'surg',icon:'ruler',ps:'sp_suture',
-name:'Sutura',short:'Aproximação das bordas da ferida para cicatrização por primeira intenção.',
-indic:'Fechamento de feridas cirúrgicas, retalhos, alvéolos e lacerações.',
+name:'Sutura',short:'Tutorial: aproximar bordas sem tensão, escolher fio e remover no tempo certo.',
+indic:'Fechamento de feridas cirúrgicas, retalhos, alvéolos e lacerações com bordas viáveis.',
 contra:[
-  ca('allergy','Alergia ao material de sutura','Fio com componente alergênico','Optar por material alternativo.'),
-  ca('info','Tensão excessiva','Suturas muito tensas','Reposicionar o tecido antes — sutura tensa necrosa a borda.'),
-  ca('info','Infecção não drenada','Fechamento hermético de ferida infectada','Garantir drenagem antes de fechar.')
+  ca('allergy','Alergia ao material de sutura','Fio com componente alergênico','Material alternativo (nylon, vicryl, seda conforme protocolo).'),
+  ca('info','Tensão excessiva','Suturas muito tensas','Reposicionar o tecido antes — sutura tensa necrosa a borda e deiscência.'),
+  ca('info','Infecção não drenada','Fechamento hermético de ferida infectada','Garantir drenagem antes de fechar; às vezes fechamento parcial.'),
+  ca('info','Isquemia / necrose de retalho','“Puxar” retalho isquêmico','Aliviar tensão; avaliar retalho antes de forçar o ponto.')
 ],
 equip:[e('Porta-agulha'),e('Fio de sutura','reabsorvível ou não, conforme o caso'),e('Pinça anatômica'),e('Tesoura fina'),e('Gaze e sugador'),e('EPI completo')],
 steps:[
-  {t:'Garantir hemostasia e limpeza da ferida.',sk:'sa_suture_prep'},
-  {t:'Montar a agulha no porta-agulha (~⅓ da ponta).',sk:'sa_suture_prep'},
-  {t:'Passar a agulha perpendicularmente, de fora para dentro.',sk:'sa_suture'},
-  {t:'Aproximar as bordas sem tensão.',sk:'sa_suture'},
-  {t:'Dar os nós e ajustar.',sk:'sa_suture'},
-  {t:'Cortar as pontas (3–4 mm de folga).',sk:'sa_suture_remove'},
-  {t:'Orientar e agendar remoção (5–10 dias).',sk:'sa_suture_remove'}
+  {t:'Hemostasia e limpeza; alinhar bordas com pinça anatômica (não traumática demais).',sk:'sa_suture_prep'},
+  {t:'Escolher fio: reabsorvível (criança/área difícil de remover) vs não reabsorvível (controle de tensão).',sk:'sa_suture_prep'},
+  {t:'Montar agulha no porta-agulha (~⅓ distal da ponta); entrada perpendicular à mucosa.',sk:'sa_suture'},
+  {t:'Pontos simples interrompidos (padrão) ou contínuos se bem indicado; distância uniforme.',sk:'sa_suture'},
+  {t:'Aproximar bordas eversão leve — sem isquemia (borda não deve “embranquecer”).',sk:'sa_suture'},
+  {t:'Cortar pontas com 3–4 mm; limpar coágulos superficiais.',sk:'sa_suture_remove'},
+  {t:'Orientar higiene suave; remover não-reabsorvíveis em 5–10 dias (conforme local).',sk:'sa_suture_remove'}
 ],
 byAge:[a('child','Preferir fio reabsorvível para evitar nova sessão traumática.'),a('adult','Escolher o ponto conforme tensão e tipo de ferida.')],
-tip:'Pontos sob tensão necrosam a borda — reposicione o tecido antes de suturar.'},
+tip:'Bom ponto = bordas juntas sem palidez. Se está branco e tenso, solte e reposicione.'},
 
 {id:'coroa-total',cat:'prot',icon:'crown',ps:'sp_crown',
 name:'Coroa total (preparo e cimentação)',short:'Restauração indireta que recobre todo o dente.',
 indic:'Dentes muito destruídos, tratados endodonticamente, fraturados ou com grandes restaurações.',
 contra:[
-  ca('info','Suporte periodontal insuficiente','Coroa sobre periodontite ativa','Tratar a periodontia antes.'),
+  ca('info','Suporte periodontal insuficiente','Coroa sobre periodontite ativa','Tratar a periodontia antes — inflamação e perda óssea comprometem o término.'),
+  ca('info','Espaço biológico / término profundo','Preparo invadindo espaço biológico sem planejamento','Invadir o espaço biológico gera inflamação crônica; planejar alongamento ou respeitar distância biológica.'),
   ca('allergy','Níquel / cromo','Coroa metálica ou PFM com liga de níquel','Usar zircônia, dissilicato de lítio ou liga nobre.'),
   ca('drug','Eugenol antes de cimentação adesiva','Base de ZOE abaixo de cimento resinoso','O eugenol inibe a polimerização — usar ionômero ou cimento sem eugenol.')
 ],
-equip:[e('Kit de exame e anestesia'),e('Alta rotação com brocas de preparo'),e('Fio retrator gengival'),e('Material de moldagem / scanner'),e('Material para provisório'),e('Coroa definitiva (lab / CAD-CAM)'),e('Cimento definitivo'),e('Papel de articulação e polidores'),e('EPI completo')],
+equip:[e('Kit de exame e anestesia'),e('Alta rotação com brocas de preparo'),e('Fio retrator gengival'),e('Material de moldagem / scanner'),e('Material para provisório','proteger dentina e manter espaço'),e('Coroa definitiva (lab / CAD-CAM)'),e('Cimento definitivo'),e('Papel de articulação e polidores'),e('EPI completo')],
 steps:[
-  {t:'Anestesiar e selecionar cor.',sk:'sa_shade'},
-  {t:'Preparar dente (desgaste e término cervical).',sk:'sa_crown_prep'},
-  {t:'Afastamento gengival e moldagem / escaneamento.',sk:'sa_retraction'},
-  {t:'Confeccionar e cimentar provisório.',sk:'sa_provisional'},
-  {t:'Provar coroa definitiva: adaptação, oclusão, estética.',sk:'sa_try_in'},
-  {t:'Limpar, preparar e cimentar definitivamente.',sk:'sa_cementation'},
-  {t:'Remover excessos de cimento — especialmente subgengival.',sk:'sa_cement_excess'},
-  {t:'Orientar higiene (fio dental, passa-fio).',sk:'sa_pontic_hygiene'}
+  {t:'Anestesiar e selecionar cor (antes do preparo, com dente hidratado).',sk:'sa_shade'},
+  {t:'Preparar dente com término cervical nítido e redução adequada ao material.',sk:'sa_crown_prep'},
+  {t:'Afastamento gengival e moldagem / escaneamento — capturar término completo.',sk:'sa_retraction'},
+  {t:'Confeccionar e cimentar provisório bem adaptado (protege polpa e mantém contorno).',sk:'sa_provisional'},
+  {t:'Provar coroa definitiva: adaptação marginal, oclusão, contatos e estética.',sk:'sa_try_in'},
+  {t:'Limpar, preparar e cimentar definitivamente conforme o sistema.',sk:'sa_cementation'},
+  {t:'Remover excessos de cimento — especialmente subgengival (causa gengivite crônica).',sk:'sa_cement_excess'},
+  {t:'Orientar higiene (fio dental, passa-fio sob pônticos se ponte).',sk:'sa_pontic_hygiene'}
 ],
 byAge:[a('adult','Atenção ao paralelismo e término cervical.'),a('elder','Avaliar suporte periodontal e capacidade de higienização.')],
-tip:'Excesso de cimento subgengival causa inflamação crônica — remova com cuidado.'},
+tip:'Tríade: periodonto saudável → provisório hermético → zero excesso de cimento subgengival.'},
 
 {id:'ponte',cat:'prot',icon:'crown',ps:'sp_bridge',
-name:'Prótese parcial fixa (ponte)',short:'Substitui dentes ausentes apoiando-se em dentes pilares preparados.',
-indic:'Ausência de um ou poucos dentes com pilares saudáveis.',
+name:'Prótese parcial fixa (ponte)',short:'Tutorial: pilares saudáveis, paralelismo, provisório e higiene sob o pôntico.',
+indic:'Ausência de um ou poucos dentes com pilares periodontalmente estáveis e ferrule adequado.',
 contra:[
-  ca('info','Pilares com periodontite','Ponte sem tratar os pilares','Prognóstico ruim — tratar ou avaliar implante.'),
-  ca('info','Espaços muito longos','Sobrecarga nos pilares','Considerar implantes.'),
+  ca('info','Pilares com periodontite','Ponte sem tratar os pilares','Prognóstico ruim — tratar periodontia ou avaliar implante.'),
+  ca('info','Espaços longos / pilares fracos','Sobrecarga nos pilares','Regra clínica: quanto maior o vão, maior o risco — preferir implante(s) em espaços longos.'),
+  ca('info','Sem ferrule / dente endodontiado frágil','Pilar sem retenção coronal adequada','Ferrule ≥1,5–2 mm de dentina vertical melhora prognóstico; reforçar com pino só se indicado.'),
   ca('allergy','Alergia a metais','Estrutura com liga de níquel','Zircônia ou cerâmica sem metal.')
 ],
-equip:[e('Kit de exame e anestesia'),e('Alta rotação e brocas'),e('Fio retrator gengival'),e('Moldagem / scanner'),e('Provisório de ponte'),e('Ponte definitiva'),e('Cimento'),e('Papel de articulação'),e('EPI completo')],
+equip:[e('Kit de exame e anestesia'),e('Alta rotação e brocas'),e('Fio retrator gengival'),e('Moldagem / scanner'),e('Provisório de ponte'),e('Ponte definitiva'),e('Cimento'),e('Papel de articulação e passa-fio / superfloss'),e('EPI completo')],
 steps:[
-  {t:'Planejar pilares e número de elementos.',sk:'sa_bridge_plan'},
-  {t:'Anestesiar e preparar os pilares.',sk:'sa_syringe'},
-  {t:'Afastamento e moldagem / escaneamento.',sk:'sa_retraction'},
-  {t:'Confeccionar e cimentar provisório.',sk:'sa_provisional'},
-  {t:'Provar a estrutura: adaptação, oclusão, estética.',sk:'sa_try_in'},
-  {t:'Cimentar a ponte definitiva.',sk:'sa_cementation'},
-  {t:'Ajustar oclusão e orientar higiene com passa-fio.',sk:'sa_pontic_hygiene'}
+  {t:'Planejar pilares, vão e forma do pôntico (higiênico, ovoide) — foto e radiografia.',sk:'sa_bridge_plan'},
+  {t:'Anestesiar; preparar pilares com paralelismo e término nítido.',sk:'sa_syringe'},
+  {t:'Afastamento e moldagem / escaneamento — capturar todos os términos.',sk:'sa_retraction'},
+  {t:'Provisório estável e estético — protege polpa e mantém posição.',sk:'sa_provisional'},
+  {t:'Prova: adaptação marginal, oclusão, estética e higiene sob pôntico.',sk:'sa_try_in'},
+  {t:'Cimentar; remover TODO excesso de cimento (subgengival = periodontite iatrogênica).',sk:'sa_cementation'},
+  {t:'Ensinar passa-fio / superfloss sob o pôntico; agendar manutenção.',sk:'sa_pontic_hygiene'}
 ],
-byAge:[a('adult','Paralelismo dos pilares e integridade periodontal são fundamentais.'),a('elder','Capacidade de higienizar o pôntico é determinante.')],
-tip:'Ensine o passa-fio: limpar sob o pôntico é indispensável.'},
+byAge:[a('adult','Paralelismo e periodonto dos pilares são o prognóstico.'),a('elder','Se não higieniza o pôntico, a ponte falha — considere PPR ou implante.')],
+tip:'Ponte boa = pilares fortes + vão curto + pôntico higienizável + zero cimento residual.'},
 
 {id:'ppr',cat:'prot',icon:'tooth',ps:'sp_ppr',
-name:'Prótese parcial removível (PPR)',short:'Prótese removível com estrutura metálica e grampos.',
-indic:'Perda de vários dentes quando prótese fixa ou implante não são viáveis.',
+name:'Prótese parcial removível (PPR)',short:'Tutorial: desenho com apoios, retenção controlada e higiene dos pilares.',
+indic:'Perda de vários dentes quando prótese fixa ou implante não são viáveis; arcos com pilares estratégicos.',
 contra:[
-  ca('info','Higiene precária','PPR sem controle de higiene','Alto risco de cárie nos pilares — treinamento intensivo obrigatório.'),
+  ca('info','Higiene precária','PPR sem controle de higiene','Alto risco de cárie nos pilares — treino intensivo OBRIGATÓRIO antes/durante.'),
   ca('allergy','Metais (cobalto-cromo / níquel)','Estrutura alergênica','Titânio ou estrutura em resina.'),
-  ca('info','Pilares com mau prognóstico','PPR sem avaliar os pilares','Tratar ou extrair pilares comprometidos antes.')
+  ca('info','Pilares com mau prognóstico','PPR sem avaliar os pilares','Tratar ou extrair pilares condenados antes do desenho.'),
+  ca('info','Extensão distal sem suporte','Só grampos sem apoios oclusais','Apoios (nichos) transferem carga axial — sem apoio, o dente-pilar sofre.')
 ],
 equip:[e('Kit de exame'),e('Moldeiras e alginato'),e('Moldagem funcional individual'),e('Registro oclusal'),e('Estrutura metálica e dentes (lab)'),e('Alicates para grampos'),e('Papel de articulação'),e('EPI completo')],
 steps:[
-  {t:'Planejar desenho (apoios, grampos, conectores).',sk:'sa_ppr_design'},
-  {t:'Preparo de nichos e moldagem de estudo.',sk:'sa_rest_prep'},
-  {t:'Moldagem funcional e registro oclusal.',sk:'sa_bite_reg'},
-  {t:'Prova da estrutura metálica.',sk:'sa_framework_try'},
-  {t:'Prova dos dentes em cera.',sk:'sa_wax_try'},
-  {t:'Instalação: ajustar grampos, oclusão e pontos de pressão.',sk:'sa_ppr_deliver'},
-  {t:'Orientar colocação, remoção e higiene.',sk:'sa_patient_ed'}
+  {t:'Classificar o arco e desenhar: apoios, grampos, conectores maiores/menores — desenho no modelo.',sk:'sa_ppr_design'},
+  {t:'Preparar nichos de apoio e planos-guia; moldagem de estudo.',sk:'sa_rest_prep'},
+  {t:'Moldagem funcional precisa e registro oclusal.',sk:'sa_bite_reg'},
+  {t:'Prova da estrutura: assentamento passivo, sem balanço.',sk:'sa_framework_try'},
+  {t:'Prova dos dentes em cera: estética, fala e oclusão.',sk:'sa_wax_try'},
+  {t:'Instalação: ajuste de grampos (retenção firme, sem dor), oclusão e alívio de pontos de pressão.',sk:'sa_ppr_deliver'},
+  {t:'Orientar: colocar/remover sem forçar, higienizar prótese + pilares, dormir SEM a PPR.',sk:'sa_patient_ed'}
 ],
-byAge:[a('adult','Preservar os dentes remanescentes com apoios bem planejados.'),a('elder','Avaliar destreza manual para manuseio.')],
-tip:'Remover à noite e higienizar a prótese e os pilares todos os dias.'},
+byAge:[a('adult','Preservar remanescentes com apoios bem planejados.'),a('elder','Avaliar destreza manual; se não manuseia, simplifique o desenho.')],
+tip:'Apoio oclusal + higiene dos pilares + dormir sem a PPR = pilares vivos por mais tempo.'},
 
 {id:'protese-total',cat:'prot',icon:'tooth',ps:'sp_denture',
-name:'Prótese total (dentadura)',short:'Reabilitação de arco totalmente desdentado com prótese mucossuportada.',
-indic:'Perda total dos dentes de um ou ambos os arcos.',
+name:'Prótese total (dentadura)',short:'Tutorial: moldeira individual, border molding, DVO/RC e adaptação pós-instalação.',
+indic:'Edentulismo total de um ou ambos os arcos com mucosa apta à prótese mucossuportada.',
 contra:[
   ca('allergy','Acrílico (monômero residual — raro)','Instalar sem checar alergia','Teste de contato; encaminhar se necessário.'),
-  ca('info','Rebordo muito reabsorvido / hiperplasia','Prótese convencional sem preparo','Cirurgia pré-protética ou overdenture sobre implantes.'),
-  ca('info','Candidíase / estomatite protética','Nova prótese sem tratar infecção','Nistatina tópica antes da nova prótese.')
+  ca('info','Rebordo muito reabsorvido / hiperplasia','Prótese convencional sem preparo','Cirurgia pré-protética, condicionamento ou overdenture sobre implantes.'),
+  ca('info','Candidíase / estomatite protética','Nova prótese sem tratar infecção','Antifúngico tópico + higiene; dormir sem a prótese antiga.'),
+  ca('info','Moldeira longa demais','Moldagem com moldeira invadindo vestíbulo','Moldeira individual ~2–3 mm curta do vestíbulo; border molding define o selamento.')
 ],
-equip:[e('Kit de exame'),e('Moldeiras de estoque e individual'),e('Material de moldagem funcional'),e('Planos de orientação e registro'),e('Dentes artificiais (lab)'),e('Pontas de ajuste de acrílico'),e('Pasta evidenciadora e papel de articulação'),e('EPI completo')],
+equip:[e('Kit de exame'),e('Moldeiras de estoque e individual'),e('Compound / elastômero para border molding'),e('Material de moldagem funcional'),e('Planos de orientação e registro'),e('Dentes artificiais (lab)'),e('Pontas de ajuste de acrílico'),e('Pasta evidenciadora e papel de articulação'),e('EPI completo')],
 steps:[
-  {t:'Moldagem de estudo e moldeira individual.',sk:'sa_impression'},
-  {t:'Moldagem funcional das bordas.',sk:'sa_border_mold'},
-  {t:'Registro (DVO e relação central).',sk:'sa_bite_reg'},
-  {t:'Prova dos dentes em cera.',sk:'sa_wax_try'},
-  {t:'Instalação da prótese acrilizada.',sk:'sa_denture_deliver'},
-  {t:'Ajuste de pontos de pressão e oclusão.',sk:'sa_pressure_spot'},
-  {t:'Orientações e retornos periódicos.',sk:'sa_patient_ed'}
+  {t:'Moldagem preliminar → modelo → moldeira individual (2–3 mm curta do vestíbulo).',sk:'sa_impression'},
+  {t:'Border molding: moldar bordas com movimentos de lábio/bochecha/língua até selamento estável e arredondado.',sk:'sa_border_mold'},
+  {t:'Moldagem definitiva (pressão seletiva): remover espaçador, adesivo, material fluido, repetir movimentos funcionais.',sk:'sa_impression'},
+  {t:'Registro: plano oclusal, DVO e relação central — confirmar com fala e estética.',sk:'sa_bite_reg'},
+  {t:'Prova dos dentes em cera: estética, fonética e oclusão.',sk:'sa_wax_try'},
+  {t:'Instalação: evidenciar pontos de pressão, ajustar oclusão e flanges.',sk:'sa_denture_deliver'},
+  {t:'Orientar: adesão com saliva, higiene da prótese e mucosa, dormir SEM a prótese, retornos de ajuste.',sk:'sa_patient_ed'}
 ],
-byAge:[a('adult','Considerar overdenture sobre implantes.'),a('elder','Rebordo reabsorvido — overdenture sobre 2 implantes é o padrão ouro.')],
-tip:'A instabilidade da inferior é o maior desafio — overdenture sobre 2 implantes resolve.'},
+byAge:[a('elder','Mais comum; avaliar xerostomia (retenção cai) e destreza para higiene.'),a('adult','Overdenture sobre 2 implantes é o padrão ouro quando viável.')],
+tip:'Selamento vem do border molding bem feito — moldeira longa demais desloca; curta demais não sela.'},
 
 {id:'clareamento-cons',cat:'est',icon:'sparkle',ps:'sp_whiten',
-name:'Clareamento de consultório',short:'Peróxido em alta concentração aplicado e ativado no consultório.',
+name:'Clareamento de consultório',short:'Tutorial: barreira gengival, peróxido controlado e expectativa realista sobre restaurações.',
 indic:'Escurecimento dental com dentes e gengiva saudáveis e expectativas realistas.',
 contra:[
-  ca('systemic','Gestantes e lactantes','Clareamento durante gestação','Contraindicado — adiar para após o período de amamentação.'),
-  ca('info','Câmara pulpar ampla (< 15–16 anos)','Clareamento em jovem','Câmara ampla aumenta sensibilidade e risco de dano pulpar.'),
-  ca('info','Hipersensibilidade severa, cáries ativas','Clareamento sem tratamento prévio','Resolver antes: cáries, selamentos e restaurações comprometidas.'),
-  ca('info','Restaurações de resina / cerâmica anteriores','Clareamento esperando clarear as próteses','Resinas e cerâmicas NÃO clareiam — precisarão ser trocadas após o procedimento.')
+  ca('systemic','Gestantes e lactantes','Clareamento durante gestação','Contraindicado — adiar para após amamentação.'),
+  ca('info','Câmara pulpar ampla (< 15–16 anos)','Clareamento em jovem','Câmara ampla ↑ sensibilidade e risco pulpar — adiar.'),
+  ca('info','Hipersensibilidade severa, cáries ativas','Clareamento sem tratamento prévio','Resolver cáries, recessões expostas e restaurações infiltradas antes.'),
+  ca('info','Restaurações anteriores','Esperar que resina/cerâmica clareiem','NÃO clareiam — planejar troca APÓS o clareamento estabilizar (2 semanas).'),
+  ca('info','Barreira gengival inadequada','Gel em contato com mucosa','Queimadura química — barreira fotopolimerizada contínua e selada.')
 ],
 equip:[e('Kit de exame e escala de cores / câmera'),e('Profilaxia'),e('Afastador labial e barreira gengival'),e('Peróxido de hidrogênio em alta concentração'),e('Fotopolimerizador LED'),e('Dessensibilizante'),e('Sugador e gaze'),e('EPI completo')],
 steps:[
-  {t:'Registrar cor, avaliar indicação, excluir contraindicações.',sk:'sa_whiten_assess'},
-  {t:'Profilaxia e isolamento labial.',sk:'sa_whiten_iso'},
-  {t:'Aplicar barreira gengival e fotopolimerizar.',sk:'sa_gum_barrier'},
-  {t:'Aplicar gel clareador e ativar.',sk:'sa_whiten_gel'},
-  {t:'Repetir ciclos (geralmente 3 × 15 min).',sk:'sa_whiten_cycles'},
-  {t:'Remover gel, lavar e retirar barreira.',sk:'sa_whiten_remove'},
-  {t:'Aplicar dessensibilizante e registrar cor final.',sk:'sa_whiten_final'},
-  {t:'Dieta clara 48 h; orientar sensibilidade transitória.',sk:'sa_whiten_diet'}
+  {t:'Registrar cor (foto + escala); alinhar expectativa; excluir contraindicações.',sk:'sa_whiten_assess'},
+  {t:'Profilaxia sem pasta oleosa; isolamento labial.',sk:'sa_whiten_iso'},
+  {t:'Barreira gengival contínua; fotopolimerizar e testar selamento.',sk:'sa_gum_barrier'},
+  {t:'Aplicar gel conforme bula; ativar se protocolo do fabricante exigir.',sk:'sa_whiten_gel'},
+  {t:'Ciclos controlados (ex.: 3 × ~15 min) — não “esticar” além da bula.',sk:'sa_whiten_cycles'},
+  {t:'Remover gel, lavar e retirar barreira com cuidado.',sk:'sa_whiten_remove'},
+  {t:'Dessensibilizante; registrar cor final; orientar dieta clara 48 h e sensibilidade transitória.',sk:'sa_whiten_final'},
+  {t:'Agendar troca de restaurações estéticas após estabilização da cor (~14 dias).',sk:'sa_whiten_diet'}
 ],
 byAge:[a('teen','Aguardar maturidade dental (≥ 15–16 anos).'),a('adult','Trocar restaurações anteriores APÓS o clareamento.'),a('elder','Resposta pode ser menor; cuidado com recessões.')],
-tip:'A barreira gengival bem aplicada evita queimaduras — não economize nesse passo.'},
+tip:'Barreira perfeita + bula respeitada + restaurações trocadas depois = resultado previsível.'},
 
 {id:'clareamento-caseiro',cat:'est',icon:'drop',ps:'sp_whiten_home',
-name:'Clareamento caseiro supervisionado',short:'Moldeira e gel de baixa concentração para uso domiciliar.',
+name:'Clareamento caseiro supervisionado',short:'Tutorial: moldeira justa, dose mínima de gel e acompanhamento.',
 indic:'Clareamento gradual supervisionado, isolado ou associado ao de consultório.',
 contra:[
   ca('systemic','Gestantes e lactantes','Clareamento caseiro durante gestação','Contraindicado.'),
-  ca('info','Baixa colaboração / uso incorreto','Gel em excesso na gengiva','Orientar dose mínima; excesso irrita e não clareia mais rápido.'),
-  ca('info','Hipersensibilidade severa e lesões ativas','Clareamento sem tratamento prévio','Tratar antes; prescrever dessensibilizante concomitante.')
+  ca('info','Baixa colaboração / uso incorreto','Gel em excesso na gengiva','Dose mínima por dente; excesso irrita e não acelera.'),
+  ca('info','Moldeira frouxa ou com bordas longas','Gel escorrendo para a gengiva','Moldeira individual justa; aparar bordas que invadem mucosa.'),
+  ca('info','Hipersensibilidade severa e lesões ativas','Clareamento sem tratamento prévio','Tratar antes; dessensibilizante concomitante.')
 ],
 equip:[e('Kit de exame e registro de cor'),e('Moldagem para a moldeira'),e('Moldeira de clareamento (lab)'),e('Gel de peróxido de carbamida 10–16% / H2O2 3–6%'),e('Dessensibilizante domiciliar'),e('EPI completo')],
 steps:[
-  {t:'Avaliar e registrar a cor inicial.',sk:'sa_whiten_assess'},
-  {t:'Moldagem e confecção da moldeira individual.',sk:'sa_whiten_tray'},
-  {t:'Entregar gel e ensinar a dose correta (pequena por dente).',sk:'sa_whiten_dose'},
-  {t:'Orientar tempo de uso (2–4 h ou overnight) e duração.',sk:'sa_whiten_schedule'},
-  {t:'Higiene da moldeira e manejo da sensibilidade.',sk:'sa_whiten_care'},
-  {t:'Acompanhar em retornos periódicos.',sk:'sa_patient_ed'}
+  {t:'Avaliar e registrar a cor inicial; fotos.',sk:'sa_whiten_assess'},
+  {t:'Moldagem precisa e moldeira individual com reservatórios controlados.',sk:'sa_whiten_tray'},
+  {t:'Entregar gel e ensinar: gota pequena por dente — menos é mais.',sk:'sa_whiten_dose'},
+  {t:'Tempo de uso conforme bula (2–4 h ou overnight) e duração do ciclo.',sk:'sa_whiten_schedule'},
+  {t:'Higiene da moldeira; se ardência: reduzir tempo/concentração e usar dessensibilizante.',sk:'sa_whiten_care'},
+  {t:'Retornos para checar progresso, mucosa e adesão ao protocolo.',sk:'sa_patient_ed'}
 ],
 byAge:[a('teen','Apenas com indicação e supervisão.'),a('adult','Ótimo para manutenção pós-consultório.')],
-tip:'Menos gel é mais eficaz — excesso irrita a gengiva e não acelera o resultado.'},
+tip:'Menos gel + moldeira justa + retorno = clareamento seguro. Excesso só queima gengiva.'},
 
 {id:'ped-profilaxia',cat:'ped',icon:'brush',ps:'sp_ped_prophy',
 name:'Profilaxia infantil',short:'Limpeza adaptada à criança, com forte componente educativo.',
@@ -1919,27 +2034,28 @@ steps:[
   {t:'Dieta branda 4 h; não escovar até à noite.',sk:'sa_ped_fluor_care'},
   {t:'Definir intervalo de reaplicação conforme risco.',sk:'sa_ped_fluor_care'}
 ],
-byAge:[a('baby','Desde o 1º dente; eleição para < 5 anos.'),a('child','Reaplicações conforme risco; associar a selantes.'),a('teen','Indicado em aparelho ortodôntico.')],
-tip:'O verniz adere mesmo com leve umidade — ideal para manejo de bebês.'},
+byAge:[a('baby','Desde o 1º dente; eleição para < 5 anos (AAPD: verniz é intervenção de remineralização).'),a('child','Reaplicações conforme risco; associar a selantes em oclusais.'),a('teen','Indicado em aparelho ortodôntico.')],
+tip:'Verniz + selante = prevenção combinada: verniz remineraliza; selante protege fóssulas secas.'},
 
 {id:'ped-selante',cat:'ped',icon:'shield',ps:'sp_sealant',
 name:'Selante de fóssulas e fissuras',short:'Barreira resinosa nas fissuras dos molares para prevenir cárie oclusal.',
 indic:'Molares recém-irrompidos com sulcos retentivos em crianças com risco de cárie.',
 contra:[
-  ca('info','Umidade impossível de controlar','Selante resinoso em campo úmido','Usar ionômero (menos sensível à umidade) ou adiar.'),
-  ca('info','Cárie cavitada','Selar em vez de restaurar','Restauração é necessária — diagnóstico com sonda e radiografia.')
+  ca('info','Umidade impossível de controlar','Selante resinoso em campo úmido','Usar ionômero (menos sensível à umidade) ou adiar até isolamento viável.'),
+  ca('info','Cárie cavitada','Selar em vez de restaurar','Restauração é necessária — diagnóstico com sonda e radiografia. Selante só em superfície sã ou lesão não cavitada.')
 ],
 equip:[e('Kit de exame'),e('Selante resinoso ou ionomérico'),e('Ácido 37% e adesivo','para resinoso'),e('Isolamento absoluto','preferencialmente'),e('Microbrush e fotopolimerizador'),e('Papel de articulação'),e('EPI completo')],
 steps:[
-  {t:'Profilaxia da oclusal (sem pasta com óleo).',sk:'sa_sealant_prophy'},
-  {t:'Isolamento e secagem.',sk:'sa_dam'},
+  {t:'Confirmar indicação: oclusais sãs ou lesão NÃO cavitada em criança/adolescente de risco.',sk:'sa_sealant_prophy'},
+  {t:'Profilaxia da oclusal (sem pasta oleosa).',sk:'sa_sealant_prophy'},
+  {t:'Isolamento e secagem — umidade = falha adesiva.',sk:'sa_dam'},
   {t:'Condicionar 15–30 s, lavar e secar.',sk:'sa_etching'},
   {t:'Adesivo se indicado; fotopolimerizar.',sk:'sa_adhesive'},
-  {t:'Aplicar selante nas fissuras.',sk:'sa_sealant'},
-  {t:'Fotopolimerizar e conferir oclusão.',sk:'sa_curing'}
+  {t:'Aplicar selante nas fissuras sem bolhas.',sk:'sa_sealant'},
+  {t:'Fotopolimerizar, conferir retenção e oclusão; agendar revisão de integridade.',sk:'sa_curing'}
 ],
-byAge:[a('child','Selar 1ºs molares permanentes ao irromperem (6–7 anos).'),a('teen','Selar 2ºs molares ao irromperem (11–13 anos).')],
-tip:'Selante depende de superfície seca — o isolamento é tudo.'},
+byAge:[a('child','Priorizar 1ºs molares permanentes ao irromperem (6–7 anos).'),a('teen','Selar 2ºs molares ao irromperem (11–13 anos).')],
+tip:'AAPD: selante > verniz sozinho para prevenir cárie oclusal em molares — mas só com superfície seca e sem cavidade.'},
 
 {id:'ped-art',cat:'ped',icon:'kit2',ps:'sp_ped',
 name:'Tratamento Restaurador Atraumático (ART)',short:'Remoção de cárie com instrumentos manuais e restauração com ionômero — sem brocas.',
@@ -1958,8 +2074,8 @@ steps:[
   {t:'Remover excessos e conferir oclusão.',sk:'sa_occlusion'},
   {t:'Não comer por ~1 h.',sk:'sa_patient_ed'}
 ],
-byAge:[a('baby','Porta de entrada ideal — sem ruído, sem dor, sem agulha.'),a('child','Ótimo em saúde escolar e atendimento extraclínico.')],
-tip:'ART é a melhor primeira experiência odontológica — reduz o medo e preserva estrutura.'},
+byAge:[a('baby','Porta de entrada ideal — sem ruído, sem dor, sem agulha. AAPD: abordagens mínimas (ITR/ART) até restauração definitiva ou esfoliação.'),a('child','Ótimo em saúde escolar e atendimento extraclínico; reavaliar se polpa se tornar sintomática.')],
+tip:'ART/ITR é medida mínima válida — não substitui restauração convencional quando possível; exige acompanhamento de risco.'},
 
 {id:'ped-coroa-aco',cat:'ped',icon:'crown',ps:'sp_stcrown',
 name:'Coroa de aço inoxidável',short:'Coroa metálica pré-fabricada para molares decíduos muito destruídos.',
@@ -1978,8 +2094,8 @@ steps:[
   {t:'Cimentar com ionômero preenchendo a coroa.',sk:'sa_cementation'},
   {t:'Remover excessos, passar fio e conferir oclusão.',sk:'sa_occlusion'}
 ],
-byAge:[a('child','Alta longevidade até a esfoliação fisiológica.')],
-tip:'Em molares decíduos muito destruídos, a coroa de aço supera qualquer restauração direta.'},
+byAge:[a('child','Alta longevidade até a esfoliação. AAPD: preferida em lesões multi-face e pós-terapia pulpar. Técnica de Hall (sem preparo) pode ser opção quando indicada e com acompanhamento.')],
+tip:'Em molares decíduos muito destruídos ou pós-pulpotomia, a coroa de aço supera restauração direta em selamento e longevidade.'},
 
 {id:'ped-pulpotomia',cat:'ped',icon:'pulse',ps:'sp_pulp',
 name:'Pulpotomia',short:'Tutorial pulpar decíduo: remover polpa coronária e preservar vitalidade radicular.',
@@ -1987,92 +2103,95 @@ indic:'Cárie profunda/exposição pulpar em decíduo com polpa radicular ainda 
 contra:[
   ca('info','Hemorragia persistente (>5 min) após remoção coronária','Continuar pulpotomia','Sangramento contínuo indica comprometimento radicular — mudar para pulpectomia ou extração.'),
   ca('info','Necrose, fístula ou reabsorção interna/externa','Pulpotomia em necrose','Contraindicada — pulpectomia ou extração conforme caso.'),
-  ca('info','Formocresol','Usar formocresol como primeira escolha','Em desuso na maioria dos protocolos atuais (formaldeído). Preferir MTA, sulfato férrico 15,5% ou hidróxido de cálcio.')
+  ca('info','Formocresol ou Ca(OH)₂ como 1ª escolha','Usar formocresol / hidróxido de cálcio como medicação preferencial','AAPD 2024: preferir cimento silicato de cálcio (MTA / Biodentine). Formocresol em desuso; Ca(OH)₂ NÃO é recomendado para pulpotomia em decíduos.')
 ],
-equip:[e('Kit de exame, anestesia e isolamento absoluto'),e('Alta e baixa rotação + escavadores'),e('Algodão estéril e soro'),e('Medicação nos cotos','MTA, sulfato férrico 15,5% ou Ca(OH)₂'),e('Base de ionômero'),e('Coroa de aço inox'),e('EPI completo')],
+equip:[e('Kit de exame, anestesia e isolamento absoluto'),e('Alta e baixa rotação + escavadores'),e('Algodão estéril e soro'),e('Medicação nos cotos','MTA ou Biodentine (1ª escolha); sulfato férrico 15,5% se protocolo local'),e('Base de ionômero'),e('Coroa de aço inox','restauração de eleição pós-pulpotomia'),e('EPI completo')],
 steps:[
   {t:'Anestesiar e isolar absolutamente — campo seco é crítico.',sk:'sa_syringe'},
-  {t:'Remover toda cárie e teto pulpar.',sk:'sa_bur'},
-  {t:'Amputar polpa coronária com broca/escavador até câmara limpa.',sk:'sa_pulpotomy'},
+  {t:'Remoção seletiva de cárie quando possível; se exposição, avaliar IPT vs pulpotomia.',sk:'sa_excavator'},
+  {t:'Remover teto pulpar e amputar polpa coronária até câmara limpa.',sk:'sa_pulpotomy'},
   {t:'Hemostasia com algodão úmido sob pressão — deve parar em ~5 min.',sk:'sa_pulp_hemo'},
-  {t:'Aplicar MTA/sulfato férrico/Ca(OH)₂ nos orifícios radiculares conforme protocolo escolhido.',sk:'sa_pulp_med'},
+  {t:'Aplicar MTA ou Biodentine nos orifícios radiculares (preferência AAPD 2024).',sk:'sa_pulp_med'},
   {t:'Selar com base de ionômero.',sk:'sa_pulpotomy'},
-  {t:'Restaurar com coroa de aço inox para vedar hermeticamente.',sk:'sa_steel_crown'},
+  {t:'Restaurar com coroa de aço inox para vedar hermeticamente (especialmente lesões multi-face).',sk:'sa_steel_crown'},
   {t:'Orientar responsáveis e agendar controle radiográfico.',sk:'sa_ped_parent_ed'}
 ],
-byAge:[a('child','Procedimento de escolha em molar decíduo vital com cárie profunda.')],
-tip:'Tutorial decisório: hemostasia em 5 min = pulpotomia; sangramento contínuo = mude o plano.'},
+byAge:[a('child','Em cárie profunda vital: IPT ou pulpotomia com MTA/Biodentine aumentam sucesso vs capeamento direto e formocresol.')],
+tip:'AAPD: hemostasia em 5 min + MTA/Biodentine + coroa de aço. Formocresol e Ca(OH)₂ não são 1ª linha.'},
 
 {id:'ped-pulpectomia',cat:'ped',icon:'pulse',ps:'sp_pulp',
-name:'Pulpectomia',short:'Tutorial endo decíduo: remoção total da polpa e obturação com pasta REABSORVÍVEL.',
+name:'Pulpectomia',short:'Tutorial endo decíduo: instrumentação cuidadosa e pasta OBRIGATORIAMENTE reabsorvível.',
 indic:'Polpa radicular necrosada ou irreversivelmente comprometida em decíduo estratégico e restaurável.',
 contra:[
-  ca('info','Reabsorção radicular avançada','Pulpectomia em raiz quase esfoliada','Radiografia: se permanente irromperá em <6 meses, avaliar extração vs mantenedor.'),
-  ca('allergy','Iodo / iodofórmio (ex.: Vitapex)','Pasta com iodofórmio em alérgico ao iodo','Usar Ca(OH)₂ puro, ZOE ou pasta sem iodo — confirmar composição no rótulo.'),
-  ca('info','Infecção com perda óssea extensa','Manter dente como foco infeccioso','Avaliar extração + mantenedor de espaço se prognóstico ruim.')
+  ca('info','Reabsorção radicular avançada','Pulpectomia em raiz quase esfoliada','Se permanente irrompe em <6 meses: extração ± mantenedor.'),
+  ca('allergy','Iodo / iodofórmio (ex.: Vitapex)','Pasta com iodofórmio em alérgico ao iodo','Ca(OH)₂ puro, ZOE ou pasta sem iodo — confirmar rótulo.'),
+  ca('info','Infecção com perda óssea extensa','Manter dente como foco','Extração + mantenedor se prognóstico ruim.'),
+  ca('info','Pasta NÃO reabsorvível','Obturar decíduo com guta-percha/cimento permanente','ERRO GRAVE — bloqueia erupção do permanente. Só pasta reabsorvível.')
 ],
 equip:[e('Kit de exame, anestesia e isolamento'),e('Brocas de acesso'),e('Limas pediátricas'),e('Localizador / odontometria'),e('Irrigantes','NaOCl diluído, soro — CHX se alergia; não misturar com NaOCl'),e('Cones de papel'),e('Pasta REABSORVÍVEL','Vitapex, ZOE ou Ca(OH)₂'),e('Léntulo / seringa'),e('Coroa de aço inox'),e('EPI completo')],
 steps:[
-  {t:'Radiografia pré-operatória; confirmar indicativa e número de canais.',sk:'sa_xray'},
-  {t:'Anestesiar e isolar — acesso mínimo mas suficiente.',sk:'sa_syringe'},
-  {t:'Remover cárie e teto pulpar; localizar canais.',sk:'sa_endo_access'},
-  {t:'Odontometria (raízes curtas e curvas — cuidado apical).',sk:'sa_working_length'},
-  {t:'Instrumentar com limas finas; irrigar a cada troca.',sk:'sa_file'},
-  {t:'Secar com cones; obturar com pasta REABSORVÍVEL (léntulo/seringa).',sk:'sa_pulpectomy'},
-  {t:'Base de ionômero e coroa de aço inox.',sk:'sa_steel_crown'},
-  {t:'Radiografia de controle — pasta não deve extravasar além do ápice.',sk:'sa_ped_pulp_rx'}
+  {t:'Radiografia pré-op: canais, reabsorção, permanente sucessor e espaço.',sk:'sa_xray'},
+  {t:'Anestesiar (dose por peso) e isolar; acesso suficiente.',sk:'sa_syringe'},
+  {t:'Remover cárie e teto; localizar canais.',sk:'sa_endo_access'},
+  {t:'Odontometria curta e segura — raízes curvas; evitar extrusão apical.',sk:'sa_working_length'},
+  {t:'Instrumentar com limas finas; irrigar a cada troca (NaOCl diluído).',sk:'sa_file'},
+  {t:'Secar; obturar com pasta REABSORVÍVEL (léntulo/seringa) — conferir rótulo antes.',sk:'sa_pulpectomy'},
+  {t:'Base de ionômero + coroa de aço inox (selamento = sucesso).',sk:'sa_steel_crown'},
+  {t:'Rx de controle: pasta sem extravasamento grosseiro; acompanhar erupção do permanente.',sk:'sa_ped_pulp_rx'}
 ],
-byAge:[a('child','Pasta OBRIGATORIAMENTE reabsorvível — pasta fixa bloqueia erupção do permanente.')],
-tip:'Erro grave: pasta não reabsorvível em decíduo — sempre confira o rótulo antes de obturar.'},
+byAge:[a('child','Pasta reabsorvível + SSC. Sem selamento coronal, a pulpectomia falha.')],
+tip:'Checklist: dose por peso → pasta reabsorvível confirmada → SSC → Rx de controle.'},
 
 {id:'ped-exo',cat:'ped',icon:'scalpel',ps:'sp_ped_exo',
-name:'Exodontia de dente decíduo',short:'Tutorial pediátrico: extração delicada com dose por peso e proteção do germe permanente.',
+name:'Exodontia de dente decíduo',short:'Tutorial: peso→dose, radiografia do germe, luxação lenta e orientação aos pais.',
 indic:'Decíduo irrecuperável, retido, abscesso ou indicação ortodôntica.',
 contra:[
   ...alertAnestesiaCV(),
-  ca('info','Dose anestésica — CRÍTICO','Usar dose de adulto ou “meio tubete” sem pesar','Pesar SEMPRE. Lidocaína 2% com VC: máx. 4,4 mg/kg; sem VC: máx. 3–4 mg/kg. Somar epinefrina total. Registrar peso e dose no prontuário.'),
-  ca('info','Germe do permanente','Luxação com força excessiva','Radiografia prévia obrigatória; raízes decíduas finas e curvas — luxar devagar; nunca puxar com força bruta.'),
-  ca('allergy','Látex / anestésico','Sem alternativa no consultório','Mesmos protocolos da exodontia adulta; látex-free e anestésico alternativo se alergia documentada.')
+  ca('info','Dose anestésica — CRÍTICO','Usar dose de adulto ou “meio tubete” sem pesar','Pesar SEMPRE. Lidocaína 2% com VC: máx. 4,4 mg/kg. Somar epinefrina. Registrar peso e dose.'),
+  ca('info','Germe do permanente','Luxação com força excessiva','Rx prévia obrigatória; raízes finas/curvas — luxar devagar; preservar o germe.'),
+  ca('info','Espaço / erupção','Extrair sem plano de espaço','Se permanente longe: considerar mantenedor (ficha específica).'),
+  ca('allergy','Látex / anestésico','Sem alternativa','Látex-free e anestésico alternativo se alergia documentada.')
 ],
 equip:[e('Kit de exame e radiografia'),e('Anestésico tópico + carpule e agulha curta'),e('Sindesmótomo'),e('Alavancas infantis'),e('Fórceps pediátricos adequados'),e('Cureta e gaze'),e('Sugador e soro'),e('EPI completo')],
 steps:[
-  {t:'Pesar a criança; calcular dose máxima de anestésico ANTES de aspirar o carpule.',sk:'sa_ped_dose'},
-  {t:'Radiografia: confirmar raiz, reabsorção e posição do permanente.',sk:'sa_ped_exo_rx'},
-  {t:'Explicar com linguagem simples (dizer-mostrar-fazer).',sk:'sa_ped_welcome'},
-  {t:'Anestesia tópica + local; testar — nunca iniciar se dor.',sk:'sa_syringe'},
+  {t:'Pesar; calcular dose máxima ANTES de aspirar o carpule.',sk:'sa_ped_dose'},
+  {t:'Radiografia: raiz, reabsorção e posição do permanente.',sk:'sa_ped_exo_rx'},
+  {t:'Dizer-mostrar-fazer; consentimento com responsáveis.',sk:'sa_ped_welcome'},
+  {t:'Tópico + local; testar — nunca iniciar com dor.',sk:'sa_syringe'},
   {t:'Sindesmotomia suave ao redor do colo.',sk:'sa_sindesmo'},
   {t:'Luxação lenta com alavanca pequena — múltiplos movimentos leves.',sk:'sa_elevator'},
-  {t:'Fórceps: tração mínima na direção da curvatura radicular.',sk:'sa_forceps'},
-  {t:'Inspecionar raiz completa; hemostasia com gaze.',sk:'sa_hemostasis'},
-  {t:'Orientação escrita aos responsáveis (gelo, alimentação fria, sinais de alerta).',sk:'sa_ped_parent_ed'}
+  {t:'Fórceps: tração mínima no sentido da curvatura; inspecionar raiz completa.',sk:'sa_forceps'},
+  {t:'Hemostasia com gaze; orientar pais por escrito (gelo, alimentação fria, sangramento).',sk:'sa_hemostasis'},
+  {t:'Avaliar necessidade de mantenedor de espaço e agendar retorno.',sk:'sa_ped_parent_ed'}
 ],
-byAge:[a('child','Nunca force — experiência negativa prejudica toda odontologia futura.')],
-tip:'Regra de ouro pediátrica: peso → dose → radiografia → luxação lenta.'},
+byAge:[a('child','Nunca force — experiência negativa prejudica toda a odontologia futura.')],
+tip:'Peso → dose → Rx do germe → luxação lenta → plano de espaço.'},
 
 {id:'ped-mantenedor',cat:'ped',icon:'ruler',ps:'sp_maintainer',
-name:'Mantenedor de espaço',short:'Dispositivo que preserva o espaço do decíduo perdido até a erupção do permanente.',
+name:'Mantenedor de espaço',short:'Tutorial: indicar só se o permanente ainda demora; acompanhar até erupção.',
 indic:'Perda precoce de decíduo quando o sucessor permanente ainda não está pronto para irromper.',
 contra:[
-  ca('info','Permanente prestes a irromper','Instalar mantenedor desnecessariamente','Verificar radiografia — se irromper em < 6 meses, pode não ser necessário.'),
-  ca('allergy','Metais (níquel / cromo)','Dispositivo metálico em alérgico','Avaliar materiais alternativos.'),
-  ca('info','Higiene insatisfatória','Instalar sem orientação prévia','Alto risco de cárie no dente-suporte — higiene como condição prévia.')
+  ca('info','Permanente prestes a irromper','Mantenedor desnecessário','Rx: se irrompe em <6 meses, pode não precisar.'),
+  ca('allergy','Metais (níquel / cromo)','Dispositivo metálico em alérgico','Materiais alternativos.'),
+  ca('info','Higiene insatisfatória','Instalar sem orientação','Cárie no dente-suporte — higiene como condição.'),
+  ca('info','Esquecer de remover','Deixar o aparelho após erupção começar','Controle radiográfico periódico; remover antes de impedir a erupção.')
 ],
 equip:[e('Kit de exame e radiografia'),e('Moldeiras, alginato e gesso'),e('Banda / coroa de aço e fio (banda-alça)'),e('Ionômero para cimentar'),e('Alicates ortodônticos'),e('EPI completo')],
 steps:[
-  {t:'Avaliar espaço e estágio eruptivo por radiografia.',sk:'sa_maint_assess'},
-  {t:'Selecionar / adaptar a banda no dente-suporte.',sk:'sa_maint_band'},
-  {t:'Moldar para confecção em laboratório.',sk:'sa_impression'},
-  {t:'Provar e ajustar o dispositivo.',sk:'sa_maintainer'},
-  {t:'Cimentar com ionômero.',sk:'sa_cementation'},
-  {t:'Confirmar que a alça toca o vizinho sem traumatizar.',sk:'sa_maint_passive'},
-  {t:'Acompanhar radiograficamente até a erupção.',sk:'sa_maint_follow'}
+  {t:'Rx: estágio eruptivo do permanente e espaço disponível.',sk:'sa_maint_assess'},
+  {t:'Selecionar/adaptar banda no dente-suporte (passiva, sem trauma).',sk:'sa_maint_band'},
+  {t:'Moldar para confecção laboratorial (ou banda-alça chairside se protocolo).',sk:'sa_impression'},
+  {t:'Provar: alça toca o vizinho sem pressionar gengiva nem permanente.',sk:'sa_maintainer'},
+  {t:'Cimentar com ionômero; remover excessos; ensinar higiene.',sk:'sa_cementation'},
+  {t:'Confirmar oclusão e conforto; orientar pais sobre soltura/quebra.',sk:'sa_maint_passive'},
+  {t:'Controles radiográficos até erupção — remover assim que o permanente irromper.',sk:'sa_maint_follow'}
 ],
-byAge:[a('child','Remover assim que o permanente começar a irromper — controle radiográfico.')],
-tip:'Acompanhe por radiografia periódica — o mantenedor deve sair antes de impedir a erupção.'}
+byAge:[a('child','Remover no momento certo — mantenedor esquecido vira obstáculo.')],
+tip:'Indicar certo → cimentar limpo → radiografar → tirar na hora da erupção.'}
 ];
 
 /* ── STORE ── */
-const APP_BUILD='6';
+const APP_BUILD='9';
 const Store=(()=>{
   let mem={},ok=false;
   try{const k='__odg3';localStorage.setItem(k,'1');localStorage.removeItem(k);ok=true;}catch(e){}
@@ -2840,6 +2959,7 @@ const GATE_LABELS={
 };
 const GATE_BY_ID={
   exame:['anamnesis','allergy','aha','anticoag','mronj','dm','pa','preg','consent'],
+  anestesia:['anamnesis','allergy','pa','weight','preg','consent'],
   profilaxia:['anamnesis','allergy','aha','consent'],
   fluor:['anamnesis','allergy','consent'],
   radiografia:['identity','preg','rx','consent'],
@@ -2994,7 +3114,7 @@ function openDetail(id){
   <div class="det-top">
     <button class="back-btn" id="backBtn">${I.back}<span class="back-txt"> Voltar</span></button>
     <div class="det-acts">
-      ${(p.cat==='ped'||gateItems.some(g=>g.id==='weight')||p.id==='fluor'||p.id==='ped-fluor')?`<button class="btn" id="calcDetailBtn" title="Calculadora de dose" aria-label="Calculadora de dose">${I.calc}<span class="btn-txt"> Dose</span></button>`:''}
+      ${(p.cat==='ped'||p.cat==='endo'||p.cat==='surg'||p.id==='anestesia'||p.id==='fluor'||p.id==='ped-fluor'||gateItems.some(g=>g.id==='weight'))?`<button class="btn" id="calcDetailBtn" title="Calculadora de dose" aria-label="Calculadora de dose">${I.calc}<span class="btn-txt"> Dose</span></button>`:''}
       <button class="btn" id="linkBtn" title="Copiar link da ficha" aria-label="Copiar link da ficha">${I.link}<span class="btn-txt"> Link</span></button>
       <button class="btn fav${favOn?' on':''}" id="favBtn" title="${favOn?'Remover dos favoritos':'Favoritar'}" aria-label="${favOn?'Remover dos favoritos':'Favoritar'}">${I.star}<span class="btn-txt"> ${favOn?'Favorito':'Favoritar'}</span></button>
       <button class="btn${compactOn?' compact-on':''}" id="compactBtn" title="${compactOn?'Modo completo':'Modo compacto (só checklists)'}" aria-label="${compactOn?'Modo completo':'Modo compacto (só checklists)'}" aria-pressed="${compactOn?'true':'false'}">${I.compact}<span class="btn-txt"> ${compactOn?'Compacto':'Compactar'}</span></button>
@@ -3028,6 +3148,7 @@ ${safeBlock}
     <div class="prog"><span id="pSl">0/${p.steps.length} concluídos</span><span class="bar"><span class="fill" id="pSf"></span></span></div>
     <ol class="steps" id="stList">${stHTML}</ol>
     ${p.tip?`<div class="tip-box">${I.tip}<div>${p.tip}</div></div>`:''}
+    ${renderSources(p.cat)}
   </div>
 </div>
 ${ageHTML}
