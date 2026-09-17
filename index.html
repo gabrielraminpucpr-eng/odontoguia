@@ -1030,6 +1030,10 @@ const SS={
   sa_perio_reeval:ilF(`${ilCard(18,25,120,115,'Reavaliação')}<text x="34" y="55" font-size="11" fill="${ILC.accent}" font-family="Plus Jakarta Sans,sans-serif" font-weight="600">4–6 semanas</text><text x="34" y="78" font-size="9" fill="${ILC.warn}" font-family="Plus Jakarta Sans,sans-serif">BOP ↓ ? Bolsa ↓ ?</text><text x="34" y="100" font-size="9" fill="${ILC.ink}" font-family="Plus Jakarta Sans,sans-serif">Manutenção ou cirúrgia</text><path d="M160,40 Q162,80 164,125" stroke="${ILC.metalS}" stroke-width="3" stroke-linecap="round"/><circle cx="164" cy="128" r="5" fill="none" stroke="${ILC.ok}" stroke-width="1.8"/>${ilTx(198,55,'Nova sondagem',9)}`,'Reavaliação pós-RAR',[{c:ILC.paper,t:'Nova sondagem'},{c:ILC.warn,t:'Bolsas persistentes?'},{c:ILC.accent,t:'Manutenção/cirurgia'}]),
   sa_perio_maint_chart:ilF(`${ilCard(15,22,140,125,'Ficha periodontal')}<text x="30" y="52" font-size="10" fill="${ILC.accent}" font-family="Plus Jakarta Sans,sans-serif" font-weight="600">Manutenção ✓</text><text x="30" y="75" font-size="9" fill="${ILC.ink}" font-family="Plus Jakarta Sans,sans-serif">Nova RAR? ___</text><text x="30" y="98" font-size="9" fill="${ILC.ink}" font-family="Plus Jakarta Sans,sans-serif">Última sessão: ___</text><path d="M30,125 Q80,115 140,125" stroke="${ILC.gum}" stroke-width="3" fill="none" opacity=".5"/>${ilTx(198,70,'Histórico',9)}${ilTx(198,86,'Fase atual',9)}`,'Revisão da ficha periodontal',[{c:ILC.accent,t:'Histórico perio'},{c:ILC.paper,t:'Fase do tratamento'},{c:ILC.ok,t:'Supra vs RAR'}]),
   sa_perio_recall:ilF(`${ilCard(25,30,110,105,'Recall')}<circle cx="80" cy="85" r="28" fill="none" stroke="${ILC.accent}" stroke-width="2.5"/><text x="80" y="80" font-size="16" fill="${ILC.accent}" font-family="Plus Jakarta Sans,sans-serif" text-anchor="middle" font-weight="700">3–6</text><text x="80" y="98" font-size="9" fill="${ILC.ink}" font-family="Plus Jakarta Sans,sans-serif" text-anchor="middle">meses</text>${ilTx(198,55,'Risco individual',9)}${ilTx(198,72,'Agendar',9)}${ilTx(198,88,'Evitar recidiva',9)}`,'Recall de manutenção',[{c:ILC.accent,t:'Intervalo 3–6 m'},{c:ILC.paper,t:'Agendar retorno'},{c:ILC.ok,t:'Prevenir recidiva'}]),
+  sa_psr:ilF(`${ilCard(20,25,130,115,'PSR')}<text x="40" y="55" font-size="11" fill="${ILC.accent}" font-family="Plus Jakarta Sans,sans-serif" font-weight="700">0–4 + *</text><text x="36" y="78" font-size="8.5" fill="${ILC.ink}" font-family="Plus Jakarta Sans,sans-serif">6 sextantes</text><text x="36" y="98" font-size="8.5" fill="${ILC.warn}" font-family="Plus Jakarta Sans,sans-serif">Faixa WHO</text><path d="M170,35 Q172,80 174,130" stroke="${ILC.metalS}" stroke-width="3" stroke-linecap="round"/>${ilTx(198,60,'Triagem',9)}`,'Exame PSR',[{c:ILC.accent,t:'Escore 0–4'},{c:ILC.warn,t:'Sonda WHO'},{c:ILC.paper,t:'Sextantes'}]),
+  sa_gengivite:ilF(`${ilTC()}<path d="M50,122 Q110,105 168,122" stroke="#e85050" stroke-width="7" fill="none"/><circle cx="90" cy="112" r="4" fill="#e85050" opacity=".8"/><circle cx="120" cy="110" r="3.5" fill="#e85050" opacity=".7"/>${ilTx(198,55,'Só gengiva',9)}${ilTx(198,72,'BOP',9)}${ilTx(198,88,'Reversível',9)}`,'Gengivite',[{c:'#e85050',t:'Inflamação'},{c:ILC.ok,t:'Sem perda óssea'},{c:ILC.paper,t:'Controle de placa'}]),
+  sa_miller:ilF(`${ilTC({recess:true})}<path d="M55,125 Q110,118 165,125" stroke="${ILC.gum}" stroke-width="4" fill="none"/><text x="100" y="95" font-size="10" fill="${ILC.warn}" font-family="Plus Jakarta Sans,sans-serif" font-weight="700" text-anchor="middle">I–IV</text>${ilTx(198,55,'Miller',9)}${ilTx(198,72,'JMG / papilas',9)}${ilTx(198,88,'Cobertura?',9)}`,'Recessão (Miller)',[{c:ILC.warn,t:'Classificação'},{c:ILC.gum,t:'Margem'},{c:ILC.ok,t:'Prognóstico'}]),
+  sa_placek:ilF(`${ilCard(25,30,120,110,'Placek')}<text x="45" y="65" font-size="14" fill="${ILC.accent}" font-family="Plus Jakarta Sans,sans-serif" font-weight="700">I → IV</text><text x="40" y="95" font-size="8.5" fill="${ILC.ink}" font-family="Plus Jakarta Sans,sans-serif">Inserção do freio</text>${ilTx(198,70,'Indicação',9)}`,'Classificação Placek',[{c:ILC.accent,t:'Grau do freio'},{c:ILC.paper,t:'Impacto clínico'},{c:ILC.ok,t:'Operar se indica'}]),
   sa_ging_mark:ilF(`${ilTC()}<path d="M55,125 Q110,108 165,125" stroke="${ILC.gum}" stroke-width="6" fill="none"/><path d="M80,125 Q85,95 90,125" stroke="${ILC.accent}" stroke-width="1.8" stroke-dasharray="3,2" fill="none"/><path d="M130,125 Q135,95 140,125" stroke="${ILC.accent}" stroke-width="1.8" stroke-dasharray="3,2" fill="none"/><path d="M110,30 Q112,70 114,120" stroke="${ILC.metalS}" stroke-width="3" stroke-linecap="round"/>${ilTx(198,48,'Linha de corte',9)}${ilTx(198,64,'Excesso',9)}${ilTx(198,80,'Sonda marca',9)}`,'Marcação pré-cirúrgica',[{c:ILC.accent,t:'Linha de corte'},{c:ILC.gum,t:'Tecido a remover'},{c:ILC.metal,t:'Sonda marcador'}]),
   sa_ging_incision:ilF(`${ilTC()}<path d="M55,125 Q110,105 165,125" stroke="${ILC.gum}" stroke-width="7" fill="none"/><path d="M75,120 Q110,90 145,120" stroke="#e08080" stroke-width="2.8" fill="none"/><g transform="translate(160,40) rotate(20)"><line x1="0" y1="0" x2="40" y2="0" stroke="#c0c0c0" stroke-width="2.5" stroke-linecap="round"/><path d="M40,-4 L52,0 L40,4 Z" fill="#d0d0d0" stroke="#888" stroke-width="1"/></g>${ilTx(198,70,'Incisão bisel',9)}${ilTx(198,86,'Bisturi',9)}${ilTx(198,102,'Remover excesso',9)}`,'Gengivectomia — incisão',[{c:'#e08080',t:'Bisel'},{c:ILC.gum,t:'Gengiva excessiva'},{c:'#c0c0c0',t:'Bisturi'}]),
   sa_gingivoplasty:ilF(`${ilTC()}<path d="M50,128 Q80,112 110,118 Q140,124 170,112" stroke="${ILC.gum}" stroke-width="5.5" fill="none" stroke-linecap="round"/><path d="M70,122 Q110,105 150,122" stroke="${ILC.ok}" stroke-width="2.2" fill="none" opacity=".8"/><ellipse cx="155" cy="55" rx="14" ry="10" fill="${ILC.metal}" opacity=".3" stroke="${ILC.metalS}" stroke-width="1.3"/>${ilTx(198,48,'Contorno',9)}${ilTx(198,64,'Harmonioso',9)}${ilTx(198,80,'Plastia',9)}`,'Remodelação do contorno',[{c:ILC.gum,t:'Margem gengival'},{c:ILC.ok,t:'Contorno final'},{c:ILC.metal,t:'Instrumento de plástica'}]),
@@ -1223,6 +1227,10 @@ const SD={
   sa_perio_reeval:'Reavalie em 4–6 semanas: compare BOP, profundidade de bolsa e necessidade de cirurgia. Bolsas persistentes ≥5 mm podem exigir retalho periodontal.',
   sa_perio_maint_chart:'Antes da manutenção supragengival, confirme que o paciente está em fase de suporte — não substitua RAR em bolsas profundas ativas.',
   sa_perio_recall:'Intervalo de retorno conforme risco: 3 meses (alto), 4–6 meses (moderado). Agende na saída — recidiva é comum sem manutenção.',
+  sa_psr:'PSR: 6 sextantes com sonda WHO. Registre o pior escore (0–4) e * se furca/mobilidade/recessão/mucogengival. 0–2 → higiene/fatores; 3 → detalhar sextante; 4 ou * → gráfico completo.',
+  sa_gengivite:'Gengivite: inflamação só na gengiva, BOP, SEM perda de inserção/osso — reversível com controle de placa. Se houver bolsa com perda de inserção, mude para periodontite/RAR.',
+  sa_miller:'Miller I–II: sem perda interdental relevante — cobertura total possível. III: perda papilar — cobertura parcial. IV: perda avançada — cobertura total improvável. Meça JCE→margem e papilas.',
+  sa_placek:'Placek classifica inserção do freio (I mucosa → IV papilar/mais invasiva). Indique frenectomia pelo impacto (higiene, diastema, prótese, fala), não só pelo “freio aparente”.',
   sa_ging_mark:'Marque com sonda ou tinta os limites do tecido a remover. Confirme ausência de defeito ósseo profundo — gengivectomia não trata periodontite avançada.',
   sa_ging_incision:'Incisão em bisel externo remove excesso gengival preservando papilas quando possível. Hemostasia e controle de profundidade são essenciais.',
   sa_gingivoplasty:'Remodele o contorno gengival para harmonia estética e função. Evite remover excesso de tecido queratinizado — pode expor raiz.',
@@ -1516,8 +1524,9 @@ const CAT_SRC={
     {t:'AAE — Dental Dam (padrão de cuidado)',u:'https://www.aae.org/specialty/wp-content/uploads/sites/2/2024/06/DentalDams_PositionStatement_v2-1.pdf'}
   ],
   perio:[
-    {t:'Manuais acadêmicos de periodontia (referência didática BR)',u:''},
-    {t:'PubMed Central — periodontite e manutenção',u:'https://www.ncbi.nlm.nih.gov/pmc/'}
+    {t:'AAP — Periodontal disease classification / staging & grading (alinhamento clínico)',u:'https://www.perio.org/'},
+    {t:'PSR / índices periodontais — triagem e monitoramento (referência didática)',u:''},
+    {t:'PubMed Central — periodontite, RAR e manutenção',u:'https://www.ncbi.nlm.nih.gov/pmc/'}
   ],
   surg:[
     {t:'Boas práticas cirúrgicas + AHA (endocardite) / MRONJ',u:''},
@@ -1898,24 +1907,27 @@ contra:[
   ...alertEndocardite(),
   ...alertAnticoag(),
   ...alertDiabetes(),
-  ca('info','Marca-passo / CDI','Ultrassom sem verificar compatibilidade','Dispositivos modernos em geral toleram; em dúvida, curetas manuais e consulte cardiologista.'),
-  ca('info','Só instrumentar sem ensinar higiene','RAR “completa” com placa caseira descontrolada','Sem escovação/fio diários, a recidiva é previsível — educação é parte do tratamento.'),
-  ca('info','Não reavaliar','Dar alta sem sondagem de reavaliação','Reavaliação 4–6 semanas define manutenção vs nova instrumentação/cirurgia.')
+  ca('info','Gengivite confundida com periodontite','RAR em gengivite pura (sem perda de inserção/osso)','Gengivite = inflamação reversível sem perda de inserção. Periodontite = bolsa + perda de inserção/osso. Confirme na sondagem e Rx.'),
+  ca('info','Marca-passo / CDI','Ultrassom sem verificar compatibilidade','Dispositivos modernos em geral toleram; em dúvida, curetas manuais (Gracey) e consulte cardiologista.'),
+  ca('info','Só instrumentar sem ensinar higiene','RAR “completa” com placa caseira descontrolada','Controle de biofilme pelo paciente é etapa da terapia básica — sem isso a recidiva é previsível.'),
+  ca('info','Não reavaliar','Dar alta sem sondagem de reavaliação','Reavaliação 4–6 semanas é indispensável: manutenção vs nova instrumentação/cirurgia a retalho.'),
+  ca('info','Curetas cegas / overinstrumentação','Instrumentar sem afiar ou remover cemento em excesso','Gracey afiada + controle tátil; alisamento até superfície lisa — não “desgastar” a raiz.')
 ],
-equip:[e('Kit de exame + sonda periodontal'),e('Ficha de sondagem (6 sítios/dente)'),e('Anestesia local'),e('Curetas Gracey/McCall afiadas'),e('Ultrassom periodontal'),e('Pedra de afiar'),e('Soro / CHX 0,12% para irrigação'),e('Espelho / evidenciar placa para educação'),e('Sugador e gaze'),e('EPI completo')],
+equip:[e('Kit de exame + sonda periodontal (WHO/PSR e milimetrada)'),e('Ficha de sondagem (6 sítios/dente) + índices (placa, BOP)'),e('Anestesia local'),e('Curetas Gracey afiadas (área-específica) / McCall'),e('Ultrassom periodontal (pontas subgengivais)'),e('Pedra de afiar'),e('Soro / CHX 0,12% para irrigação'),e('Espelho / revelador de placa'),e('Sugador e gaze'),e('EPI completo')],
 steps:[
-  {t:'Diagnóstico: periodontite (não só gengivite) — sondagem completa, sangramento, mobilidade, Rx.',sk:'sa_perio_diagnosis'},
-  {t:'Fase higiênica: orientar escova, fio/interdental e fatores de risco (fumo, diabetes).',sk:'sa_hygiene_ed'},
+  {t:'Diagnóstico: periodontite (não só gengivite) — sondagem 6 sítios, BOP, perda de inserção, mobilidade, furca, Rx.',sk:'sa_perio_diagnosis'},
+  {t:'Registrar índices: placa, gengival/BOP, profundidade e nível de inserção — base para comparar na reavaliação.',sk:'sa_psr'},
+  {t:'Fase higiênica: orientar escova, fio/interdental e fatores de risco (fumo, diabetes, higiene deficiente).',sk:'sa_hygiene_ed'},
   {t:'Profilaxia antibiótica SOMENTE se alto risco AHA.',sk:'sa_antibiotic'},
-  {t:'Anestesiar o quadrante/sessão (conforto = instrumentação adequada).',sk:'sa_syringe'},
-  {t:'Remover cálculo subgengival com ultrassom + curetas até o fundo da bolsa, com controle tátil.',sk:'sa_scaler'},
-  {t:'Alisar raiz (superfície lisa ao tátil) sem overinstrumentação excessiva.',sk:'sa_root_plan'},
+  {t:'Anestesiar o quadrante/sessão (conforto = instrumentação até o fundo da bolsa).',sk:'sa_syringe'},
+  {t:'Ultrassom periodontal: remover cálculo supra e sub; completar com Gracey área-específica até o fundo da bolsa.',sk:'sa_scaler'},
+  {t:'Alisamento radicular: superfície lisa ao tátil, sem overinstrumentação excessiva.',sk:'sa_root_plan'},
   {t:'Irrigar bolsas; remover debris; hemostasia local.',sk:'sa_perio_pocket_irr'},
-  {t:'Reforçar higiene; agendar reavaliação em 4–6 semanas (não “só retorno em 6 meses”).',sk:'sa_perio_reeval'},
-  {t:'Na reavaliação: bolsas residuais/sangramento → nova RAR localizada ou cirurgia; estável → manutenção 3–6 meses (risco).',sk:'sa_perio_recall'}
+  {t:'Reforçar higiene; agendar reavaliação em 4–6 semanas (etapa obrigatória da terapia básica).',sk:'sa_perio_reeval'},
+  {t:'Na reavaliação: BOP/bolsas residuais → nova RAR localizada ou retalho; estável → manutenção 3 meses (alto risco) ou 3–6 meses.',sk:'sa_perio_recall'}
 ],
 byAge:[a('child','Periodontite agressiva/precoce rara — investigar imunologia e higiene; encaminhar se dúvida.'),a('teen','Periodontite agressiva possível — investigar e tratar cedo; higiene.'),a('adult','Quadrantes 45–60 min; fumo piora prognóstico — cessação.'),a('elder','Recessões, anticoagulação, hipersensibilidade — anestesia e potência baixas.'),a('pregnant','Preferir 2º trimestre; higiene reforçada; ultrassom com aspiração se náusea.')],
-tip:'RAR sem reavaliação e sem higiene = tratamento incompleto. Ciclo: higiene → RAR → 4–6 sem → manutenção.'},
+tip:'Terapia básica = higiene + raspagem supra/sub + alisamento + reavaliação. Sem o ciclo completo, não há “alta”. Gengivite reversível ≠ periodontite com perda de suporte.'},
 
 {id:'profilaxia-supra',cat:'perio',icon:'brush',ps:'sp_perio_supra',
 name:'Raspagem supragengival (manutenção)',short:'Tutorial de manutenção: biofilme supra, sondagem de vigilância e intervalo por risco.',
@@ -1939,7 +1951,7 @@ steps:[
   {t:'Registrar sondagem, sítios críticos e próximo recall no prontuário.',sk:'sa_patient_ed'}
 ],
 byAge:[a('child','Cálculo supra leve possível; ultrassom em potência baixa; responsável participa da higiene.'),a('teen','Braquetes: superfloss/interdental; recall curto se inflamação.'),a('adult','Manutenção pós-RAR evita recidiva; triagem de sítios ≥5 mm.'),a('elder','Xerostomia e raízes — potência baixa + flúor se risco de cárie radicular.'),a('pregnant','Gengivite gravídica: manutenção suave e educação; sem instrumentação profunda eletiva no 1º se possível.')],
-tip:'Três fichas diferentes: Profilaxia (saudável) ≠ Manutenção (perio tratada) ≠ RAR (bolsa profunda) — não misture as três no mesmo plano.'},
+tip:'Quatro caminhos: gengivite (controle de placa) ≠ manutenção (perio estabilizada) ≠ RAR (bolsa ativa) ≠ retalho (falha da fase I). Intervalo de recall pelo risco, não por “6 meses fixos”.'},
 
 {id:'gengivectomia',cat:'perio',icon:'scalpel',ps:'sp_gingivectomy',
 name:'Gengivectomia / gengivoplastia',short:'Tutorial: só após fase higiênica; diferenciar excesso gengival de defeito ósseo.',
@@ -1964,7 +1976,7 @@ steps:[
   {t:'Remover cimento em 7–10 dias; reavaliar contorno e cicatrização.',sk:'sa_patient_ed'}
 ],
 byAge:[a('teen','Aumento por aparelho ou fenitoína — tratar causa sistêmica/local.'),a('adult','Estética e aumento de coroa clínica funcional após fase I.'),a('elder','Avaliar cicatrização, anticoagulação e expectativa estética realista.'),a('pregnant','Hiperplasia/granuloma gestacional: higiene primeiro; cirurgia só se trauma/sangramento persistente e com obstetra.')],
-tip:'Sonda + Rx decidem: supraóssea → gengivectomia; infraóssea → retalho. Inflamação ativa = ainda não opere.'},
+tip:'Inflamação ativa = fase I primeiro. Sonda + Rx: bolsa supraóssea/excesso gengival → gengivectomia; defeito infraósseo → retalho. Hiperplasia (medicamentosa/gestacional): tratar causa antes do bisturi.'},
 
 {id:'exodontia',cat:'surg',icon:'scalpel',ps:'sp_exo',
 name:'Exodontia simples',short:'Tutorial cirúrgico: imagem, anestesia, luxação controlada, hemostasia e pós-op escrito.',
@@ -2582,19 +2594,20 @@ byAge:[a('teen','HPV/trauma por piercing — incluir na história.'),a('adult','
 tip:'Biópsia útil = amostra íntegra + formol + ficha clínica rica. Sem os três, o laudo “inespecífico” é culpa do envio, não só do laboratório.'},
 
 {id:'frenectomia',cat:'surg',icon:'scalpel',ps:'sp_gingivectomy',
-name:'Frenectomia (labial / lingual)',short:'Tutorial: indicar quando o freio limita função, higiene ou provoca diastema — liberar inserção e orientar cicatrização.',
-indic:'Freio labial/lingual com inserção alta causando diastema, recessão, dificuldade de higiene, interferência protética ou anquiloglossia sintomática.',
+name:'Frenectomia (labial / lingual)',short:'Tutorial: classificar o freio (Placek), indicar só com impacto real e liberar a inserção com hemostasia.',
+indic:'Freio labial/lingual com inserção alta causando diastema, recessão, dificuldade de higiene, interferência protética ou anquiloglossia sintomática — após classificar a inserção (Placek I–IV).',
 contra:[
   ...alertAnticoag(),
   ...alertEndocardite(),
   ...alertAnestesiaCV(),
-  ca('info','Diastema sem freio causal','Operar freio antes de ortodontia sem diagnóstico','Muitos diastemas fecham com ortodontia; frenectomia após ou quando inserção realmente impede.'),
+  ca('info','Diastema sem freio causal','Operar freio antes de ortodontia sem diagnóstico','Muitos diastemas fecham com ortodontia; frenectomia quando a inserção realmente impede (Placek III–IV costuma ter maior impacto).'),
+  ca('info','Placek I sem impacto','Operar freio mucoso “por estética” sem queixa','Placek I = inserção mucosa; só indique se houver limitação real documentada.'),
   ca('info','Anquiloglossia sem impacto funcional','Cirurgia cosmética sem indicação','Avaliar fala, amamentação (bebê) e elevação lingual com fono/pediatra quando couber.'),
   ca('info','Infecção / higiene péssima no sítio','Cirurgia eletiva em campo sujo','Higienizar e controlar inflamação antes.')
 ],
 equip:[e('Kit de exame e fotos'),e('Anestesia local'),e('Bisturi / laser / eletrobisturi'),e('Pinça e tesoura mucosa'),e('Sutura reabsorvível'),e('Gaze e sugador'),e('Analgésico / antisséptico tópico','se protocolo'),e('Orientação escrita'),e('EPI completo')],
 steps:[
-  {t:'Diagnosticar impacto funcional/estético; fotografar; consentimento.',sk:'sa_consent'},
+  {t:'Classificar inserção do freio (Placek I–IV) e o impacto (diastema, higiene, prótese, fala); fotografar; consentimento.',sk:'sa_placek'},
   {t:'Anestesiar; antissepsia do campo.',sk:'sa_syringe'},
   {t:'Tensionar o freio; incisar inserção fibrosa liberando mucosa (técnica clássica ou laser).',sk:'sa_frenectomy'},
   {t:'Remover banda fibrosa residual se houver; hemostasia cuidadosa.',sk:'sa_hemostasis'},
@@ -2604,7 +2617,7 @@ steps:[
   {t:'Reavaliar função (fala, higiene, ortodontia) após cicatrização.',sk:'sa_plan'}
 ],
 byAge:[a('baby','Anquiloglossia: decidir com pediatria/fono — não operar “por protocolo”.'),a('child','Freio labial: frequentemente após/durante ortodontia.'),a('teen','Diastema + freio: coordenar com ortodontista.'),a('adult','Inserção que desloca prótese ou causa recessão — boa indicação.'),a('elder','Avaliar cicatrização e anticoagulação.'),a('pregnant','Eletivo: adiar; urgência rara.')],
-tip:'Frenectomia boa começa na indicação. Operar freio inocente não fecha diastema — e anquiloglossia exige olhar funcional, não só “língua presa”.'},
+tip:'Classifique (Placek) → indique só com impacto → liberte a inserção. Freio inocente não fecha diastema; anquiloglossia exige olhar funcional.'},
 
 {id:'retalho',cat:'perio',icon:'perio',ps:'sp_gingivectomy',
 name:'Cirurgia periodontal a retalho (acesso)',short:'Tutorial: após falha da RAR — retalho de acesso, limpeza radical das raízes e sutura sem tensão.',
@@ -2631,7 +2644,7 @@ steps:[
   {t:'Remover sutura 7–10 d; reavaliar; entrar em manutenção periodontal curta.',sk:'sa_perio_recall'}
 ],
 byAge:[a('teen','Periodontite agressiva: investigar e tratar cedo; higiene crítica.'),a('adult','Indicação clássica pós-fase I.'),a('elder','Anticoagulação e cicatrização — sessões menores.'),a('pregnant','Eletivo: preferir pós-parto ou 2º trimestre com obstetra.')],
-tip:'Retalho sem fase I e sem manutenção é recidiva programada. Cirurgia limpa o que a cureta não alcançou — a escova mantém o resultado.'},
+tip:'Retalho = acesso após falha da terapia básica (RAR + higiene + reavaliação). Limpa o que a cureta não alcançou; manutenção 3 meses segura o resultado. Fumo e diabetes mudam o prognóstico — documente.'},
 
 {id:'provisorio',cat:'prot',icon:'crown',ps:'sp_crown',
 name:'Coroa / ponte provisória',short:'Tutorial: proteger polpa e periodonto, manter estética/oclusão e espaço até a peça definitiva.',
@@ -2776,11 +2789,86 @@ steps:[
   {t:'Controlar fatores: fumo, diabetes, oclusão traumática se presente.',sk:'sa_plan'}
 ],
 byAge:[a('teen','Pode acompanhar periodontite agressiva — investigar.'),a('adult','Mais comum em periodontite crônica não tratada.'),a('elder','Diabetes e medicamentos — cicatrização lenta.'),a('pregnant','Gengivite gravídica pode exacerbar; drenar com cuidado; obstetra se antibiótico.')],
-tip:'Vital + bolsa profunda + Rx sem lesão apical típica ≈ abscesso periodontal. Drene a bolsa, depois trate a periodontite — não “abra o canal por reflexo”.'}
+tip:'Vital + bolsa profunda + Rx sem lesão apical típica ≈ abscesso periodontal (diferencial endo-perio). Drene/desbride a bolsa, depois complete o exame periodontal e a terapia básica — não “abra o canal por reflexo”.'},
+
+{id:'exame-psr',cat:'perio',icon:'perio',ps:'sp_perio',
+name:'Exame periodontal / PSR',short:'Tutorial: triagem PSR por sextante, escores 0–4/* e quando expandir para sondagem completa.',
+indic:'Primeira consulta, retornos e triagem periódica — detectar gengivite/periodontite cedo e decidir se basta orientação ou se precisa de gráfico completo + RAR.',
+contra:[
+  ca('info','PSR sem ação','Anotar escore e não tratar','Escore 1–2: higiene ± remoção de cálculo/fatores retentivos. 3: exame detalhado do sextante. 4 ou *: gráfico completo e plano terapêutico.'),
+  ca('info','Sondagem traumática','Forçar a sonda e criar falso sangramento','Pressão suave (~20 g); BOP verdadeiro conta até ~30 s após a sondagem.'),
+  ca('info','Ignorar asterisco (*)','Tratar * como “detalhe”','* = furca, mobilidade, problema mucogengival ou recessão relevante — exige atenção e registro.'),
+  ...alertDiabetes(),
+  ca('info','Fumo sem registrar','Triagem sem fator de risco','Fumo e diabetes alteram BOP e prognóstico — anote na ficha.')
+],
+equip:[e('Sonda periodontal WHO (faixa colorida) e/ou milimetrada'),e('Espelho e pinça'),e('Ficha PSR / gráfico periodontal'),e('Revelador de placa','opcional'),e('Rx bite-wing/periapical quando indicado'),e('EPI completo')],
+steps:[
+  {t:'Dividir a boca em 6 sextantes; usar sonda WHO com faixa colorida visível como referência.',sk:'sa_psr'},
+  {t:'Em cada sextante, sondar sítios representativos; registrar o PIOR escore do sextante (0–4) e * se houver.',sk:'sa_psr'},
+  {t:'Escore 0: faixa totalmente visível, sem BOP/cálculo — reforçar higiene preventiva.',sk:'sa_hygiene_ed'},
+  {t:'Escore 1: BOP com faixa visível — controle de placa e reavaliação curta.',sk:'sa_probe'},
+  {t:'Escore 2: cálculo e/ou margem restauradora inadequada — remover fatores retentivos + higiene.',sk:'sa_suprascal'},
+  {t:'Escore 3 (faixa parcial = bolsa ~3,5–5,5 mm): exame detalhado daquele sextante (6 sítios).',sk:'sa_perio_diagnosis'},
+  {t:'Escore 4 (faixa oculta = bolsa ≥~5,5–6 mm) ou qualquer *: gráfico periodontal completo + Rx + plano (RAR/cirurgia).',sk:'sa_perio_diagnosis'},
+  {t:'Registrar índices auxiliares (placa, BOP) para comparar na manutenção.',sk:'sa_psr'},
+  {t:'Definir próximo passo: gengivite / manutenção / RAR / retalho — e agendar.',sk:'sa_plan'}
+],
+byAge:[a('child','PSR adaptado / atenção a periodontite precoce rara — investigar se bolsa verdadeira.'),a('teen','Braquetes elevam escores 1–2 — higiene intensiva.'),a('adult','Triagem de rotina; 3–4 levam a gráfico completo.'),a('elder','Recessão e mobilidade (*) frequentes — não ignore o asterisco.'),a('pregnant','Gengivite gravídica comum (escores 1–2); evitar instrumentação agressiva no 1º se possível.')],
+tip:'PSR é triagem, não tratamento. 0–2: higiene/fatores. 3: detalhar o sextante. 4 ou *: gráfico completo e terapia. Faixa da sonda WHO = seu “semáforo”.'},
+
+{id:'gengivite',cat:'perio',icon:'brush',ps:'sp_perio_supra',
+name:'Tratamento da gengivite',short:'Tutorial: inflamação só na gengiva, sem perda de inserção — controle de biofilme e reversão clínica.',
+indic:'Gengivite induzida por biofilme: vermelhidão, edema, BOP, sem perda de inserção clínica nem perda óssea radiográfica.',
+contra:[
+  ca('info','Tratar como periodontite','RAR/cirurgia em gengivite pura','Sem perda de inserção/osso: terapia = higiene + remoção de cálculo supra ± fatores retentivos. Não “abrir retalho por sangramento”.'),
+  ca('info','Só polir sem ensinar','Profilaxia sem mudança de hábito','Gengivite volta em dias se a placa caseira continuar.'),
+  ca('info','Ignorar fatores locais','Sangramento só por “vitamina C”','Margens de restauração, cálculo e aparelho ortodôntico são causas locais clássicas.'),
+  ca('info','Não reavaliar BOP','Alta na mesma sessão sem retorno','Reavaliar sangramento em 1–2 semanas confirma reversão.'),
+  ...alertDiabetes()
+],
+equip:[e('Sonda periodontal'),e('Revelador de placa'),e('Ultrassom / curetas e foices supra'),e('Pasta e taça de polimento'),e('Kit de higiene demonstrativo (escova, fio, interdental)'),e('Espelho para o paciente'),e('EPI completo')],
+steps:[
+  {t:'Confirmar gengivite: inflamação + BOP SEM perda de inserção e SEM perda óssea (diferente de periodontite).',sk:'sa_gengivite'},
+  {t:'Revelar placa; mostrar ao paciente os sítios que sangram — educação visual.',sk:'sa_hygiene_ed'},
+  {t:'Remover cálculo e biofilme SUPRAgengivais; corrigir fatores retentivos acessíveis.',sk:'sa_suprascal'},
+  {t:'Polir superfícies; evitar trauma em tecido inflamado.',sk:'sa_prophy_cup'},
+  {t:'Treinar escova + fio/interdental nos sítios críticos; paciente demonstra de volta.',sk:'sa_floss_contact'},
+  {t:'Orientar: sangramento ao escovar = sinal para limpar melhor, não para parar.',sk:'sa_patient_ed'},
+  {t:'Se bolsa ≥4 mm / perda de inserção aparecer: mudar para RAR (outra ficha).',sk:'sa_perio_diagnosis'},
+  {t:'Reavaliar BOP em 7–14 dias; se persistir, reinvestigar higiene, fumo, diabetes e cálculo residual.',sk:'sa_perio_reeval'}
+],
+byAge:[a('child','Mais comum; pais participam da escovação.'),a('teen','Aparelho ortodôntico — superfloss/interdental obrigatório.'),a('adult','Causa nº 1 de queixa de “gengiva sangrando”.'),a('elder','Medicamentos e xerostomia — reforçar higiene e hidratação.'),a('pregnant','Gengivite gravídica: higiene reforçada; instrumentação suave; evitar eletivo agressivo no 1º.')],
+tip:'Gengivite = reversível e limitada à gengiva. Placa off → inflamação off. Se há perda de inserção/osso, já não é só gengivite — vá para RAR.'},
+
+{id:'recessao',cat:'perio',icon:'perio',ps:'sp_gingivectomy',
+name:'Recessão gengival (Miller)',short:'Tutorial: classificar Miller I–IV, eliminar causa e decidir cobertura radicular vs controle.',
+indic:'Exposição radicular com queixa estética, sensibilidade ou progressão — após controlar inflamação e trauma (escova, freio, oclusão).',
+contra:[
+  ca('info','Cobrir raiz com inflamação ativa','Enxerto/cirurgia mucogengival em boca suja','Fase I primeiro (higiene ± RAR). Inflamação ativa piora o enxerto.'),
+  ca('info','Prometer cobertura total em Miller III–IV','Garantir 100% de cobertura com perda papilar/óssea interdental','Miller I–II: cobertura total possível. III: parcial. IV: cobertura total improvável — alinhe expectativa.'),
+  ca('info','Ignorar causa','Só “enxertar” e manter escova horizontal traumática','Trauma de escova, piercing, freio e movimentação ortodôntica devem ser corrigidos.'),
+  ca('info','Sensibilidade só com cirurgia','Indicar retalho sem tentar dessensibilizante/restauração','Muitos casos estabilizam com controle etiológico + verniz/restauração cervical.'),
+  ...alertAnticoag(),
+  ...alertDiabetes()
+],
+equip:[e('Sonda periodontal e espelho'),e('Fotos (antes)'),e('Ficha de recessão / classificação de Miller'),e('Kit de higiene (escova macia, técnica)'),e('Verniz fluoretado / dessensibilizante'),e('Material restaurador cervical','se indicado'),e('Kit cirúrgico mucogengival','se cobertura radicular'),e('EPI completo')],
+steps:[
+  {t:'Medir recessão (JCE → margem), biótipo, vestíbulo e papilas; fotografar.',sk:'sa_miller'},
+  {t:'Classificar Miller: I (não passa JMG, papilas ok) · II (passa/atinge JMG, papilas ok) · III (perda papilar/óssea leve) · IV (perda avançada).',sk:'sa_miller'},
+  {t:'Identificar causa: trauma de escova, cálculo, freio, ortodontia, inflamação, piercing.',sk:'sa_hygiene_ed'},
+  {t:'Controlar inflamação e trauma; freio causador → avaliar frenectomia (Placek).',sk:'sa_placek'},
+  {t:'Sensibilidade: verniz/dessensibilizante ou restauração cervical adesiva se defeito não cariado.',sk:'sa_fluor_varnish'},
+  {t:'Miller I–II com demanda estética: discutir cobertura radicular (enxerto/retalho) após fase I.',sk:'sa_plan'},
+  {t:'Miller III–IV: expectativa realista (cobertura parcial/improvável); priorizar estabilidade e higiene.',sk:'sa_patient_ed'},
+  {t:'Se indicar cirurgia: consentimento, técnica mucogengival, sutura e manutenção; fotos pós.',sk:'sa_perioflap'},
+  {t:'Manutenção: reforçar técnica de escova; vigiar progressão da recessão nos retornos.',sk:'sa_perio_recall'}
+],
+byAge:[a('teen','Ortodontia e piercing — prevenir e monitorar.'),a('adult','Queixa estética/sensibilidade mais comum; Miller guia o prognóstico.'),a('elder','Recessões múltiplas: controle etiológico e flúor em raízes > cirurgia em massa.'),a('pregnant','Eletivo cirúrgico: adiar; verniz/higiene ok.')],
+tip:'Miller define prognóstico de cobertura: I–II total possível; III parcial; IV improvável. Remova a causa antes de prometer milagre estético.'},
 ];
 
 /* ── STORE ── */
-const APP_BUILD='20';
+const APP_BUILD='21';
 const Store=(()=>{
   let mem={},ok=false;
   try{const k='__odg3';localStorage.setItem(k,'1');localStorage.removeItem(k);ok=true;}catch(e){}
@@ -3594,7 +3682,10 @@ ionomero:['identity','anamnesis','allergy','consent'],
   'clareamento-interno':['identity','anamnesis','preg','rx','consent'],
   apexificacao:['identity','anamnesis','aha','pa','rx','consent'],
   reembasamento:['anamnesis','allergy','consent'],
-  'abscesso-perio':['airway','identity','anamnesis','aha','dm','allergy','pa','rx','consent']
+  'abscesso-perio':['airway','identity','anamnesis','aha','dm','allergy','pa','rx','consent'],
+  'exame-psr':['anamnesis','dm','consent'],
+  gengivite:['anamnesis','dm','consent'],
+  recessao:['identity','anamnesis','anticoag','dm','consent']
 };
 
 function gateState(v){
@@ -4374,7 +4465,10 @@ const CALC_RX_PROC={
   'ped-pulpectomia':{invasive:true,pain:'mod',abx:'if_inf'},
   'ped-exo':{invasive:true,pain:'mod',abx:'if_inf'},
   'ped-mantenedor':{invasive:false,pain:'none',abx:false},
-  'trauma-avulsao':{invasive:true,pain:'mod',abx:'if_inf'}
+  'trauma-avulsao':{invasive:true,pain:'mod',abx:'if_inf'},
+  'exame-psr':{invasive:true,pain:'none',abx:false},
+  gengivite:{invasive:true,pain:'none',abx:false},
+  recessao:{invasive:true,pain:'mild',abx:false}
 };
 
 function farmMgCap(mgPerKg, weight, maxMg){
