@@ -1,6 +1,6 @@
 /* OdontoGuia service worker — cache-first for app shell, stale-while-revalidate for fonts
    Importante: incremente CACHE_VERSION a cada publicação no GitHub Pages para forçar atualização offline. */
-const CACHE_VERSION = 'odg-v9';
+const CACHE_VERSION = 'odg-v20';
 const STATIC_CACHE = `odg-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `odg-runtime-${CACHE_VERSION}`;
 
