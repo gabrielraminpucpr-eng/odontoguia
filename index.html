@@ -2868,7 +2868,7 @@ tip:'Miller define prognóstico de cobertura: I–II total possível; III parcia
 ];
 
 /* ── STORE ── */
-const APP_BUILD='21';
+const APP_BUILD='22';
 const Store=(()=>{
   let mem={},ok=false;
   try{const k='__odg3';localStorage.setItem(k,'1');localStorage.removeItem(k);ok=true;}catch(e){}
@@ -3040,7 +3040,8 @@ function toggleCompact(){
 }
 
 function leaveDetail(){
-  if(activeDetailId){Store.del('cg:'+activeDetailId);activeDetailId=null;}
+  // Parte 1: NÃO apagar cg: — o checklist de segurança do caso ativo sobrevive ao Voltar.
+  activeDetailId=null;
   DET.classList.remove('show');
   GW.style.display='block';
   document.body.classList.remove('detail-open');
@@ -3130,6 +3131,8 @@ function buildFichaExport(p,{stE={},stS={},stG={},note='',gateItems=[],caseData=
 
   if(gateItems.length){
     lines.push('Checklist de segurança');
+    const incomplete=!gateResolved(stG,gateItems);
+    if(incomplete)lines.push('⚠ ATENÇÃO: checklist incompleto neste export ('+gateProgress(stG,gateItems)+'/'+gateItems.length+')');
     gateItems.forEach(g=>{
       const st=gateState(stG[g.id]);
       const mark=st==='ok'?'[x]':st==='na'?'[N/A]':'[ ]';
@@ -3740,10 +3743,10 @@ function renderSafeGate(items,checked){
   }).join('');
   return`<div class="safe-gate${done?' done':''}" id="safeGate">
   <div class="safe-gate-head">
-    <div class="safe-gate-title">${I.warn}<div><h3>Checklist de segurança</h3></div></div>
+    <div class="safe-gate-title">${I.warn}<div><h3>Checklist de segurança</h3><div class="sg-sub">1º no atendimento · permanece ao Voltar · use <b>Novo caso</b> para o próximo paciente</div></div></div>
     <div class="safe-gate-meta">
       <span class="safe-gate-prog" id="sgProg">${n}/${items.length} resolvidos</span>
-      <button type="button" class="sg-new" id="sgNewCase" title="Zerar checklist para o próximo paciente">Novo caso</button>
+      <button type="button" class="sg-new" id="sgNewCase" title="Zerar segurança, materiais, passos e dados do caso">Novo caso</button>
     </div>
   </div>
   <ul class="safe-list" id="sgList">${lis}</ul>
@@ -3816,7 +3819,7 @@ function openDetail(id){
       <button class="btn" id="shareBtn" title="Compartilhar ficha" aria-label="Compartilhar ficha">${I.share}<span class="btn-txt"> Enviar</span></button>
       <button class="btn" id="copyBtn" title="Copiar ficha" aria-label="Copiar ficha">${I.copy}<span class="btn-txt"> Copiar</span></button>
       <button class="btn" id="dlBtn" title="Baixar .txt" aria-label="Baixar .txt">${I.download}<span class="btn-txt"> .txt</span></button>
-      <button class="btn ghost" id="resetBtn" title="Limpar marcações" aria-label="Limpar marcações">${I.reset}<span class="btn-txt"> Limpar</span></button>
+      <button class="btn ghost" id="resetBtn" title="Limpar só materiais e passos (segurança e paciente: use Novo caso)" aria-label="Limpar materiais e passos">${I.reset}<span class="btn-txt"> Limpar</span></button>
     </div>
   </div>
   ${jumpHTML}
@@ -3838,7 +3841,7 @@ ${safeBlock}
   </div>
   <div class="panel" id="sec-passos" style="--cc:var(${c.c});--ccs:var(${c.cs})">
     <div class="p-head"><div class="p-ico" style="background:var(${c.cs});color:var(${c.c})">${I.list}</div><div><h3>Passo a passo</h3></div></div>
-    <div class="safe-banner${gateIncomplete?' show':''}" id="safeBanner">${I.warn} Segurança pendente</div>
+    <div class="safe-banner${gateIncomplete?' show':''}" id="safeBanner">${I.warn} <span id="safeBannerTxt">Segurança pendente — resolva o checklist (1º do atendimento) antes de anestesiar ou operar</span></div>
     <div class="prog"><span id="pSl">0/${p.steps.length} concluídos</span><span class="bar"><span class="fill" id="pSf"></span></span></div>
     <ol class="steps" id="stList">${stHTML}</ol>
     ${p.tip?`<div class="tip-box">${I.tip}<div>${p.tip}</div></div>`:''}
@@ -3936,13 +3939,20 @@ ${ageHTML}
     const wrap=document.getElementById('safeGate');
     const prog=document.getElementById('sgProg');
     const ban=document.getElementById('safeBanner');
+    const banTxt=document.getElementById('safeBannerTxt');
     syncJumpWarn();
     if(!wrap||!gateItems.length)return;
     const n=gateProgress(stG,gateItems);
     const done=n===gateItems.length;
+    const pending=gateItems.length-n;
     wrap.classList.toggle('done',done);
     if(prog)prog.textContent=`${n}/${gateItems.length} resolvidos`;
     if(ban)ban.classList.toggle('show',!done);
+    if(banTxt){
+      banTxt.textContent=done
+        ?'Segurança ok para este caso'
+        :`Segurança pendente — faltam ${pending} de ${gateItems.length}. Resolva o checklist (1º do atendimento) antes de anestesiar ou operar`;
+    }
     DET.querySelectorAll('#sgList li').forEach(li=>{
       const st=gateState(stG[li.dataset.gid]);
       li.classList.toggle('on',st==='ok');
@@ -3960,6 +3970,26 @@ ${ageHTML}
     stG={};Store.del(keG);
     DET.querySelectorAll('#sgList li').forEach(li=>{li.classList.remove('on','na');});
     updGate();
+  }
+  function resetCaseForNewPatient(){
+    if(!confirm('Novo caso: zerar segurança, materiais, passos, notas e identificação deste paciente?'))return;
+    stG={};stE={};stS={};
+    Store.del(keG);Store.del(keE);Store.del(keS);Store.del(keN);
+    Store.del('case:'+p.id);
+    DET.querySelectorAll('#sgList li').forEach(li=>li.classList.remove('on','na'));
+    DET.querySelectorAll('#eqList li,#stList li').forEach(li=>li.classList.remove('on'));
+    const taEl=document.getElementById('notesTa');
+    if(taEl)taEl.value='';
+    const cp=document.getElementById('casePatient');
+    const cd=document.getElementById('caseDate');
+    const ct=document.getElementById('caseTooth');
+    const cpro=document.getElementById('casePro');
+    if(cp)cp.value='';
+    if(cd)cd.value=todayBR();
+    if(ct)ct.value='';
+    if(cpro)cpro.value='';
+    saveCaseData(p.id,readCaseFields());
+    updP();updGate();
   }
   updP();
   updGate();
@@ -3979,7 +4009,7 @@ ${ageHTML}
     };
   });
   const sgNew=document.getElementById('sgNewCase');
-  if(sgNew)sgNew.onclick=()=>clearGateUI();
+  if(sgNew)sgNew.onclick=resetCaseForNewPatient;
 
   DET.querySelectorAll('#eqList li').forEach(li=>li.onclick=()=>{
     const i=li.dataset.i;stE[i]=!stE[i];li.classList.toggle('on');Store.set(keE,stE);updP();
@@ -4037,7 +4067,13 @@ ${ageHTML}
       flashBtn(linkBtn,'Falhou');
     }
   };
+  const confirmIfGatePending=(actionLabel)=>{
+    if(!gateItems.length||gateResolved(stG,gateItems))return true;
+    const n=gateProgress(stG,gateItems);
+    return confirm('Segurança incompleta ('+n+'/'+gateItems.length+'). '+actionLabel+' mesmo assim?');
+  };
   document.getElementById('printBtn').onclick=()=>{
+    if(!confirmIfGatePending('Imprimir'))return;
     const cd=readCaseFields();
     saveCaseData(p.id,cd);
     fillPrintHead(p,c,cd);
@@ -4050,6 +4086,7 @@ ${ageHTML}
     return buildFichaExport(p,{stE,stS,stG,note:ta.value,gateItems,caseData:cd});
   };
   document.getElementById('shareBtn').onclick=async()=>{
+    if(!confirmIfGatePending('Enviar'))return;
     const btn=document.getElementById('shareBtn');
     try{
       const r=await shareFicha(p,exportPayload());
@@ -4060,6 +4097,7 @@ ${ageHTML}
     }
   };
   document.getElementById('copyBtn').onclick=async()=>{
+    if(!confirmIfGatePending('Copiar'))return;
     const btn=document.getElementById('copyBtn');
     try{
       await copyText(exportPayload());
@@ -4069,13 +4107,15 @@ ${ageHTML}
     }
   };
   document.getElementById('dlBtn').onclick=()=>{
+    if(!confirmIfGatePending('Baixar'))return;
     downloadText(fichaExportFilename(p),exportPayload());
     flashBtn(document.getElementById('dlBtn'),'Baixado');
   };
   document.getElementById('resetBtn').onclick=()=>{
+    // Limpar = só materiais e passos. Segurança e dados do paciente só com «Novo caso».
     stE={};stS={};Store.del(keE);Store.del(keS);
     DET.querySelectorAll('#eqList li,#stList li').forEach(li=>li.classList.remove('on'));
-    clearGateUI();updP();
+    updP();
   };
   document.getElementById('backBtn').onclick=()=>{
     leaveDetail();
