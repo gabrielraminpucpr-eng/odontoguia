@@ -2868,7 +2868,7 @@ tip:'Miller define prognóstico de cobertura: I–II total possível; III parcia
 ];
 
 /* ── STORE ── */
-const APP_BUILD='22';
+const APP_BUILD='23';
 const Store=(()=>{
   let mem={},ok=false;
   try{const k='__odg3';localStorage.setItem(k,'1');localStorage.removeItem(k);ok=true;}catch(e){}
@@ -3972,7 +3972,7 @@ ${ageHTML}
     updGate();
   }
   function resetCaseForNewPatient(){
-    if(!confirm('Novo caso: zerar segurança, materiais, passos, notas e identificação deste paciente?'))return;
+    if(!confirm('Limpar este caso e começar outro paciente?'))return;
     stG={};stE={};stS={};
     Store.del(keG);Store.del(keE);Store.del(keS);Store.del(keN);
     Store.del('case:'+p.id);
@@ -3990,6 +3990,12 @@ ${ageHTML}
     if(cpro)cpro.value='';
     saveCaseData(p.id,readCaseFields());
     updP();updGate();
+    if(!confirm('Continuar neste procedimento?\nOK = ficar · Cancelar = sair')){
+      leaveDetail();
+      renderTabs();
+      if(activeCat==='recent')renderGrid();
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
   }
   updP();
   updGate();
