@@ -50,8 +50,8 @@ html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.56;-webkit-font-smoothing:antialiased;min-height:100vh;background-image:radial-gradient(circle at 8% 4%,rgba(15,123,114,.07),transparent 40%),radial-gradient(circle at 94% 2%,rgba(232,92,72,.06),transparent 36%)}
 header{padding:22px clamp(18px,5vw,64px) 10px}
 .brand{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,var(--primary),var(--primary-d));display:grid;place-items:center;color:#fff;flex:none;box-shadow:var(--sh)}
-.logo svg{width:24px;height:24px}
+.logo{width:52px;height:52px;border-radius:14px;background:transparent;display:grid;place-items:center;flex:none;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:contain;display:block}
 .brand-name{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.55rem,3.2vw,2.05rem);letter-spacing:-.025em;line-height:1}
 .brand-name span{color:var(--primary)}
 .brand-sub{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:2px}
@@ -577,7 +577,7 @@ footer{padding:0 clamp(18px,5vw,64px) 50px}
 </div>
 <header>
   <div class="brand">
-    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-1.6-4-2.2-5.7-1C4.4 5.8 4 8 4.6 10.5c.4 1.6.5 3 .7 4.6.2 1.7.4 3.4 1.6 3.9 1.3.5 1.8-1.3 2.1-2.8.2-1 .5-2.1 1.4-2.1s1.2 1.1 1.4 2.1c.3 1.5.8 3.3 2.1 2.8 1.2-.5 1.4-2.2 1.6-3.9.2-1.6.3-3 .7-4.6.6-2.5.2-4.7-1.7-6-1.7-1.2-4.2-.6-5.8 1z"/></svg></div>
+    <div class="logo"><img src="icons/header-logo.png" width="52" height="52" alt="OdontoGuia"></div>
     <div><div class="brand-name">Odonto<span>Guia</span></div><div class="brand-sub">Fichas clínicas</div></div>
   </div>
 </header>
@@ -2888,7 +2888,7 @@ tip:'Miller define prognóstico de cobertura: I–II total possível; III parcia
 ];
 
 /* ── STORE ── */
-const APP_BUILD='24';
+const APP_BUILD='26';
 const Store=(()=>{
   let mem={},ok=false;
   try{const k='__odg3';localStorage.setItem(k,'1');localStorage.removeItem(k);ok=true;}catch(e){}

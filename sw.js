@@ -1,6 +1,6 @@
 /* OdontoGuia service worker — cache-first for app shell, stale-while-revalidate for fonts
    Importante: incremente CACHE_VERSION a cada publicação no GitHub Pages para forçar atualização offline. */
-const CACHE_VERSION = 'odg-v24';
+const CACHE_VERSION = 'odg-v26';
 const STATIC_CACHE = `odg-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `odg-runtime-${CACHE_VERSION}`;
 
@@ -14,7 +14,9 @@ const PRECACHE = [
   './icons/icon-maskable-512.png',
   './icons/apple-touch-icon.png',
   './icons/favicon-32.png',
-  './icons/favicon-16.png'
+  './icons/favicon-16.png',
+  './icons/logo.png',
+  './icons/header-logo.png'
 ];
 
 self.addEventListener('install', (event) => {
